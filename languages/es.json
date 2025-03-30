@@ -1,0 +1,26 @@
+{
+    "profile": {
+        "rol": "Desarrollador Front-end",
+        "description": "Tengo conocimientos usando varias tecnologías durante mis
+                    estudios y etapa laboral. Me gusta ver mi futuro con ambición
+                    además de ser positivo y seguro de todo lo que hago. Disfruto
+                    también trabajando en equipo con personas de todas las edades a
+                    las que puedo escuchar y también aprender sobre ellos."
+    },
+    "experiences": {
+        "first-job-title": "Desarrollador Web",
+        "first-job-dates": "Noviembre 2023 - Noviembre 2024",
+        "first-job-description": "Participé en el mantenimiento de la plataforma “Secretaria
+                            Virtual”. Utilicé tecnologías como Java, SQL y PL/SQL. Mi
+                            responsabilidad principal fue llevar a cabo los cambios
+                            solicitados en la base de datos y participar en las correcciones
+                            de errores de la web junto a mi equipo. Utilicé Git para el
+                            control de versiones."
+    },
+    "projects": {
+        "first-project-title":"Portfolio page",
+        "first-project-description":"Texto a intruducir"
+    }
+
+        
+}

@@ -1,0 +1,7 @@
+D:\Proyecto\Portafolio\Portafolio\bin\Debug\Portafolio.exe.config
+D:\Proyecto\Portafolio\Portafolio\bin\Debug\Portafolio.exe
+D:\Proyecto\Portafolio\Portafolio\bin\Debug\Portafolio.pdb
+D:\Proyecto\Portafolio\Portafolio\obj\Debug\Portafolio.csproj.AssemblyReference.cache
+D:\Proyecto\Portafolio\Portafolio\obj\Debug\Portafolio.csproj.CoreCompileInputs.cache
+D:\Proyecto\Portafolio\Portafolio\obj\Debug\Portafolio.exe
+D:\Proyecto\Portafolio\Portafolio\obj\Debug\Portafolio.pdb
