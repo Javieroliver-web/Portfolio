@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const cardTitle = document.getElementById("card__title");
     const cardSubtitle = document.getElementById("card__subtitle");
 
-    const skillsText = document.getElementsByClassName("skills__tech")
+    const skillsText = document.getElementsByClassName(".skills__tech")
     
     
     const textColor = getComputedStyle(document.documentElement).getPropertyValue("--text-color");
