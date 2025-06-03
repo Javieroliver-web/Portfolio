@@ -42,7 +42,10 @@ document.addEventListener("DOMContentLoaded", () => {
     
 
     flagsElement.addEventListener("click", (e) => {
-        changeLanguage(e.target.parentElement.dataset.language);
+        const flag = e.target.closest(".flags__item");
+        if (flag) {
+            changeLanguage(flag.dataset.language);
+        }
     })
 
     toggleTheme.addEventListener("click", () => {
