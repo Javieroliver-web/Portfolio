@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const colorHeader = document.getElementById("--header");
     const cardText = document.getElementById("card__text");
-    const cardTitle = document.getElementById("card__title");
+    const cardTitle = document.querySelectorAll(".card__title");
     const cardSubtitle = document.getElementById("card__subtitle");
 
     const skillsText = document.getElementsByClassName(".skills__tech")
@@ -35,6 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+
+    cardTitle.forEach(cardTitle => {
+        cardTitle.style.color = "#7D7D7E"
+    });
+    
+
     flagsElement.addEventListener("click", (e) => {
         changeLanguage(e.target.parentElement.dataset.language);
     })
@@ -46,7 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
             toggleIcon.src="assets/icons/sun.png";
             toggleText.textContent="Modo Claro";
             cardText.style.color="black";
-            cardTitle.style.color="#7D7D7E";
+            cardTitle.forEach(cardTitle => {
+                cardTitle.style.color = "#7D7D7E";
+            });
             cardSubtitle.style.color="#7D7D7E";
             skillsText.style.color="#7D7D7E";
             
@@ -55,7 +63,9 @@ document.addEventListener("DOMContentLoaded", () => {
             toggleIcon.src = "assets/icons/moon.png";
             toggleText.textContent = "Modo Oscuro";
             cardText.style.color = textColor;
-            cardTitle.style.color = titleColor;
+            cardTitle.forEach(cardTitle => {
+                cardTitle.style.color = titleColor;
+            });
             cardSubtitle.style.color= titleColor;
             skillsText.style.color = textColor;
             

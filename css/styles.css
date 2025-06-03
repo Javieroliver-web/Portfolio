@@ -311,6 +311,48 @@ body.dark {
     margin-bottom: 1.5em;
 }
 
+.card--CV{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+    grid-row-start: 3;
+    
+}
+
+.pdf__icon{
+    width: 50px;
+    height: 50px;
+    align-items: center;
+}
+
+.pdf__container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1em;
+}
+
+
+
+.button--cv{
+    padding: .2em .4em;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    width: auto;
+    line-height: 2.5;
+    text-align: center;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+
+}
+
+
 .project {
     position: relative;
 }
@@ -346,6 +388,8 @@ body.dark {
 }
 
 .buttons{
+    flex-direction: column;
+    align-items: flex-start;
     display: flex;
     justify-content: space-between;
     width: 225px;
@@ -359,17 +403,19 @@ body.dark {
 }
 
 .button{
-    width: 100px;
     line-height: 2.5;
     text-align: center;
     border-radius: var(--border-radius);
     transition: var(--transition);
+    width: 100px;
 }
 
 .button--primary{
+    width: 100px;
     padding: .2em .4em;
     background-color: var(--primary-color);
     color: var(--bg-color);
+    border-radius: var(--border-radius);
 }
 
 .button--code{
@@ -377,6 +423,7 @@ body.dark {
     background-color: transparent;
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
+    border-radius: var(--border-radius);
 }
 
 .icon {
