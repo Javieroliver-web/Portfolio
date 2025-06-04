@@ -1,4 +1,8 @@
 {
+    "theme": {
+        "mode-dark":"Dark Mode",
+        "mode-white":"Light Mode"
+    },
     "profile": {
         "rol": "Front-end Developer",
         "description": "I have knowledge using various technologies during my studies and work stage. I like to see my future with ambition in addition to being positive and confident in everything I do. Enjoy also working as a team with people of all ages through the ones that I can listen to and also learn about."
