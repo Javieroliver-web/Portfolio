@@ -11,11 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const cardTitle = document.querySelectorAll(".card__title");
     const cardSubtitle = document.getElementById("card__subtitle");
 
-    const skillsText = document.getElementsByClassName(".skills__tech")
+    const skillsText = document.querySelectorAll(".skills__tech")
     
     
     const textColor = getComputedStyle(document.documentElement).getPropertyValue("--text-color");
     const titleColor = getComputedStyle(document.documentElement).getPropertyValue("card__title");
+
 
     const rootStyles = document.documentElement.style;
     
@@ -74,7 +75,16 @@ document.addEventListener("DOMContentLoaded", () => {
             
         }
     });
-    
+
+        console.log(cardSubtitle); // Esto te dirá si es undefined
+        if (cardSubtitle) {
+        cardSubtitle.style.color = "#7D7D7E";
+        } else {
+        console.error("El elemento cardSubtitle no existe.");
+}
+
+
+    console.log(skillsText);
     toggleColors.addEventListener("click", (e) => {
         rootStyles.setProperty("--primary-color", e.target.dataset.color);
     });
