@@ -12,6 +12,9 @@
         "first-project-title":"Portfolio page",
         "first-project-description":"Proyecto actualmente en desarrollo"
     },
+    "skills": {
+        "years":"Años de experiencia"
+    },
     "download": {
         "download-pdf":"Descargar CV en PDF"
     }
