@@ -11,6 +11,9 @@
     "projects": {
         "first-project-title":"Portfolio page",
         "first-project-description":"Project currently under development"
+    },
+    "download": {
+        "download-pdf":"Download CV in PDF"
     }
 
         
