@@ -16,7 +16,8 @@
         "years":"Years of experience"
     },
     "download": {
-        "download-pdf":"Download CV in PDF"
+        "download-pdf":"Download CV in PDF",
+        "button-cv":"Download PDF"
     }
 
         
