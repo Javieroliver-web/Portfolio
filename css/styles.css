@@ -168,9 +168,25 @@ body.dark {
     font-size: 1.2rem;
 }
 
+#card__title {
+    color: hsl(0, 0%, 83%);
+}
+
+body.dark #card__title {
+    color: var(--text-color);
+}
+
 .card__subtitle {
     font-size: 0.9rem;
     opacity: 0.8;
+}
+
+#card__subtitle {
+    color: hsl(0, 0%, 83%);
+}
+
+body.dark #card__subtitle {
+    color: var(--text-color);
 }
 
 .card__link {
@@ -319,7 +335,42 @@ body.dark {
     gap: 1em;
     padding: 1em;
     grid-row-start: 3;
-    
+}
+
+.card--rs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+    grid-row-start: 4;
+}
+
+.rs-img {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2em;
+    width: 100%;
+}
+
+.linkedin-icon {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.instagram-icon {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.whatsapp-icon {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
 }
 
 .pdf__icon{
