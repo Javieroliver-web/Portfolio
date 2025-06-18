@@ -63,7 +63,3 @@ características interactivas como cambio de tema claro/oscuro, selección de co
 - Email: javip200555@gmail.com
 - Teléfono: +34-622645922
 - LinkedIn: [Francisco Javier Párraga Oliver](http://www.linkedin.com/in/francisco-javier-p%C3%A1rraga-oliver-94106629a)
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
