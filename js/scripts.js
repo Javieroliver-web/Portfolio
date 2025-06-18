@@ -36,12 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-
-    cardTitle.forEach(cardTitle => {
-        cardTitle.style.color = "#7D7D7E"
-    });
-    
-
     flagsElement.addEventListener("click", (e) => {
         const flag = e.target.closest(".flags__item");
         if (flag) {
@@ -59,7 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
             cardTitle.forEach(cardTitle => {
                 cardTitle.style.color = "#7D7D7E";
             });
-            cardSubtitle.style.color="#7D7D7E";
             skillsText.style.color="#7D7D7E";
             
         }else{
@@ -70,21 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
             cardTitle.forEach(cardTitle => {
                 cardTitle.style.color = titleColor;
             });
-            cardSubtitle.style.color= titleColor;
             skillsText.style.color = textColor;
             
         }
     });
 
-        console.log(cardSubtitle); // Esto te dirá si es undefined
-        if (cardSubtitle) {
-        cardSubtitle.style.color = "#7D7D7E";
-        } else {
-        console.error("El elemento cardSubtitle no existe.");
-}
-
-
-    console.log(skillsText);
     toggleColors.addEventListener("click", (e) => {
         rootStyles.setProperty("--primary-color", e.target.dataset.color);
     });
