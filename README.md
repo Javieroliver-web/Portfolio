@@ -1,8 +1,9 @@
 # Portfolio Personal Interactivo
 
-## 📝 Descripción
-Este es un portfolio personal interactivo y moderno que muestra mis habilidades, experiencia y proyectos como desarrollador Front-end. El sitio web está diseñado con un enfoque en la experiencia del usuario, ofreciendo
-características interactivas como cambio de tema claro/oscuro, selección de colores personalizados y soporte multilingüe.
+¡Bienvenidos al lanzamiento oficial de mi portfolio personal! Este proyecto representa mi visión como desarrollador Front-end, combinando diseño
+moderno con funcionalidad intuitiva. Desarrollado con las últimas tecnologías web, este portfolio no solo muestra mi experiencia y habilidades, sino
+que también demuestra mi capacidad para crear interfaces de usuario atractivas y responsivas.
+
 
 ## ✨ Características Principales
 
