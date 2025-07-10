@@ -1,21 +1,9 @@
 # Portfolio Personal Interactivo
 
-## 🚀 Lanzamiento Oficial v1.0.0
+¡Bienvenidos al lanzamiento oficial de mi portfolio personal! Este proyecto representa mi visión como desarrollador Front-end, combinando diseño
+moderno con funcionalidad intuitiva. Desarrollado con las últimas tecnologías web, este portfolio no solo muestra mi experiencia y habilidades, sino
+que también demuestra mi capacidad para crear interfaces de usuario atractivas y responsivas.
 
-¡Bienvenidos al lanzamiento oficial de mi portfolio personal! Este proyecto representa mi visión como desarrollador Front-end, combinando diseño moderno con funcionalidad intuitiva. Desarrollado con las últimas tecnologías web, este portfolio no solo muestra mi experiencia y habilidades, sino que también demuestra mi capacidad para crear interfaces de usuario atractivas y responsivas.
-
-**Fecha de Lanzamiento:** Marzo 2024
-
-**Características Destacadas del Lanzamiento:**
-- Interfaz moderna con modo claro/oscuro
-- Sistema de personalización de colores
-- Soporte multilingüe (Español/Inglés)
-- Diseño completamente responsivo
-- Visualización interactiva de habilidades
-- Integración con redes sociales profesionales
-
-## 📝 Descripción
-Este es un portfolio personal interactivo y moderno que muestra mis habilidades, experiencia y proyectos como desarrollador Front-end. El sitio web está diseñado con un enfoque en la experiencia del usuario, ofreciendo características interactivas como cambio de tema claro/oscuro, selección de colores personalizados y soporte multilingüe.
 
 ## ✨ Características Principales
 
@@ -71,21 +59,8 @@ Este es un portfolio personal interactivo y moderno que muestra mis habilidades,
    - Portfolio actual
    - Enlaces a demos y código
 
-## 🔧 Instalación
-
-1. Clona el repositorio:
-```bash
-git clone https://github.com/Javieroliver-web/Portfolio.git
-```
-
-2. Abre el archivo `index.html` en tu navegador
-
 ## 📫 Contacto
 
 - Email: javip200555@gmail.com
 - Teléfono: +34-622645922
 - LinkedIn: [Francisco Javier Párraga Oliver](http://www.linkedin.com/in/francisco-javier-p%C3%A1rraga-oliver-94106629a)
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles. 
