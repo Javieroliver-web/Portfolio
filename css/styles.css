@@ -41,7 +41,7 @@ body.dark {
     align-items: center;
     justify-content: space-between;
     height: 75px;
-    padding: 0 1.5em;
+    padding: 0 2em;
     background-color: var(--bg-card-color);
     transition: var(--transition);
 }
@@ -49,7 +49,7 @@ body.dark {
 .switches {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 2em;
 }
 
 .toggle-theme{
@@ -57,10 +57,18 @@ body.dark {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: transform 0.2s ease;
+    padding: 0.5em;
+    border-radius: var(--border-radius);
+}
+
+.toggle-theme:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .toggle-theme__icon {
-    margin-right: 0.5em;
+    margin-right: 0.8em;
     width: 20px;
 }
 
@@ -72,7 +80,7 @@ body.dark {
     width: 75px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 0.8em;
 }
 
 .flags__item{
@@ -98,6 +106,34 @@ body.dark {
     border: 1px solid var(--text-color);
     background-color: var(--primary-color);
     cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.colors__item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.6),
+        transparent
+    );
+    transition: left 0.3s;
+}
+
+.colors__item:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.colors__item:hover::before {
+    left: 100%;
 }
 
 .colors__item--blue {
@@ -359,18 +395,36 @@ body.dark #card__subtitle {
     width: 50px;
     height: 50px;
     cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.linkedin-icon:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
 }
 
 .instagram-icon {
     width: 50px;
     height: 50px;
     cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.instagram-icon:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
 }
 
 .whatsapp-icon {
     width: 50px;
     height: 50px;
     cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.whatsapp-icon:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
 }
 
 .pdf__icon{
@@ -400,7 +454,37 @@ body.dark #card__subtitle {
     text-align: center;
     border-radius: var(--border-radius);
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    isolation: isolate;
+}
 
+.button--cv > * {
+    position: relative;
+    z-index: 2;
+}
+
+.button--cv::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transition: left 0.5s;
+    border-radius: inherit;
+    z-index: 1;
+}
+
+.button--cv:hover::before {
+    left: 100%;
 }
 
 
@@ -439,42 +523,122 @@ body.dark #card__subtitle {
 }
 
 .buttons{
-    flex-direction: column;
-    align-items: flex-start;
     display: flex;
-    justify-content: space-between;
-    width: 225px;
+    gap: 1em;
+    margin-top: 1em;
 }
 
 @media screen and (min-width: 760px) {
     .buttons {
         position: absolute;
         bottom: 1em;
+        right: 1em;
     }
 }
 
 .button{
+    display: inline-block;
     line-height: 2.5;
     text-align: center;
     border-radius: var(--border-radius);
     transition: var(--transition);
-    width: 100px;
+    text-decoration: none;
 }
 
 .button--primary{
-    width: 100px;
-    padding: .2em .4em;
+    padding: 0.5em 1em;
     background-color: var(--primary-color);
     color: var(--bg-color);
     border-radius: var(--border-radius);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    font-weight: 500;
+    min-width: 80px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    isolation: isolate;
+}
+
+.button--primary > * {
+    position: relative;
+    z-index: 2;
+}
+
+.button--primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transition: left 0.5s;
+    border-radius: inherit;
+    z-index: 1;
+}
+
+.button--primary:hover::before {
+    left: 100%;
+}
+
+.button--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .button--code{
-    padding: .2em .4em;
+    padding: 0.5em 1em;
     background-color: transparent;
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
     border-radius: var(--border-radius);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    font-weight: 500;
+    min-width: 80px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    isolation: isolate;
+}
+
+.button--code > * {
+    position: relative;
+    z-index: 2;
+}
+
+.button--code::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.5s;
+    border-radius: inherit;
+    z-index: 1;
+}
+
+.button--code:hover::before {
+    left: 100%;
+}
+
+.button--code:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .icon {
@@ -483,6 +647,6 @@ body.dark #card__subtitle {
 
 @keyframes skills-bar-fill {
     to{
-        transform: translateX(var(--skill-bar-length))
+        transform: translateX(var(--skills-bar-length))
     }
 }
