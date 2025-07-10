@@ -24,6 +24,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const textsToChange = document.querySelectorAll("[data-section]");
 
+    // Función para calcular y aplicar los porcentajes de las barras de habilidades
+    const calculateSkillBars = () => {
+        const skillBars = document.querySelectorAll(".skills__bar[data-years]");
+        
+        skillBars.forEach(bar => {
+            const years = parseFloat(bar.getAttribute("data-years"));
+            
+            // Calcular porcentaje basado en años (máximo 2 años = 100%)
+            let percentage = Math.min((years / 2) * 100, 100);
+            
+            // Redondear al múltiplo de 10 más cercano para usar las clases CSS existentes
+            percentage = Math.round(percentage / 10) * 10;
+            
+            // Aplicar la clase correspondiente
+            bar.className = "skills__bar";
+            bar.classList.add(`skills__bar--${percentage}`);
+        });
+    };
+
         const changeLanguage = async (language) => {
         const requestJson = await fetch(`./languages/${language}.json`);
         const texts = await requestJson.json();
@@ -71,5 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleColors.addEventListener("click", (e) => {
         rootStyles.setProperty("--primary-color", e.target.dataset.color);
     });
+
+    // Inicializar las barras de habilidades
+    calculateSkillBars();
 
 });
