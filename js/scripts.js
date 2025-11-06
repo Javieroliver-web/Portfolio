@@ -8,19 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const colorHeader = document.getElementById("--header");
     const cardText = document.getElementById("card__text");
-    const cardTitle = document.querySelectorAll(".card__title");
+    const cardTitles = document.querySelectorAll(".card__title");
     const cardSubtitle = document.getElementById("card__subtitle");
 
-    const skillsText = document.querySelectorAll(".skills__tech")
+    const skillsTexts = document.querySelectorAll(".skills__tech");
     
-    
-    const textColor = getComputedStyle(document.documentElement).getPropertyValue("--text-color");
-    const titleColor = getComputedStyle(document.documentElement).getPropertyValue("card__title");
-
-
     const rootStyles = document.documentElement.style;
     
-    const flagsElement = document.getElementById("flags")
+    const flagsElement = document.getElementById("flags");
 
     const textsToChange = document.querySelectorAll("[data-section]");
 
@@ -43,15 +38,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-        const changeLanguage = async (language) => {
-        const requestJson = await fetch(`./languages/${language}.json`);
-        const texts = await requestJson.json();
+    const changeLanguage = async (language) => {
+        try {
+            const requestJson = await fetch(`./languages/${language}.json`);
+            const texts = await requestJson.json();
 
-        for (const textToChange of textsToChange) {
-            const section = textToChange.dataset.section;
-            const value = textToChange.dataset.value;
+            for (const textToChange of textsToChange) {
+                const section = textToChange.dataset.section;
+                const value = textToChange.dataset.value;
 
-            textToChange.innerHTML=texts[section][value];
+                if (texts[section] && texts[section][value]) {
+                    textToChange.innerHTML = texts[section][value];
+                }
+            }
+            
+            // Actualizar el texto del toggle theme según el idioma
+            if (document.body.classList.contains("dark")) {
+                toggleText.textContent = texts.theme["mode-dark"];
+            } else {
+                toggleText.textContent = texts.theme["mode-white"];
+            }
+        } catch (error) {
+            console.error("Error al cargar el idioma:", error);
         }
     };
 
@@ -60,38 +68,34 @@ document.addEventListener("DOMContentLoaded", () => {
         if (flag) {
             changeLanguage(flag.dataset.language);
         }
-    })
+    });
 
     toggleTheme.addEventListener("click", () => {
         document.body.classList.toggle("dark");
-        if (toggleIcon.src.includes("moon.png")){
-            colorHeader.style.backgroundColor ="#968369"
-            toggleIcon.src="assets/icons/sun.png";
-            toggleText.textContent="Modo Claro";
-            cardText.style.color="black";
-            cardTitle.forEach(cardTitle => {
-                cardTitle.style.color = "#7D7D7E";
-            });
-            skillsText.style.color="#7D7D7E";
-            
-        }else{
-            colorHeader.style.backgroundColor ="hsl(0, 0%, 20%)"
+        
+        if (toggleIcon.src.includes("moon.png")) {
+            // Modo claro
+            colorHeader.style.backgroundColor = "#968369";
+            toggleIcon.src = "assets/icons/sun.png";
+            toggleText.textContent = "Modo Claro";
+        } else {
+            // Modo oscuro
+            colorHeader.style.backgroundColor = "hsl(0, 0%, 20%)";
             toggleIcon.src = "assets/icons/moon.png";
             toggleText.textContent = "Modo Oscuro";
-            cardText.style.color = textColor;
-            cardTitle.forEach(cardTitle => {
-                cardTitle.style.color = titleColor;
-            });
-            skillsText.style.color = textColor;
-            
         }
     });
 
     toggleColors.addEventListener("click", (e) => {
-        rootStyles.setProperty("--primary-color", e.target.dataset.color);
+        if (e.target.dataset.color) {
+            rootStyles.setProperty("--primary-color", e.target.dataset.color);
+        }
     });
 
     // Inicializar las barras de habilidades
     calculateSkillBars();
+
+    // Cargar idioma por defecto (español)
+    changeLanguage('es');
 
 });
