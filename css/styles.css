@@ -85,6 +85,7 @@ body.dark {
 
 .flags__item{
     width: 30px;
+    cursor: pointer;
 }
 
 .flags__img {
@@ -186,6 +187,7 @@ body.dark {
     padding: 1em;
     background-color: var(--bg-card-color);
     border-radius: var(--border-radius);
+    transition: var(--transition);
 }
 
 .card__image-container{
@@ -202,10 +204,15 @@ body.dark {
     margin: 0;
     margin-bottom: 1em;
     font-size: 1.2rem;
+    color: #333;
+}
+
+body.dark .card__title {
+    color: var(--text-color);
 }
 
 #card__title {
-    color: hsl(0, 0%, 83%);
+    color: #333;
 }
 
 body.dark #card__title {
@@ -215,10 +222,15 @@ body.dark #card__title {
 .card__subtitle {
     font-size: 0.9rem;
     opacity: 0.8;
+    color: #333;
+}
+
+body.dark .card__subtitle {
+    color: var(--text-color);
 }
 
 #card__subtitle {
-    color: hsl(0, 0%, 83%);
+    color: #333;
 }
 
 body.dark #card__subtitle {
@@ -227,15 +239,24 @@ body.dark #card__subtitle {
 
 .card__link {
     margin-bottom: 0.5em;
+    color: #333;
+}
+
+body.dark .card__link {
+    color: var(--text-color);
 }
 
 .card__text {
     font-size: 0.9rem;
     line-height: 1.6;
+    color: #333;
+}
+
+body.dark .card__text {
+    color: var(--text-color);
 }
 
 @media screen and (min-width: 760px) {
-    
     .card--project{
         display: grid;
         grid-template-columns: min-content 1fr;
@@ -337,7 +358,6 @@ body.dark #card__subtitle {
     border: 2px solid var(--primary-color);
     border-radius: var(--border-radius);
     transition: var(--transition);
-    
 }
 
 .experience__image{
@@ -391,30 +411,8 @@ body.dark #card__subtitle {
     width: 100%;
 }
 
-.linkedin-icon {
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.linkedin-icon:hover {
-    transform: scale(1.1);
-    filter: brightness(1.2);
-}
-
-.instagram-icon {
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.instagram-icon:hover {
-    transform: scale(1.1);
-    filter: brightness(1.2);
-}
-
+.linkedin-icon,
+.instagram-icon,
 .whatsapp-icon {
     width: 50px;
     height: 50px;
@@ -422,6 +420,8 @@ body.dark #card__subtitle {
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
+.linkedin-icon:hover,
+.instagram-icon:hover,
 .whatsapp-icon:hover {
     transform: scale(1.1);
     filter: brightness(1.2);
@@ -443,26 +443,19 @@ body.dark #card__subtitle {
     gap: 1em;
 }
 
-
-
 .button--cv{
-    padding: .2em .4em;
+    display: inline-block;
+    padding: 0.5em 1em;
     background-color: var(--primary-color);
     color: var(--bg-color);
-    width: auto;
-    line-height: 2.5;
-    text-align: center;
     border-radius: var(--border-radius);
-    transition: var(--transition);
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
     position: relative;
     overflow: hidden;
-    cursor: pointer;
     isolation: isolate;
-}
-
-.button--cv > * {
-    position: relative;
-    z-index: 2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .button--cv::before {
@@ -479,14 +472,17 @@ body.dark #card__subtitle {
         transparent
     );
     transition: left 0.5s;
-    border-radius: inherit;
-    z-index: 1;
+    z-index: -1;
 }
 
 .button--cv:hover::before {
     left: 100%;
 }
 
+.button--cv:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
 .project {
     position: relative;
@@ -507,7 +503,6 @@ body.dark #card__subtitle {
 }
 
 @media screen and (min-width: 760px) {
-
     .project__tags{
         width: 325px;
         font-size: 0.8rem;
@@ -532,40 +527,39 @@ body.dark #card__subtitle {
     .buttons {
         position: absolute;
         bottom: 1em;
-        right: 1em;
+        left: 2em;
     }
 }
 
-.button{
+.button--primary,
+.button--code {
     display: inline-block;
-    line-height: 2.5;
-    text-align: center;
-    border-radius: var(--border-radius);
-    transition: var(--transition);
-    text-decoration: none;
-}
-
-.button--primary{
     padding: 0.5em 1em;
-    background-color: var(--primary-color);
-    color: var(--bg-color);
     border-radius: var(--border-radius);
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
     position: relative;
     overflow: hidden;
-    cursor: pointer;
-    font-weight: 500;
-    min-width: 80px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     isolation: isolate;
+    min-width: 80px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.button--primary > * {
-    position: relative;
-    z-index: 2;
+.button--primary {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
 }
 
-.button--primary::before {
+.button--code {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.button--primary::before,
+.button--code::before {
     content: '';
     position: absolute;
     top: 0;
@@ -579,11 +573,11 @@ body.dark #card__subtitle {
         transparent
     );
     transition: left 0.5s;
-    border-radius: inherit;
-    z-index: 1;
+    z-index: -1;
 }
 
-.button--primary:hover::before {
+.button--primary:hover::before,
+.button--code:hover::before {
     left: 100%;
 }
 
@@ -592,52 +586,9 @@ body.dark #card__subtitle {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.button--code{
-    padding: 0.5em 1em;
-    background-color: transparent;
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-    border-radius: var(--border-radius);
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    font-weight: 500;
-    min-width: 80px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    isolation: isolate;
-}
-
-.button--code > * {
-    position: relative;
-    z-index: 2;
-}
-
-.button--code::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.2),
-        transparent
-    );
-    transition: left 0.5s;
-    border-radius: inherit;
-    z-index: 1;
-}
-
-.button--code:hover::before {
-    left: 100%;
-}
-
 .button--code:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     background-color: rgba(255, 255, 255, 0.05);
 }
 
