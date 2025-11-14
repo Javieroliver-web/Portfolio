@@ -19,45 +19,65 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const textsToChange = document.querySelectorAll("[data-section]");
 
-    // Función para calcular y aplicar los porcentajes de las barras de habilidades
+    
+    let currentLanguage = 'es';
+    let languageData = {};
+    
+
+
+    
     const calculateSkillBars = () => {
         const skillBars = document.querySelectorAll(".skills__bar[data-years]");
         
         skillBars.forEach(bar => {
             const years = parseFloat(bar.getAttribute("data-years"));
             
-            // Calcular porcentaje basado en años (máximo 2 años = 100%)
+            
             let percentage = Math.min((years / 2) * 100, 100);
             
-            // Redondear al múltiplo de 10 más cercano para usar las clases CSS existentes
+            
             percentage = Math.round(percentage / 10) * 10;
             
-            // Aplicar la clase correspondiente
+            
             bar.className = "skills__bar";
             bar.classList.add(`skills__bar--${percentage}`);
         });
     };
 
+    
+    
+    const updateToggleText = () => {
+        if (!languageData.theme) return; 
+
+        if (document.body.classList.contains("dark")) {
+            toggleText.textContent = languageData.theme["mode-dark"];
+        } else {
+            toggleText.textContent = languageData.theme["mode-white"];
+        }
+    };
+    
+
     const changeLanguage = async (language) => {
         try {
             const requestJson = await fetch(`./languages/${language}.json`);
-            const texts = await requestJson.json();
+            
+            languageData = await requestJson.json(); 
+            currentLanguage = language;
+            
 
             for (const textToChange of textsToChange) {
                 const section = textToChange.dataset.section;
                 const value = textToChange.dataset.value;
 
-                if (texts[section] && texts[section][value]) {
-                    textToChange.innerHTML = texts[section][value];
+                if (languageData[section] && languageData[section][value]) {
+                    textToChange.innerHTML = languageData[section][value];
                 }
             }
             
-            // Actualizar el texto del toggle theme según el idioma
-            if (document.body.classList.contains("dark")) {
-                toggleText.textContent = texts.theme["mode-dark"];
-            } else {
-                toggleText.textContent = texts.theme["mode-white"];
-            }
+            
+            
+            updateToggleText();
+            
         } catch (error) {
             console.error("Error al cargar el idioma:", error);
         }
@@ -73,17 +93,21 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleTheme.addEventListener("click", () => {
         document.body.classList.toggle("dark");
         
+        
+        
         if (toggleIcon.src.includes("moon.png")) {
-            // Modo claro
+            
             colorHeader.style.backgroundColor = "#968369";
             toggleIcon.src = "assets/icons/sun.png";
-            toggleText.textContent = "Modo Claro";
         } else {
-            // Modo oscuro
+            
             colorHeader.style.backgroundColor = "hsl(0, 0%, 20%)";
             toggleIcon.src = "assets/icons/moon.png";
-            toggleText.textContent = "Modo Oscuro";
         }
+
+        
+        updateToggleText();
+        
     });
 
     toggleColors.addEventListener("click", (e) => {
@@ -92,10 +116,96 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Inicializar las barras de habilidades
+    
     calculateSkillBars();
 
-    // Cargar idioma por defecto (español)
+    
     changeLanguage('es');
+
+
+    
+    document.addEventListener("click", (e) => {
+        
+        const button = e.target.closest(".gallery-button");
+        if (!button) return; 
+
+        
+        const container = button.closest(".card__image-container");
+        if (!container) return;
+
+        const gallery = container.querySelector(".project-gallery");
+        if (!gallery) return;
+
+        
+        const scrollAmount = gallery.clientWidth;
+        let scrollDirection = 0;
+
+        if (button.classList.contains("gallery-button--right")) {
+            
+            scrollDirection = scrollAmount;
+        } else {
+            
+            scrollDirection = -scrollAmount;
+        }
+
+        
+        gallery.scrollBy({
+            left: scrollDirection,
+            behavior: 'smooth' 
+        });
+    });
+    
+
+    
+    
+    
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = lightbox.querySelector('.lightbox__image');
+    const lightboxClose = lightbox.querySelector('.lightbox__close');
+    const imagesToPreview = document.querySelectorAll('[data-lightbox-img]');
+
+    
+    const openLightbox = (imgSrc) => {
+        lightboxImage.src = imgSrc; 
+        lightbox.classList.add('active'); 
+        document.body.classList.add('lightbox-active'); 
+    };
+
+    
+    const closeLightbox = () => {
+        lightbox.classList.remove('active'); 
+        document.body.classList.remove('lightbox-active'); 
+        lightboxImage.src = ""; 
+    };
+
+    
+    imagesToPreview.forEach(image => {
+        image.addEventListener('click', (e) => {
+            
+            e.stopPropagation(); 
+            
+            
+            const imgSrc = image.getAttribute('data-lightbox-img');
+            openLightbox(imgSrc);
+        });
+    });
+
+    
+    
+    
+    
+    lightboxClose.addEventListener('click', () => {
+        closeLightbox();
+    });
+
+    
+    lightbox.addEventListener('click', (e) => {
+        
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    
 
 });

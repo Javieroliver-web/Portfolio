@@ -14,7 +14,13 @@
     },
     "projects": {
         "first-project-title":"Portfolio page",
-        "first-project-description":"Project currently under development"
+        "first-project-description":"Project currently under development",
+        "second-project-title":"Angular Workspace",
+        "second-project-description":"Workspace with some simple projects in Angular.",
+        "third-project-title":"Third Project",
+        "third-project-description":"Description of my third project.",
+        "fourth-project-title":"Fourth Project",
+        "fourth-project-description":"Description of my fourth project."
     },
     "skills": {
         "years":"Years of experience"

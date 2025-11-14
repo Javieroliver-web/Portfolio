@@ -25,18 +25,20 @@
                     </div>
                 </div>
             </div>
+            
             <div id="toggle-colors" class="colors">
                 <div data-color="hsl(214, 84%, 56%)" class="colors__item colors__item--blue"></div>
-                <div data-color="hsl(150, 84%, 56%)" class="colors__item colors__item--green"></div>
-                <div data-color="hsl(276, 84%, 56%)" class="colors__item colors__item--purple"></div>
-                <div data-color="hsl(25, 81%, 45%)" class="colors__item colors__item--orange"></div>
+                <div data-color="hsl(180, 50%, 50%)" class="colors__item colors__item--green"></div>
+                <div data-color="hsl(345, 45%, 45%)" class="colors__item colors__item--purple"></div>
+                <div data-color="hsl(35, 85%, 50%)" class="colors__item colors__item--orange"></div>
             </div>
+            
         </header>
         <main class="main">
             <section class="column column--left">
              <article class="card card--profile">
              <div class="card__image-container">
-                <img src="assets/images/profile.jpg" alt="">
+                <img src="assets/images/profile.jpg" alt="Foto de perfil de Francisco Javier">
              </div>
              <div class="card__header">
                  <h2 id="card__title" class="card__title">Francisco Javier</h2>
@@ -67,7 +69,7 @@
                                 <h3 class="experience__job" data-section="experiences" data-value="first-job-title">Web developer</h3>
                             <p class="experience__description" data-section="experiences" data-value="first-job-description">Participé en el mantenimiento de la plataforma “Secretaria
                             Virtual”. Utilicé tecnologías como Java, SQL y PL/SQL. Mi
-                            responsabilidad principal fue llevar a cabo los cambios
+                            responsabilidad principal fue llevar á cabo los cambios
                             solicitados en la base de datos y participar en las correcciones
                             de errores de la web junto a mi equipo. Utilicé Git para el
                             control de versiones.</p>
@@ -79,7 +81,7 @@
                 <img src="assets/icons/pdf_icon.png" alt="pdf" class="pdf__icon">
                 <div class="pdf__container">
                 
-                        <a href="assets/descargas/cv_20-06-2025.pdf" class="button--cv" download="CV_FRANCISCO_JAVIER_PARRAGA_OLIVER.pdf" target="_blank" data-section="download" data-value="button-cv">Descargar PDF</a>
+                        <a href="assets/descargas/CV_Francisco_Javier_Parraga.pdf" class="button--cv" download="CV_Francisco_Javier_Parraga.pdf" target="_blank" data-section="download" data-value="button-cv">Descargar PDF</a>
                 </div>
             </article>
 
@@ -89,7 +91,7 @@
                     <a href="http://www.linkedin.com/in/francisco-javier-p%C3%A1rraga-oliver-94106629a" target="_blank"> 
                         <img src="assets/icons/linkedin-icon.png" alt="" class="linkedin-icon">
                     </a>
-                    <a href="https://www.instagram.com/javieroliver_?igsh=MTlwdzVoZWZsZTZ4Nw%3D%3D&utm_source=qr" target="_blank">
+                    <a href="https://www.instagram.com/javieroliver_?igsh=MTlwdzVoZWZsZTZ4Nw%3D%D&utm_source=qr" target="_blank">
                         <img src="assets/icons/instagram.png" alt="" class="instagram-icon">
                     </a>
                     <a href="https://wa.me/+34622645922" target="_blank">
@@ -178,9 +180,9 @@
                         </div>
                 </article>
                 <article class="card card--project">
-                    <div class="class card__image-container">
+                    <div class="card__image-container">
                         <img src="assets/images/Portfolio_project.png" alt="Portfolio page"
-                        class="card__image">
+                        class="card__image" data-lightbox-img="assets/images/Portfolio_project.png">
                     </div>
                     <div class="project">
                         <div class="project__tags">
@@ -197,28 +199,82 @@
                         </div>
                     </div>
                 </article>
+
                 <article class="card card--project">
-                    <div class="class card__image-container">
-                        <img src="assets/images/Portfolio_project.png" alt="Angular page"
-                        class="card__image">
+                    <div class="card__image-container">
+                        <div class="project-gallery">
+                            <img src="assets/images/publi.png" alt="Vista 1 del proyecto Angular" class="gallery__image" data-lightbox-img="assets/images/publi.png">
+                            <img src="assets/images/Admin-art.png" alt="Vista 2 del proyecto Angular" class="gallery__image" data-lightbox-img="assets/images/Admin-art.png">
+                            <img src="assets/images/foto1.png" alt="Vista 3 del proyecto Angular" class="gallery__image" data-lightbox-img="assets/images/foto1.png">
+                            <img src="assets/images/foto2.png" alt="Vista 4 del proyecto Angular" class="gallery__image" data-lightbox-img="assets/images/foto2.png">
+                        </div>
+                        <button class="gallery-button gallery-button--left" aria-label="Imagen anterior">&lt;</button>
+                        <button class="gallery-button gallery-button--right" aria-label="Siguiente imagen">&gt;</button>
                     </div>
                     <div class="project">
                         <div class="project__tags">
-                            <span class="project__tag">Inserte tecnologia</span>
-                            <span class="project__tag">Inserte tecnologia</span>
-                            <span class="project__tag">Inserte tecnologia</span>
-                            <span class="project__tag">Inserte tecnologia</span>
+                            <span class="project__tag">#Angular</span>
+                            <span class="project__tag">#TypeScript</span>
+                            <span class="project__tag">#HTML</span>
+                            <span class="project__tag">#CSS</span>
                         </div>
-                        <h2 class="card__title" data-section="projects" data-value="first-project-title">Angular page</h2>
-                        <p class="card__text" data-section="projects" data-value="first-project-description">Proyecto actualmente en desarrollo</p>
+                        <h2 class="card__title" data-section="projects" data-value="second-project-title">Área de trabajo Angular</h2>
+                        <p class="card__text" data-section="projects" data-value="second-project-description">Area de trabajo con algunos proyectos sencillos en Angular.</p>
                         <div class="buttons">
-                            <a href="https://javieroliver-web.github.io/Proyecto-Angular/" class="button--primary" target="_blank">Demo</a>
-                            <a href="https://github.com/Javieroliver-web/Proyecto-Angular" class="button--code" target="_blank">Code</a>
+                            <a href="https://github.com/Javieroliver-web/proy-csi2-master" class="button--code" target="_blank">Code</a>
                         </div>
                     </div>
                 </article>
-            </section>
+                
+                <article class="card card--project">
+                    <div class="card__image-container">
+                        <img src="assets/images/placeholder.png" alt="Tercer proyecto"
+                        class="card__image" data-lightbox-img="assets/images/placeholder.png">
+                    </div>
+                    <div class="project">
+                        <div class="project__tags">
+                            <span class="project__tag">#Tag1</span>
+                            <span class="project__tag">#Tag2</span>
+                            <span class="project__tag">#Tag3</span>
+                        </div>
+                        <h2 class="card__title" data-section="projects" data-value="third-project-title">Tercer Proyecto</h2>
+                        <p class="card__text" data-section="projects" data-value="third-project-description">Descripción de mi tercer proyecto.</p>
+                        <div class="buttons">
+                            <a href="#" class="button--primary" target="_blank">Demo</a>
+                            <a href="#" class="button--code" target="_blank">Code</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="card card--project">
+                    <div class="card__image-container">
+                        <img src="assets/images/placeholder.png" alt="Cuarto proyecto"
+                        class="card__image" data-lightbox-img="assets/images/placeholder.png">
+                    </div>
+                    <div class="project">
+                        <div class="project__tags">
+                            <span class="project__tag">#Tag1</span>
+                            <span class="project__tag">#Tag2</span>
+                            <span class="project__tag">#Tag3</span>
+                        </div>
+                        <h2 class="card__title" data-section="projects" data-value="fourth-project-title">Cuarto Proyecto</h2>
+                        <p class="card__text" data-section="projects" data-value="fourth-project-description">Descripción de mi cuarto proyecto.</p>
+                        <div class="buttons">
+                            <a href="#" class="button--primary" target="_blank">Demo</a>
+                            <a href="#" class="button--code" target="_blank">Code</a>
+                        </div>
+                    </div>
+                </article>
+                </section>
         </main>
+
+        
+        <div id="lightbox" class="lightbox">
+            <div class="lightbox__content">
+                <button class="lightbox__close">&times;</button>
+                <img src="" alt="Imagen grande del proyecto" class="lightbox__image">
+            </div>
+        </div>
+        
         <script src="js/scripts.js"></script>
     </body>
 </html>
