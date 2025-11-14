@@ -1,7 +1,7 @@
 :root{
     --primary-color: hsl(214, 84%, 56%);
     --text-color: hsl(0, 0%, 90%);
-    --bg-color: hsl(0, 0%, 90%);
+    --bg-color: hsl(40, 30%, 92%);
     --bg-card-color: hsl(0, 0%, 98%);
     --border-radius: 0.4em;
     --transition: color 0.1s, background-color 0.2s ease-in-out;
@@ -25,7 +25,7 @@ img {
 body {
     margin: 0;
     background-color: var(--bg-color);
-    color: var(--text-color);
+    color: #333; 
     transition: var(--transition);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -34,6 +34,11 @@ body.dark {
     --text-color: hsl(0, 0%, 83%);
     --bg-color: hsl(0, 0%, 15%);
     --bg-card-color: hsl(0, 0%, 20%);
+    color: var(--text-color); 
+}
+
+body.lightbox-active {
+    overflow: hidden;
 }
 
 .header{
@@ -74,6 +79,7 @@ body.dark {
 
 .toggle-theme__text {
     font-size: 0.8rem;
+    color: var(--text-color);
 }
 
 .flags{
@@ -137,21 +143,23 @@ body.dark {
     left: 100%;
 }
 
+
 .colors__item--blue {
     --primary-color: hsl(214, 84%, 56%);
 }
 
 .colors__item--green {
-    --primary-color: hsl(150, 84%, 56%);
+    --primary-color: hsl(180, 50%, 50%);
 }
 
 .colors__item--purple {
-    --primary-color: hsl(276, 84%, 56%);
+    --primary-color: hsl(345, 45%, 45%);
 }
 
 .colors__item--orange {
-    --primary-color: hsl(25, 81%, 45%);
+    --primary-color: hsl(35, 85%, 50%);
 }
+
 
 .title{
     text-align: center;
@@ -496,7 +504,9 @@ body.dark .card__text {
 
 .project__tags{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 0.5em; 
+    flex-wrap: wrap;
     margin: 0.5em 0;
     font-size: 0.6rem;
     width: 275px;
@@ -600,4 +610,175 @@ body.dark .card__text {
     to{
         transform: translateX(var(--skills-bar-length))
     }
+}
+
+.skills__tech {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #333;
+}
+
+body.dark .skills__tech {
+    color: var(--text-color);
+}
+
+.skills__start-level {
+    color: #333;
+}
+
+body.dark .skills__start-level {
+    color: var(--text-color);
+}
+
+.experience__time{
+    font-size: 0.8rem;
+    margin-bottom: 0.5em;
+    color: #555;
+}
+
+body.dark .experience__time {
+    color: var(--text-color);
+}
+
+.experience__description{
+    font-size: 0.8em;
+    margin-bottom: 1.5em;
+    color: #333;
+}
+
+body.dark .experience__description {
+    color: var(--text-color);
+}
+
+
+.card--project .card__image,
+.card--project .gallery__image {
+    cursor: pointer;
+}
+
+.project-gallery {
+    display: flex;
+    width: 100%;
+    height: 100%; 
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth; 
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.project-gallery::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery__image {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    scroll-snap-align: start;
+}
+
+.card--project .card__image-container {
+    position: relative; 
+    overflow: hidden; 
+    height: 240px;
+}
+
+.gallery-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.gallery-button:hover {
+    opacity: 1;
+}
+
+.gallery-button--left {
+    left: 10px;
+}
+
+.gallery-button--right {
+    right: 10px;
+}
+
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.lightbox.active {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox__content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    transform: scale(0.9);
+    transition: transform 0.2s ease;
+}
+
+.lightbox.active .lightbox__content {
+    transform: scale(1);
+}
+
+.lightbox__image {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.lightbox__close {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 35px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform 0.2s ease;
+}
+
+.lightbox__close:hover {
+    transform: scale(1.1);
 }
