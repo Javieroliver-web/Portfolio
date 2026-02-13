@@ -71,11 +71,11 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             "projects": {
                 "first-project-title": "Portfolio page",
-                "first-project-description": "Proyecto actualmente en desarrollo",
+                "first-project-description": "Proyecto constantemente en desarrollo.",
                 "second-project-title": "Área de trabajo Angular",
                 "second-project-description": "Area de trabajo con algunos proyectos sencillos en Angular.",
                 "third-project-title": "Proyecto Vesta",
-                "third-project-description": "Plataforma de micro-seguros on-demand. Protección instantánea activable según necesidades.",
+                "third-project-description": "Este es mi proyecto personal que presenté como TFG en el fin de mi grado superior de Desarrollo de Aplicaciones Web (DAW). Se trata de un proyecto que simula un Marketplace de una empresa de seguros con algunas funciones interesantes que quise implementar, si os interesa podeis informaros desde la documentación que guardo en el respositorio del proyecto API.",
                 "fourth-project-title": "Cuarto Proyecto",
                 "fourth-project-description": "Descripción de mi cuarto proyecto."
             },
@@ -95,11 +95,11 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             "projects": {
                 "first-project-title": "Portfolio page",
-                "first-project-description": "Project currently under development",
+                "first-project-description": "Project constantly under development.",
                 "second-project-title": "Angular Workspace",
                 "second-project-description": "Workspace with some simple projects in Angular.",
                 "third-project-title": "Vesta Project",
-                "third-project-description": "On-demand micro-insurance platform. Instant protection activated based on needs.",
+                "third-project-description": "This is my personal project that I presented as my Final Degree Project at the end of my Higher Technician in Web Application Development (DAW). It simulates a Marketplace for an insurance company with some interesting functions that I wanted to implement. If you are interested, you can find more information in the documentation kept in the API project repository.",
                 "fourth-project-title": "Fourth Project",
                 "fourth-project-description": "Description of my fourth project."
             },
