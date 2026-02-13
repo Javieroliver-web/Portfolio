@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "es": {
             "theme": { "mode-dark": "Modo Oscuro", "mode-white": "Modo Claro" },
             "profile": {
-                "rol": "Desarrollador Front-end",
+                "rol": "DESARROLLADOR FULL-STACK JUNIOR",
                 "description": "Tengo conocimientos usando varias tecnologías durante mis estudios y etapa laboral. Me gusta ver mi futuro con ambición además de ser positivo y seguro de todo lo que hago. Disfruto también trabajando en equipo con personas de todas las edades a las que puedo escuchar y también aprender sobre ellos."
             },
             "experiences": {
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "en": {
             "theme": { "mode-dark": "Dark Mode", "mode-white": "Light Mode" },
             "profile": {
-                "rol": "Front-end Developer",
+                "rol": "JUNIOR FULL-STACK DEVELOPER",
                 "description": "I have knowledge using various technologies during my studies and work stage. I like to see my future with ambition in addition to being positive and confident in everything I do. Enjoy also working as a team with people of all ages through the ones that I can listen to and also learn about."
             },
             "experiences": {
