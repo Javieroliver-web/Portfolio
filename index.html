@@ -1,73 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-     <meta charset="UTF-8" />
-     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-     <link rel="stylesheet" href="css/styles.css" />
-     <title>Portfolio</title> 
-    </head> 
-    <body class="dark">
-        <header id="--header" class="header">
-            <div class="switches">
-                <div id="toggle-icon" class="toggle-theme">
-                    <img id="toggle-image" src="assets/icons/moon.png" alt="icon theme"
-                    class="toggle-theme__icon" />
-                    <p id="toggle-text" class="toggle-theme__text">Modo Oscuro</p>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Portfolio</title>
+</head>
+
+<body class="dark">
+    <header id="--header" class="header">
+        <div class="switches">
+            <div id="toggle-icon" class="toggle-theme">
+                <img id="toggle-image" src="assets/icons/moon.png" alt="icon theme" class="toggle-theme__icon" />
+                <p id="toggle-text" class="toggle-theme__text">Modo Oscuro</p>
+            </div>
+            <div id="flags" class="flags">
+                <div class="flags__item" data-language="es">
+                    <img src="assets/icons/es.svg" alt="">
                 </div>
-                <div id="flags" class="flags">
-                    <div class="flags__item" data-language="es">
-                        <img src="assets/icons/es.svg" alt="">
-                    </div>
-                    <div class="flags__item" data-language="en">
-                        <img src="assets/icons/gb.svg" alt="">
-                    </div>
+                <div class="flags__item" data-language="en">
+                    <img src="assets/icons/gb.svg" alt="">
                 </div>
             </div>
-            
-            <div id="toggle-colors" class="colors">
-                <div data-color="hsl(214, 84%, 56%)" class="colors__item colors__item--blue"></div>
-                <div data-color="hsl(180, 50%, 50%)" class="colors__item colors__item--green"></div>
-                <div data-color="hsl(345, 45%, 45%)" class="colors__item colors__item--purple"></div>
-                <div data-color="hsl(35, 85%, 50%)" class="colors__item colors__item--orange"></div>
-            </div>
-            
-        </header>
-        <main class="main">
-            <section class="column column--left">
-             <article class="card card--profile">
-             <div class="card__image-container">
-                <img src="assets/images/profile.jpg" alt="Foto de perfil de Francisco Javier">
-             </div>
-             <div class="card__header">
-                 <h2 id="card__title" class="card__title">Francisco Javier</h2>
-                 <p id="card__subtitle" class="card__subtitle" data-section="profile" data-value="rol">Front end developer</p>
-             </div>
-             <div class="card__body">
-                <div class="card__link">
-                    <i class="fas fa-envelope icon"></i>
-                    <a href="mailto:javip200555@gmail.com">javip200555@gmail.com</a>
+        </div>
+
+        <div id="toggle-colors" class="colors">
+            <div data-hue="214" class="colors__item colors__item--blue"></div>
+            <div data-hue="150" class="colors__item colors__item--green"></div>
+            <div data-hue="270" class="colors__item colors__item--purple"></div>
+            <div data-hue="350" data-sat="85%" data-light="40%" class="colors__item colors__item--wine"></div>
+        </div>
+
+    </header>
+    <main class="main">
+        <section class="column column--left">
+            <article class="card card--profile">
+                <div class="card__image-container">
+                    <img src="assets/images/profile.jpg" alt="Foto de perfil de Francisco Javier">
                 </div>
-                <div class="card__link">
-                    <i class="fas fa-phone-alt icon"></i>
-                    <a href="tel:622645922">+34-622645922</a>
+                <div class="card__header">
+                    <h2 id="card__title" class="card__title">Francisco Javier</h2>
+                    <p id="card__subtitle" class="card__subtitle" data-section="profile" data-value="rol">Front end
+                        developer</p>
                 </div>
-                <p id="card__text" class="card__text" data-section="profile" data-value="description"> Tengo conocimientos usando varias tecnologías que adquirí durante mis
-                    estudios y etapa laboral. Me gusta ver mi futuro con ambición
-                    además de ser positivo y seguro de todo lo que hago. Disfruto
-                    también trabajando en equipo con personas de todas las edades a
-                    las que puedo escuchar y también aprender sobre ellos.</p>
-             </div>
+                <div class="card__body">
+                    <div class="card__link">
+                        <i class="fas fa-envelope icon"></i>
+                        <a href="mailto:javip200555@gmail.com">javip200555@gmail.com</a>
+                    </div>
+                    <div class="card__link">
+                        <i class="fas fa-phone-alt icon"></i>
+                        <a href="tel:622645922">+34-622645922</a>
+                    </div>
+                    <p id="card__text" class="card__text" data-section="profile" data-value="description"> Tengo
+                        conocimientos usando varias tecnologías que adquirí durante mis
+                        estudios y etapa laboral. Me gusta ver mi futuro con ambición
+                        además de ser positivo y seguro de todo lo que hago. Disfruto
+                        también trabajando en equipo con personas de todas las edades a
+                        las que puedo escuchar y también aprender sobre ellos.</p>
+                </div>
             </article>
             <article class="card card--experience">
                 <h2 class="card__title">Experiences</h2>
                 <div class="experience">
                     <img src="assets/images/ayesa.jpg" alt="logo" class="experience__image">
                     <div class="experience__info">
-                            <p class="experience__time" data-section="experiences" data-value="first-job-dates">Nov 2023 - Nov 2024</p>
-                                <h3 class="experience__job" data-section="experiences" data-value="first-job-title">Web developer</h3>
-                            <p class="experience__description" data-section="experiences" data-value="first-job-description">Participé en el mantenimiento de la plataforma “Secretaria
+                        <p class="experience__time" data-section="experiences" data-value="first-job-dates">Nov 2023 -
+                            Nov 2024</p>
+                        <h3 class="experience__job" data-section="experiences" data-value="first-job-title">Web
+                            developer</h3>
+                        <p class="experience__description" data-section="experiences"
+                            data-value="first-job-description">Participé en el mantenimiento de la plataforma
+                            “Secretaria
                             Virtual”. Utilicé tecnologías como Java, SQL y PL/SQL. Mi
                             responsabilidad principal fue llevar á cabo los cambios
                             solicitados en la base de datos y participar en las correcciones
@@ -80,182 +92,247 @@
                 <h2 class="card__title" data-section="download" data-value="download-pdf">Descargar CV en PDF</h2>
                 <img src="assets/icons/pdf_icon.png" alt="pdf" class="pdf__icon">
                 <div class="pdf__container">
-                
-                        <a href="assets/descargas/cv_17-11-2025.pdf" class="button--cv" download="CV_Francisco_Javier_Parraga.pdf" target="_blank" data-section="download" data-value="button-cv">Descargar PDF</a>
+
+                    <a href="assets/descargas/cv_13-02-2026.pdf" class="button--cv"
+                        download="CV_Francisco_Javier_Parraga.pdf" target="_blank" data-section="download"
+                        data-value="button-cv">Descargar PDF</a>
                 </div>
             </article>
 
             <article class="card card--rs">
                 <h2 class="card__title" data-section="download" data-value="social-media">Redes Sociales</h2>
                 <div class="rs-img">
-                    <a href="http://www.linkedin.com/in/francisco-javier-p%C3%A1rraga-oliver-94106629a" target="_blank"> 
+                    <a href="http://www.linkedin.com/in/francisco-javier-p%C3%A1rraga-oliver-94106629a" target="_blank">
                         <img src="assets/icons/linkedin-icon.png" alt="" class="linkedin-icon">
                     </a>
-                    <a href="https://www.instagram.com/javieroliver_?igsh=MTlwdzVoZWZsZTZ4Nw%3D%D&utm_source=qr" target="_blank">
+                    <a href="https://www.instagram.com/javieroliver_?igsh=MTlwdzVoZWZsZTZ4Nw%3D%D&utm_source=qr"
+                        target="_blank">
                         <img src="assets/icons/instagram.png" alt="" class="instagram-icon">
                     </a>
                     <a href="https://wa.me/+34622645922" target="_blank">
                         <img src="assets/icons/whatsapp-icon.png" alt="" class="whatsapp-icon">
                     </a>
-                        <div class="rs__container">
+                    <div class="rs__container">
+                    </div>
+            </article>
+
+        </section>
+        <section class="column column--right">
+            <article class="card">
+                <h2 class="card__title">Front End</h2>
+                <small data-section="skills" data-value="years">Años de experiencia</small>
+                <div class="skills"></div>
+                <div class="skills__header"></div>
+                <span class="skills__start-level">0</span>
+                <span>-</span>
+                <span class="skills__start-level">3</span>
+                <div class="skills">
+                    <div class="skills__item">
+                        <p id="skills__tech" class="skills__tech">HTML/CSS</p>
+                        <div class="skills__bar" data-years="3">
+                        </div>
+                    </div>
+                    <div class="skills__item">
+                        <p class="skills__tech">JavaScript</p>
+                        <div class="skills__bar" data-years="2.6">
+                        </div>
+                    </div>
+                    <div class="skills__item">
+                        <p class="skills__tech">Angular</p>
+                        <div class="skills__bar" data-years="0.6">
+                        </div>
+                    </div>
+                    <div class="skills__item">
+                        <p class="skills__tech">Thymeleaf</p>
+                        <div class="skills__bar" data-years="0.4">
+                        </div>
+                    </div>
+                    <div class="skills__item">
+                        <p class="skills__tech">Bootstrap</p>
+                        <div class="skills__bar" data-years="0.4">
+                        </div>
+                    </div>
                 </div>
             </article>
-            
-            </section>
-            <section class="column column--right">
-                <article class="card">
-                    <h2 class="card__title">Front End</h2>
-                    <small data-section="skills" data-value="years">Años de experiencia</small>
-                    <div class="skills"></div>
-                    <div class="skills__header"></div>
-                    <span class="skills__start-level">0</span>
-                    <span>-</span>
-                    <span class="skills__start-level">2</span>
-                        <div class="skills">
-                            <div class="skills__item">
-                        <p id="skills__tech" class="skills__tech">HTML/CSS</p>
-                                <div class="skills__bar" data-years="2">
-                                </div>
-                            </div>
-                                <div class="skills__item">
-                        <p class="skills__tech">JavaScript</p>
-                                <div class="skills__bar" data-years="1.6">
-                                </div>
-                            </div>
-                            <div class="skills__item">
-                                <p class="skills__tech">Angular</p>
-                                        <div class="skills__bar" data-years="0.1">
-                                        </div>
-                                    </div>
-                        </div>
-                </article>
-                <article class="card">
-                    <h2 class="card__title">Back End</h2>
-                    <div class="skills"></div>
-                    <div class="skills__header"></div>
-                    <span class="skills__start-level">0</span>
-                    <span>-</span>
-                    <span class="skills__start-level">2</span>
-                        <div class="skills">
-                            <div class="skills__item">
+            <article class="card">
+                <h2 class="card__title">Back End</h2>
+                <div class="skills"></div>
+                <div class="skills__header"></div>
+                <span class="skills__start-level">0</span>
+                <span>-</span>
+                <span class="skills__start-level">3</span>
+                <div class="skills">
+                    <div class="skills__item">
                         <p class="skills__tech">Java</p>
-                                <div class="skills__bar" data-years="0.6">
-                                </div>
-                            </div>
-                                <div class="skills__item">
+                        <div class="skills__bar" data-years="1.9">
+                        </div>
+                    </div>
+                    <div class="skills__item">
                         <p class="skills__tech">SQL</p>
-                                <div class="skills__bar" data-years="1.3">
-                                </div>
-                            </div>
-                            <div class="skills__item">
-                                <p class="skills__tech">PL/SQL</p>
-                                        <div class="skills__bar" data-years="0.8">
-                                        </div>
-                                    </div>
+                        <div class="skills__bar" data-years="1.4">
                         </div>
-                </article>
-                <article class="card">
-                    <h2 class="card__title">Herramientas</h2>
-                    <div class="skills"></div>
-                    <div class="skills__header"></div>
-                    <span class="skills__start-level">0</span>
-                    <span>-</span>
-                    <span class="skills__start-level">2</span>
-                        <div class="skills">
-                            <div class="skills__item">
+                    </div>
+                    <div class="skills__item">
+                        <p class="skills__tech">PL/SQL</p>
+                        <div class="skills__bar" data-years="0.8">
+                        </div>
+                    </div>
+                    <div class="skills__item">
+                        <p class="skills__tech">Spring Boot</p>
+                        <div class="skills__bar" data-years="0.4">
+                        </div>
+                    </div>
+                    <div class="skills__item">
+                        <p class="skills__tech">PostgreSQL</p>
+                        <div class="skills__bar" data-years="0.4">
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="card">
+                <h2 class="card__title">Herramientas</h2>
+                <div class="skills"></div>
+                <div class="skills__header"></div>
+                <span class="skills__start-level">0</span>
+                <span>-</span>
+                <span class="skills__start-level">3</span>
+                <div class="skills">
+                    <div class="skills__item">
                         <p class="skills__tech">Git</p>
-                                <div class="skills__bar" data-years="1.5">
-                                </div>
-                            </div>
-                                <div class="skills__item">
-                        <p class="skills__tech">GitHub/GitLab</p>
-                                <div class="skills__bar" data-years="1.5">
-                                </div>
-                            </div>
-                            <div class="skills__item">
-                                <p class="skills__tech">Oracle SQL Developer</p>
-                                        <div class="skills__bar" data-years="1.0">
-                                        </div>
-                                    </div>
-                        </div>
-                </article>
-                <article class="card card--project">
-                    <div class="card__image-container">
-                        <img src="assets/images/Portfolio_project.png" alt="Portfolio page"
-                        class="card__image" data-lightbox-img="assets/images/Portfolio_project.png">
-                    </div>
-                    <div class="project">
-                        <div class="project__tags">
-                            <span class="project__tag">#HTML</span>
-                            <span class="project__tag">#CSS</span>
-                            <span class="project__tag">#JavaScript</span>
-                            <span class="project__tag">#Response</span>
-                        </div>
-                        <h2 class="card__title" data-section="projects" data-value="first-project-title">Portfolio page</h2>
-                        <p class="card__text" data-section="projects" data-value="first-project-description">Proyecto actualmente en desarrollo</p>
-                        <div class="buttons">
-                            <a href="https://javieroliver-web.github.io/Portfolio/" class="button--primary" target="_blank">Demo</a>
-                            <a href="https://github.com/Javieroliver-web/Portfolio" class="button--code" target="_blank">Code</a>
+                        <div class="skills__bar" data-years="2">
                         </div>
                     </div>
-                </article>
+                    <div class="skills__item">
+                        <p class="skills__tech">GitHub</p>
+                        <div class="skills__bar" data-years="2">
+                        </div>
+                    </div>
+                    <div class="skills__item">
+                        <p class="skills__tech">GitLab</p>
+                        <div class="skills__bar" data-years="1.4">
+                        </div>
+                    </div>
+                    <div class="skills__item">
+                        <p class="skills__tech">Oracle SQL Developer</p>
+                        <div class="skills__bar" data-years="1.0">
+                        </div>
+                    </div>
+                    <div class="skills__item">
+                        <p class="skills__tech">Docker</p>
+                        <div class="skills__bar" data-years="0.5">
+                        </div>
+                    </div>
+                    <div class="skills__item">
+                        <p class="skills__tech">Google Cloud</p>
+                        <div class="skills__bar" data-years="0.4">
+                        </div>
+                    </div>
+                    <div class="skills__item">
+                        <p class="skills__tech">AI</p>
+                        <div class="skills__bar" data-years="0.4">
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="card card--project">
+                <div class="card__image-container">
+                    <img src="assets/images/Portfolio_project.png" alt="Portfolio page" class="card__image"
+                        data-lightbox-img="assets/images/Portfolio_project.png">
+                </div>
+                <div class="project">
+                    <div class="project__tags">
+                        <span class="project__tag">#HTML</span>
+                        <span class="project__tag">#CSS</span>
+                        <span class="project__tag">#JavaScript</span>
+                        <span class="project__tag">#Response</span>
+                    </div>
+                    <h2 class="card__title" data-section="projects" data-value="first-project-title">Portfolio page</h2>
+                    <p class="card__text" data-section="projects" data-value="first-project-description">Proyecto
+                        constantemente en desarrollo.</p>
+                    <div class="buttons">
+                        <a href="https://javieroliver-web.github.io/Portfolio/" class="button--primary"
+                            target="_blank">Demo</a>
+                        <a href="https://github.com/Javieroliver-web/Portfolio" class="button--code"
+                            target="_blank">Code</a>
+                    </div>
+                </div>
+            </article>
 
-                <article class="card card--project">
-                    <div class="card__image-container">
-                        <div class="project-gallery">
-                            <img src="assets/images/publi.png" alt="Vista 1 del proyecto Angular" class="gallery__image" data-lightbox-img="assets/images/publi.png">
-                            <img src="assets/images/Admin-art.png" alt="Vista 2 del proyecto Angular" class="gallery__image" data-lightbox-img="assets/images/Admin-art.png">
-                            <img src="assets/images/foto1.png" alt="Vista 3 del proyecto Angular" class="gallery__image" data-lightbox-img="assets/images/foto1.png">
-                            <img src="assets/images/foto2.png" alt="Vista 4 del proyecto Angular" class="gallery__image" data-lightbox-img="assets/images/foto2.png">
-                        </div>
-                        <button class="gallery-button gallery-button--left" aria-label="Imagen anterior">&lt;</button>
-                        <button class="gallery-button gallery-button--right" aria-label="Siguiente imagen">&gt;</button>
+            <article class="card card--project">
+                <div class="card__image-container">
+                    <div class="project-gallery">
+                        <img src="assets/images/publi.png" alt="Vista 1 del proyecto Angular" class="gallery__image"
+                            data-lightbox-img="assets/images/publi.png">
+                        <img src="assets/images/Admin-art.png" alt="Vista 2 del proyecto Angular" class="gallery__image"
+                            data-lightbox-img="assets/images/Admin-art.png">
+                        <img src="assets/images/foto1.png" alt="Vista 3 del proyecto Angular" class="gallery__image"
+                            data-lightbox-img="assets/images/foto1.png">
+                        <img src="assets/images/foto2.png" alt="Vista 4 del proyecto Angular" class="gallery__image"
+                            data-lightbox-img="assets/images/foto2.png">
                     </div>
-                    <div class="project">
-                        <div class="project__tags">
-                            <span class="project__tag">#Angular</span>
-                            <span class="project__tag">#TypeScript</span>
-                            <span class="project__tag">#HTML</span>
-                            <span class="project__tag">#CSS</span>
-                        </div>
-                        <h2 class="card__title" data-section="projects" data-value="second-project-title">Área de trabajo Angular</h2>
-                        <p class="card__text" data-section="projects" data-value="second-project-description">Area de trabajo con algunos proyectos sencillos en Angular.</p>
-                        <div class="buttons">
-                            <a href="https://github.com/Javieroliver-web/proy-csi2-master" class="button--code" target="_blank">Code</a>
-                        </div>
+                    <button class="gallery-button gallery-button--left" aria-label="Imagen anterior">&lt;</button>
+                    <button class="gallery-button gallery-button--right" aria-label="Siguiente imagen">&gt;</button>
+                </div>
+                <div class="project">
+                    <div class="project__tags">
+                        <span class="project__tag">#Angular</span>
+                        <span class="project__tag">#TypeScript</span>
+                        <span class="project__tag">#HTML</span>
+                        <span class="project__tag">#CSS</span>
                     </div>
-                </article>
-                
-                <article class="card card--project">
-                    <div class="card__image-container">
-                        <img src="#" alt="Tercer proyecto"
-                        class="card__image" data-lightbox-img="assets/images/placeholder.png">
+                    <h2 class="card__title" data-section="projects" data-value="second-project-title">Área de trabajo
+                        Angular</h2>
+                    <p class="card__text" data-section="projects" data-value="second-project-description">Area de
+                        trabajo con algunos proyectos sencillos en Angular.</p>
+                    <div class="buttons">
+                        <a href="https://github.com/Javieroliver-web/proy-csi2-master" class="button--code"
+                            target="_blank">Code</a>
                     </div>
-                    <div class="project">
-                        <div class="project__tags">
-                            <span class="project__tag">#Tag1</span>
-                            <span class="project__tag">#Tag2</span>
-                            <span class="project__tag">#Tag3</span>
-                        </div>
-                        <h2 class="card__title" data-section="projects" data-value="third-project-title">Tercer Proyecto</h2>
-                        <p class="card__text" data-section="projects" data-value="third-project-description">Más proyectos proximamente...</p>
-                        <div class="buttons">
-                            <a href="#" class="button--primary" target="_blank">Demo</a>
-                            <a href="#" class="button--code" target="_blank">Code</a>
-                        </div>
-                    </div>
-                </article>
-                </section>
-        </main>
+                </div>
+            </article>
 
-        
-        <div id="lightbox" class="lightbox">
-            <div class="lightbox__content">
-                <button class="lightbox__close">&times;</button>
-                <img src="" alt="Imagen grande del proyecto" class="lightbox__image">
-            </div>
+            <article class="card card--project">
+                <div class="card__image-container">
+                    <img src="assets/images/vesta_project.png" alt="Proyecto Vesta" class="card__image"
+                        data-lightbox-img="assets/images/vesta_project.png">
+                </div>
+                <div class="project">
+                    <div class="project__tags">
+                        <span class="project__tag">#Java</span>
+                        <span class="project__tag">#Spring Boot</span>
+                        <span class="project__tag">#Docker</span>
+                        <span class="project__tag">#PostgreSQL</span>
+                        <span class="project__tag">#Thymeleaf</span>
+                        <span class="project__tag">#Bootstrap</span>
+                        <span class="project__tag">#GoogleCloud</span>
+                        <span class="project__tag">#AI</span>
+                    </div>
+                    <h2 class="card__title" data-section="projects" data-value="third-project-title">Proyecto Vesta</h2>
+                    <p class="card__text" data-section="projects" data-value="third-project-description">Este es mi
+                        proyecto personal que presenté como TFG en el fin de mi grado superior de Desarrollo de
+                        Aplicaciones Web (DAW). Se trata de un proyecto que simula un Marketplace de una empresa de
+                        seguros con algunas funciones interesantes que quise implementar, si os interesa podeis
+                        informaros desde la documentación que guardo en el respositorio del proyecto API.</p>
+                    <div class="buttons">
+                        <a href="https://github.com/Javieroliver-web/web-proyecto-vesta" class="button--primary"
+                            target="_blank">Code Web</a>
+                        <a href="https://github.com/Javieroliver-web/api-proyecto-vesta" class="button--code"
+                            target="_blank">Code API</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox__content">
+            <button class="lightbox__close">&times;</button>
+            <img src="" alt="Imagen grande del proyecto" class="lightbox__image">
         </div>
-        
-        <script src="js/scripts.js"></script>
-    </body>
+    </div>
+
+    <script src="js/scripts.js"></script>
+</body>
+
 </html>
