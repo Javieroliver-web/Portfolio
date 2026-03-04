@@ -4,8 +4,11 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
+    // Webhook proporcionado anteriormente o variable de entorno
+    const webhookUrl = process.env.DISCORD_WEBHOOK_URL || "https://discord.com/api/webhooks/1478670444197314722/HFh25OqSJUtdRMERUISdYwUYf9QW6ROHZWJxaLrI8JEnXlAvs_WChmoN_F_MgSAZYFMA";
+
     if (!webhookUrl) {
+        console.error("[log.js] Error: Webhook not configured");
         return res.status(500).json({ error: 'Webhook not configured' });
     }
 
@@ -39,11 +42,14 @@ export default async function handler(req, res) {
         });
 
         if (!response.ok) {
-            return res.status(500).json({ error: 'Discord error' });
+            const errorText = await response.text();
+            console.error("[log.js] Error enviando a Discord:", response.status, errorText);
+            return res.status(500).json({ error: 'Discord error', details: errorText });
         }
 
         return res.status(200).json({ ok: true });
     } catch (err) {
+        console.error("[log.js] Excepción Capturada:", err.message);
         return res.status(500).json({ error: err.message });
     }
 }

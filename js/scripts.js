@@ -341,4 +341,12 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    // ── Footer: Última actualización (Fecha actual de carga del cliente) ────
+    const lastUpdatedEl = document.getElementById("last-updated");
+    if (lastUpdatedEl) {
+        const today = new Date();
+        const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+        lastUpdatedEl.textContent = today.toLocaleDateString('es-ES', options);
+    }
 });
