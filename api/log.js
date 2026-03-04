@@ -14,6 +14,22 @@ export default async function handler(req, res) {
 
     const { timestamp, referrer, language, screen, userAgent, page } = req.body;
 
+    // Función auxiliar para parsear el navegador
+    function parseUserAgent(ua) {
+        if (!ua) return 'Desconocido';
+        if (ua.includes('Edg/')) return 'Edge';
+        if (ua.includes('Chrome') && !ua.includes('Edg/')) return 'Chrome';
+        if (ua.includes('Safari') && !ua.includes('Chrome')) return 'Safari';
+        if (ua.includes('Firefox')) return 'Firefox';
+        if (ua.includes('Opera') || ua.includes('OPR/')) return 'Opera';
+        return ua.substring(0, 50); // Fallback: Raw UA truncado
+    }
+
+    const browserName = parseUserAgent(userAgent);
+
+    // Obtener la IP del usuario (Vercel inyecta x-forwarded-for)
+    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'IP desconocida';
+
     const embed = {
         username: '📊 Portfolio Logger',
         embeds: [
@@ -26,7 +42,8 @@ export default async function handler(req, res) {
                     { name: '🖥️ Pantalla', value: screen || 'Desconocida', inline: true },
                     { name: '🔗 Referrer', value: referrer || 'Acceso directo', inline: false },
                     { name: '🌐 Página', value: page || 'Desconocida', inline: false },
-                    { name: '🔍 Navegador', value: userAgent ? userAgent.substring(0, 100) : 'Desconocido', inline: false },
+                    { name: '🔍 Navegador', value: browserName, inline: true },
+                    { name: '🛡️ IP', value: ip, inline: true },
                 ],
                 footer: { text: 'Portfolio | javieroliver-web' },
                 timestamp: new Date().toISOString(),
