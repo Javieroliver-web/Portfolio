@@ -1,22 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+    <!-- SEO: título y descripción para motores de búsqueda -->
+    <title>Francisco Javier Párraga Oliver | Desarrollador Web Full-Stack Junior</title>
+    <meta name="description"
+        content="Portfolio de Francisco Javier Párraga Oliver, Desarrollador Web Full-Stack Junior con experiencia en Java, Spring Boot, Angular, SQL y más. Basado en Sevilla, España.">
+    <meta name="author" content="Francisco Javier Párraga Oliver">
+    <meta name="keywords"
+        content="desarrollador web, full stack, junior, java, spring boot, angular, javascript, portfolio, sevilla">
+
+    <!-- Open Graph: preview al compartir el enlace en LinkedIn y WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://portfolio-javieroliver-web.vercel.app/">
+    <meta property="og:title" content="Francisco Javier Párraga Oliver | Dev Full-Stack Junior">
+    <meta property="og:description"
+        content="Portfolio de Francisco Javier Párraga Oliver, Desarrollador Web Full-Stack Junior. Java, Spring Boot, Angular, SQL y más.">
+    <meta property="og:image" content="https://portfolio-javieroliver-web.vercel.app/assets/images/profile.jpg">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/icons/favicon1.png">
+
+    <!-- Iconos y fuentes externas -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700&display=swap">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700&display=swap"
         rel="stylesheet">
+
+    <!-- Hoja de estilos principal -->
     <link rel="stylesheet" href="css/styles.css" />
-    <title>Portfolio</title>
 </head>
 
 <body class="dark">
+
+    <!-- ════════════════════════════════════════════════════════════
+         HEADER — Controles globales: tema, idioma y color de acento
+         ════════════════════════════════════════════════════════════ -->
     <header id="--header" class="header">
+
+        <!-- Botón de tema (oscuro/claro) y selector de idioma (ES/EN) -->
         <div class="switches">
             <div id="toggle-icon" class="toggle-theme">
                 <img id="toggle-image" src="assets/icons/moon.png" alt="icon theme" class="toggle-theme__icon" />
@@ -24,14 +55,15 @@
             </div>
             <div id="flags" class="flags">
                 <div class="flags__item" data-language="es">
-                    <img src="assets/icons/es.svg" alt="">
+                    <img src="assets/icons/es.svg" alt="Español">
                 </div>
                 <div class="flags__item" data-language="en">
-                    <img src="assets/icons/gb.svg" alt="">
+                    <img src="assets/icons/gb.svg" alt="English">
                 </div>
             </div>
         </div>
 
+        <!-- Selector de color de acento principal -->
         <div id="toggle-colors" class="colors">
             <div data-hue="214" class="colors__item colors__item--blue"></div>
             <div data-hue="150" class="colors__item colors__item--green"></div>
@@ -40,26 +72,38 @@
         </div>
 
     </header>
+
+    <!-- ════════════════════════════════════════════════════════════
+         MAIN — Contenido principal dividido en dos columnas
+         ════════════════════════════════════════════════════════════ -->
     <main class="main">
+
+        <!-- ── COLUMNA IZQUIERDA ──────────────────────────────────── -->
         <section class="column column--left">
+
+            <!-- Tarjeta de perfil: foto, nombre, rol, contacto y descripción -->
             <article class="card card--profile">
                 <div class="card__image-container">
                     <img src="assets/images/profile.jpg" alt="Foto de perfil de Francisco Javier">
                 </div>
                 <div class="card__header">
-                    <h2 id="card__title" class="card__title">Francisco Javier</h2>
+                    <h2 id="card__title" class="card__title">Francisco Javier<br>Párraga Oliver</h2>
+                    <!-- El texto del rol lo sobreescribe scripts.js según el idioma -->
                     <p id="card__subtitle" class="card__subtitle" data-section="profile" data-value="rol">DESARROLLADOR
-                        FULL-STACK JUNIOR</p>
+                        WEB FULL-STACK JUNIOR</p>
                 </div>
                 <div class="card__body">
+                    <!-- Enlace de correo electrónico -->
                     <div class="card__link">
                         <i class="fas fa-envelope icon"></i>
                         <a href="mailto:javip200555@gmail.com">javip200555@gmail.com</a>
                     </div>
+                    <!-- Enlace de teléfono -->
                     <div class="card__link">
                         <i class="fas fa-phone-alt icon"></i>
                         <a href="tel:622645922">+34-622645922</a>
                     </div>
+                    <!-- Descripción personal (traducida por scripts.js) -->
                     <p id="card__text" class="card__text" data-section="profile" data-value="description"> Tengo
                         conocimientos usando varias tecnologías que adquirí durante mis
                         estudios y etapa laboral. Me gusta ver mi futuro con ambición
@@ -68,183 +112,222 @@
                         las que puedo escuchar y también aprender sobre ellos.</p>
                 </div>
             </article>
+
+            <!-- Tarjeta de experiencia laboral: 3 entradas ordenadas cronológicamente -->
             <article class="card card--experience">
-                <h2 class="card__title">Experiences</h2>
+                <h2 class="card__title" data-section="experiences" data-value="section-title">Experiencia</h2>
+
+                <!-- Experiencia 1: Desarrollador Full Stack Junior (Feb 2026 - Actualidad) -->
                 <div class="experience">
-                    <img src="assets/images/ayesa.jpg" alt="logo" class="experience__image">
+                    <img src="assets/images/ayesa.jpg" alt="logo Ayesa" class="experience__image">
                     <div class="experience__info">
-                        <p class="experience__time" data-section="experiences" data-value="first-job-dates">Nov 2023 -
-                            Nov 2024</p>
-                        <h3 class="experience__job" data-section="experiences" data-value="first-job-title">Web
-                            developer</h3>
+                        <p class="experience__time" data-section="experiences" data-value="first-job-dates">Feb 2026 -
+                            Actualidad</p>
+                        <h3 class="experience__job" data-section="experiences" data-value="first-job-title">
+                            Desarrollador Full Stack Junior</h3>
+                        <p class="experience__company">Ayesa · Contrato de prácticas · Sevilla, Andalucía, España ·
+                            Híbrido</p>
                         <p class="experience__description" data-section="experiences"
-                            data-value="first-job-description">Participé en el mantenimiento de la plataforma
-                            “Secretaria
-                            Virtual”. Utilicé tecnologías como Java, SQL y PL/SQL. Mi
-                            responsabilidad principal fue llevar á cabo los cambios
-                            solicitados en la base de datos y participar en las correcciones
-                            de errores de la web junto a mi equipo. Utilicé Git para el
-                            control de versiones.</p>
+                            data-value="first-job-description">Prácticas de segundo curso de FP Grado Superior de
+                            Desarrollo de Aplicaciones Web (DAW).</p>
+                    </div>
+                </div>
+
+                <!-- Experiencia 2: Actividades de programación informática (Nov 2023 - Nov 2024) -->
+                <div class="experience">
+                    <img src="assets/images/ayesa.jpg" alt="logo Ayesa" class="experience__image">
+                    <div class="experience__info">
+                        <p class="experience__time" data-section="experiences" data-value="second-job-dates">Nov 2023 -
+                            Nov 2024</p>
+                        <h3 class="experience__job" data-section="experiences" data-value="second-job-title">Actividades
+                            de programación informática</h3>
+                        <p class="experience__company">Ayesa · Contrato de prácticas · Sevilla, Andalucía, España ·
+                            Híbrido</p>
+                        <p class="experience__description" data-section="experiences"
+                            data-value="second-job-description">Participé en el mantenimiento de la plataforma
+                            "Secretaria Virtual". Utilicé tecnologías como Java, SQL y PL/SQL. Mi responsabilidad
+                            principal fue llevar a cabo los cambios solicitados en la base de datos y participar en las
+                            correcciones de errores de la web junto a mi equipo. Utilicé Git para el control de
+                            versiones.</p>
+                    </div>
+                </div>
+
+                <!-- Experiencia 3: Desarrollador Front-End Junior (Mar 2023 - Jun 2023) -->
+                <div class="experience">
+                    <img src="assets/images/ayesa.jpg" alt="logo Ayesa" class="experience__image">
+                    <div class="experience__info">
+                        <p class="experience__time" data-section="experiences" data-value="third-job-dates">Mar 2023 -
+                            Jun 2023</p>
+                        <h3 class="experience__job" data-section="experiences" data-value="third-job-title">
+                            Desarrollador Front-End Junior</h3>
+                        <p class="experience__company">Ayesa · Contrato de prácticas · Sevilla, Andalucía, España ·
+                            Híbrido</p>
+                        <p class="experience__description" data-section="experiences"
+                            data-value="third-job-description">Prácticas de primer curso de FP Grado Medio Sistemas
+                            Microinformaticos y Redes (SMR).</p>
                     </div>
                 </div>
             </article>
+
+            <!-- Tarjeta de descarga del CV en PDF -->
             <article class="card card--CV">
                 <h2 class="card__title" data-section="download" data-value="download-pdf">Descargar CV en PDF</h2>
                 <img src="assets/icons/pdf_icon.png" alt="pdf" class="pdf__icon">
                 <div class="pdf__container">
-
                     <a href="assets/descargas/cv_13-02-2026.pdf" class="button--cv"
                         download="CV_Francisco_Javier_Parraga.pdf" target="_blank" data-section="download"
                         data-value="button-cv">Descargar PDF</a>
                 </div>
             </article>
 
+            <!-- Tarjeta de redes sociales: LinkedIn, Instagram y WhatsApp -->
             <article class="card card--rs">
                 <h2 class="card__title" data-section="download" data-value="social-media">Redes Sociales</h2>
                 <div class="rs-img">
-                    <a href="http://www.linkedin.com/in/francisco-javier-p%C3%A1rraga-oliver-94106629a" target="_blank">
-                        <img src="assets/icons/linkedin-icon.png" alt="" class="linkedin-icon">
+                    <!-- LinkedIn -->
+                    <a href="http://www.linkedin.com/in/francisco-javier-p%C3%A1rraga-oliver-94106629a" target="_blank"
+                        aria-label="Perfil de LinkedIn">
+                        <img src="assets/icons/linkedin-icon.png" alt="LinkedIn" class="linkedin-icon">
                     </a>
-                    <a href="https://www.instagram.com/javieroliver_?igsh=MTlwdzVoZWZsZTZ4Nw%3D%D&utm_source=qr"
-                        target="_blank">
-                        <img src="assets/icons/instagram.png" alt="" class="instagram-icon">
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/javieroliver_?igsh=MTlwdzVoZWZsZTZ4Nw%3D%3D&utm_source=qr"
+                        target="_blank" aria-label="Perfil de Instagram">
+                        <img src="assets/icons/instagram.png" alt="Instagram" class="instagram-icon">
                     </a>
-                    <a href="https://wa.me/+34622645922" target="_blank">
-                        <img src="assets/icons/whatsapp-icon.png" alt="" class="whatsapp-icon">
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/+34622645922" target="_blank" aria-label="Contactar por WhatsApp">
+                        <img src="assets/icons/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon">
                     </a>
                     <div class="rs__container">
                     </div>
+                </div>
             </article>
 
         </section>
+        <!-- ── FIN COLUMNA IZQUIERDA ──────────────────────────────── -->
+
+        <!-- ── COLUMNA DERECHA ────────────────────────────────────── -->
         <section class="column column--right">
+
+            <!-- Tarjeta de habilidades Front End con barras de progreso -->
+            <!-- data-years indica los años de experiencia; scripts.js lo convierte a % -->
             <article class="card">
                 <h2 class="card__title">Front End</h2>
                 <small data-section="skills" data-value="years">Años de experiencia</small>
-                <div class="skills"></div>
-                <div class="skills__header"></div>
                 <span class="skills__start-level">0</span>
                 <span>-</span>
                 <span class="skills__start-level">3</span>
                 <div class="skills">
                     <div class="skills__item">
                         <p id="skills__tech" class="skills__tech">HTML/CSS</p>
-                        <div class="skills__bar" data-years="3">
-                        </div>
+                        <div class="skills__bar" data-years="3"></div>
                     </div>
                     <div class="skills__item">
                         <p class="skills__tech">JavaScript</p>
-                        <div class="skills__bar" data-years="2.6">
-                        </div>
+                        <div class="skills__bar" data-years="2.6"></div>
                     </div>
                     <div class="skills__item">
                         <p class="skills__tech">Angular</p>
-                        <div class="skills__bar" data-years="0.6">
-                        </div>
+                        <div class="skills__bar" data-years="0.6"></div>
                     </div>
                     <div class="skills__item">
                         <p class="skills__tech">Thymeleaf</p>
-                        <div class="skills__bar" data-years="0.4">
-                        </div>
+                        <div class="skills__bar" data-years="0.4"></div>
                     </div>
                     <div class="skills__item">
                         <p class="skills__tech">Bootstrap</p>
-                        <div class="skills__bar" data-years="0.4">
-                        </div>
+                        <div class="skills__bar" data-years="0.4"></div>
                     </div>
                 </div>
             </article>
+
+            <!-- Tarjeta de habilidades Back End con barras de progreso -->
             <article class="card">
                 <h2 class="card__title">Back End</h2>
-                <div class="skills"></div>
-                <div class="skills__header"></div>
                 <span class="skills__start-level">0</span>
                 <span>-</span>
                 <span class="skills__start-level">3</span>
                 <div class="skills">
                     <div class="skills__item">
                         <p class="skills__tech">Java</p>
-                        <div class="skills__bar" data-years="1.9">
-                        </div>
+                        <div class="skills__bar" data-years="1.9"></div>
                     </div>
                     <div class="skills__item">
                         <p class="skills__tech">SQL</p>
-                        <div class="skills__bar" data-years="1.4">
-                        </div>
+                        <div class="skills__bar" data-years="1.4"></div>
                     </div>
                     <div class="skills__item">
                         <p class="skills__tech">PL/SQL</p>
-                        <div class="skills__bar" data-years="0.8">
-                        </div>
+                        <div class="skills__bar" data-years="0.8"></div>
                     </div>
                     <div class="skills__item">
                         <p class="skills__tech">Spring Boot</p>
-                        <div class="skills__bar" data-years="0.4">
-                        </div>
+                        <div class="skills__bar" data-years="0.4"></div>
                     </div>
                     <div class="skills__item">
                         <p class="skills__tech">PostgreSQL</p>
-                        <div class="skills__bar" data-years="0.4">
-                        </div>
+                        <div class="skills__bar" data-years="0.4"></div>
                     </div>
                 </div>
             </article>
+
+            <!-- Tarjeta de herramientas y DevOps con barras de progreso -->
             <article class="card">
                 <h2 class="card__title">Herramientas</h2>
-                <div class="skills"></div>
-                <div class="skills__header"></div>
                 <span class="skills__start-level">0</span>
                 <span>-</span>
                 <span class="skills__start-level">3</span>
                 <div class="skills">
                     <div class="skills__item">
                         <p class="skills__tech">Git</p>
-                        <div class="skills__bar" data-years="2">
-                        </div>
+                        <div class="skills__bar" data-years="2"></div>
                     </div>
                     <div class="skills__item">
                         <p class="skills__tech">GitHub</p>
-                        <div class="skills__bar" data-years="2">
-                        </div>
+                        <div class="skills__bar" data-years="2"></div>
                     </div>
                     <div class="skills__item">
                         <p class="skills__tech">GitLab</p>
-                        <div class="skills__bar" data-years="1.4">
-                        </div>
+                        <div class="skills__bar" data-years="1.4"></div>
                     </div>
                     <div class="skills__item">
                         <p class="skills__tech">Oracle SQL Developer</p>
-                        <div class="skills__bar" data-years="1.0">
-                        </div>
+                        <div class="skills__bar" data-years="1.0"></div>
                     </div>
                     <div class="skills__item">
                         <p class="skills__tech">Docker</p>
-                        <div class="skills__bar" data-years="0.5">
-                        </div>
+                        <div class="skills__bar" data-years="0.5"></div>
                     </div>
                     <div class="skills__item">
                         <p class="skills__tech">Google Cloud</p>
-                        <div class="skills__bar" data-years="0.4">
-                        </div>
+                        <div class="skills__bar" data-years="0.4"></div>
                     </div>
                     <div class="skills__item">
                         <p class="skills__tech">AI</p>
-                        <div class="skills__bar" data-years="0.4">
-                        </div>
+                        <div class="skills__bar" data-years="0.4"></div>
+                    </div>
+                    <div class="skills__item">
+                        <p class="skills__tech">Jenkins</p>
+                        <div class="skills__bar" data-years="0.25"></div>
                     </div>
                 </div>
             </article>
+
+            <!-- ── PROYECTOS ─────────────────────────────────────── -->
+
+            <!-- Proyecto 1: Portfolio personal -->
             <article class="card card--project">
                 <div class="card__image-container">
+                    <!-- data-lightbox-img: al hacer clic abre la imagen en lightbox -->
                     <img src="assets/images/Portfolio_project.png" alt="Portfolio page" class="card__image"
-                        data-lightbox-img="assets/images/Portfolio_project.png">
+                        loading="lazy" data-lightbox-img="assets/images/Portfolio_project.png">
                 </div>
                 <div class="project">
                     <div class="project__tags">
                         <span class="project__tag">#HTML</span>
                         <span class="project__tag">#CSS</span>
                         <span class="project__tag">#JavaScript</span>
-                        <span class="project__tag">#Response</span>
+                        <span class="project__tag">#Responsive</span>
                     </div>
                     <h2 class="card__title" data-section="projects" data-value="first-project-title">Portfolio page</h2>
                     <p class="card__text" data-section="projects" data-value="first-project-description">Proyecto
@@ -258,17 +341,19 @@
                 </div>
             </article>
 
+            <!-- Proyecto 2: Área de trabajo Angular (galería de imágenes con scroll) -->
             <article class="card card--project">
                 <div class="card__image-container">
+                    <!-- Galería horizontal: scripts.js gestiona los botones de navegación -->
                     <div class="project-gallery">
                         <img src="assets/images/publi.png" alt="Vista 1 del proyecto Angular" class="gallery__image"
-                            data-lightbox-img="assets/images/publi.png">
+                            loading="lazy" data-lightbox-img="assets/images/publi.png">
                         <img src="assets/images/Admin-art.png" alt="Vista 2 del proyecto Angular" class="gallery__image"
-                            data-lightbox-img="assets/images/Admin-art.png">
+                            loading="lazy" data-lightbox-img="assets/images/Admin-art.png">
                         <img src="assets/images/foto1.png" alt="Vista 3 del proyecto Angular" class="gallery__image"
-                            data-lightbox-img="assets/images/foto1.png">
+                            loading="lazy" data-lightbox-img="assets/images/foto1.png">
                         <img src="assets/images/foto2.png" alt="Vista 4 del proyecto Angular" class="gallery__image"
-                            data-lightbox-img="assets/images/foto2.png">
+                            loading="lazy" data-lightbox-img="assets/images/foto2.png">
                     </div>
                     <button class="gallery-button gallery-button--left" aria-label="Imagen anterior">&lt;</button>
                     <button class="gallery-button gallery-button--right" aria-label="Siguiente imagen">&gt;</button>
@@ -291,9 +376,10 @@
                 </div>
             </article>
 
+            <!-- Proyecto 3: Proyecto Vesta (TFG) -->
             <article class="card card--project">
                 <div class="card__image-container">
-                    <img src="assets/images/vesta_project.png" alt="Proyecto Vesta" class="card__image"
+                    <img src="assets/images/vesta_project.png" alt="Proyecto Vesta" class="card__image" loading="lazy"
                         data-lightbox-img="assets/images/vesta_project.png">
                 </div>
                 <div class="project">
@@ -311,8 +397,8 @@
                     <p class="card__text" data-section="projects" data-value="third-project-description">Este es mi
                         proyecto personal que presenté como TFG en el fin de mi grado superior de Desarrollo de
                         Aplicaciones Web (DAW). Se trata de un proyecto que simula un Marketplace de una empresa de
-                        seguros con algunas funciones interesantes que quise implementar, si os interesa podeis
-                        informaros desde la documentación que guardo en el respositorio del proyecto API.</p>
+                        seguros con algunas funciones extras que quise implementar, si os interesa podéis
+                        informaros desde la documentación que guardo en el repositorio del proyecto API.</p>
                     <div class="buttons">
                         <a href="https://github.com/Javieroliver-web/web-proyecto-vesta" class="button--primary"
                             target="_blank">Code Web</a>
@@ -321,10 +407,17 @@
                     </div>
                 </div>
             </article>
+
         </section>
+        <!-- ── FIN COLUMNA DERECHA ────────────────────────────────── -->
+
     </main>
+    <!-- ── FIN MAIN ───────────────────────────────────────────────── -->
 
-
+    <!-- ════════════════════════════════════════════════════════════
+         LIGHTBOX — Overlay para ver imágenes a pantalla completa
+         Se activa al hacer clic en cualquier imagen con data-lightbox-img
+         ════════════════════════════════════════════════════════════ -->
     <div id="lightbox" class="lightbox">
         <div class="lightbox__content">
             <button class="lightbox__close">&times;</button>
@@ -332,6 +425,12 @@
         </div>
     </div>
 
+    <!-- Botón Volver Arriba -->
+    <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Volver arriba" title="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Script principal (debe ir al final para que el DOM esté listo) -->
     <script src="js/scripts.js"></script>
 </body>
 

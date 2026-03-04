@@ -1,51 +1,84 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    // ── Tracking silencioso de visitas (solo en producción) ──────────────────
+    const initVisitLogger = () => {
+        const isProduction = location.hostname !== 'localhost' && location.hostname !== '127.0.0.1';
+        if (!isProduction) return;
+
+        const visitData = {
+            timestamp: new Date().toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }),
+            referrer: document.referrer || null,
+            language: navigator.language || navigator.userLanguage,
+            screen: `${screen.width}x${screen.height}`,
+            userAgent: navigator.userAgent,
+            page: location.href,
+        };
+        fetch('/api/log', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(visitData),
+        }).catch(() => { }); // silencioso: no muestra errores al usuario
+    };
+    initVisitLogger();
+    // ────────────────────────────────────────────────────────────────────────
+
+    // ── Referencias a elementos del DOM ─────────────────────────────────────
     const toggleTheme = document.getElementById("toggle-icon");
     const toggleIcon = document.getElementById("toggle-image");
     const toggleText = document.getElementById("toggle-text");
-
     const toggleColors = document.getElementById("toggle-colors");
-
-    const colorHeader = document.getElementById("--header");
-    const cardText = document.getElementById("card__text");
-    const cardTitles = document.querySelectorAll(".card__title");
-    const cardSubtitle = document.getElementById("card__subtitle");
-
-    const skillsTexts = document.querySelectorAll(".skills__tech");
-
     const rootStyles = document.documentElement.style;
-
     const flagsElement = document.getElementById("flags");
-
     const textsToChange = document.querySelectorAll("[data-section]");
+    // ────────────────────────────────────────────────────────────────────────
 
-
-    let currentLanguage = 'es';
+    // ── Estado de idioma (restaurado desde localStorage) ─────────────────────
+    let currentLanguage = localStorage.getItem('portfolio-lang') || 'es';
     let languageData = {};
+    // ────────────────────────────────────────────────────────────────────────
 
+    // ── Restaurar preferencias guardadas (tema, color y idioma) ─────────────
+    const savedTheme = localStorage.getItem('portfolio-theme');
+    if (savedTheme === 'light') {
+        document.body.classList.remove('dark');
+        toggleIcon.src = 'assets/icons/sun.png';
+    }
+    const savedHue = localStorage.getItem('portfolio-hue');
+    const savedSat = localStorage.getItem('portfolio-sat');
+    const savedLight = localStorage.getItem('portfolio-light');
+    if (savedHue) rootStyles.setProperty('--primary-hue', savedHue);
+    if (savedSat) rootStyles.setProperty('--primary-sat', savedSat);
+    if (savedLight) rootStyles.setProperty('--primary-light', savedLight);
+    // ────────────────────────────────────────────────────────────────────────
 
-
-
+    /**
+     * Calcula y aplica el ancho de cada barra de habilidades en función
+     * de los años de experiencia indicados en el atributo `data-years`.
+     * Convierte los años a un porcentaje (máx. 100%) y lo redondea al
+     * múltiplo de 10 más cercano para aplicar la clase CSS correspondiente.
+     */
     const calculateSkillBars = () => {
         const skillBars = document.querySelectorAll(".skills__bar[data-years]");
 
         skillBars.forEach(bar => {
             const years = parseFloat(bar.getAttribute("data-years"));
 
+            // Escala: 3 años = 100%
+            let percentage = Math.min((years / 3) * 100, 100);
 
-            let percentage = Math.min((years / 2) * 100, 100);
-
-
+            // Redondeamos al múltiplo de 10 más cercano para las clases CSS
             percentage = Math.round(percentage / 10) * 10;
-
 
             bar.className = "skills__bar";
             bar.classList.add(`skills__bar--${percentage}`);
         });
     };
 
-
-
+    /**
+     * Actualiza el texto del botón de tema (Modo Oscuro / Modo Claro)
+     * según el estado actual del body y el idioma activo.
+     * No hace nada si aún no se ha cargado el idioma.
+     */
     const updateToggleText = () => {
         if (!languageData.theme) return;
 
@@ -56,18 +89,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-
+    // ── Objeto de traducciones (ES / EN) ─────────────────────────────────────
     const translations = {
         "es": {
             "theme": { "mode-dark": "Modo Oscuro", "mode-white": "Modo Claro" },
             "profile": {
-                "rol": "DESARROLLADOR FULL-STACK JUNIOR",
+                "rol": "DESARROLLADOR WEB<br>FULL-STACK JUNIOR",
                 "description": "Tengo conocimientos usando varias tecnologías durante mis estudios y etapa laboral. Me gusta ver mi futuro con ambición además de ser positivo y seguro de todo lo que hago. Disfruto también trabajando en equipo con personas de todas las edades a las que puedo escuchar y también aprender sobre ellos."
             },
             "experiences": {
-                "first-job-title": "Desarrollador Web",
-                "first-job-dates": "Noviembre 2023 - Noviembre 2024",
-                "first-job-description": "Participé en el mantenimiento de la plataforma “Secretaria Virtual”. Utilicé tecnologías como Java, SQL y PL/SQL. Mi responsabilidad principal fue llevar a cabo los cambios solicitados en la base de datos y participar en las correcciones de errores de la web junto a mi equipo. Utilicé Git para el control de versiones."
+                "section-title": "Experiencia",
+                "first-job-title": "Desarrollador Full Stack Junior",
+                "first-job-dates": "Febrero 2026 - Actualidad",
+                "first-job-description": "Prácticas de segundo curso de FP Grado Superior de Desarrollo de Aplicaciones Web (DAW).",
+                "second-job-title": "Actividades de programación informática",
+                "second-job-dates": "Noviembre 2023 - Noviembre 2024",
+                "second-job-description": "Participé en el mantenimiento de la plataforma \"Secretaria Virtual\". Utilicé tecnologías como Java, SQL y PL/SQL. Mi responsabilidad principal fue llevar a cabo los cambios solicitados en la base de datos y participar en las correcciones de errores de la web junto a mi equipo. Utilicé Git para el control de versiones.",
+                "third-job-title": "Desarrollador Front-End Junior",
+                "third-job-dates": "Marzo 2023 - Junio 2023",
+                "third-job-description": "Prácticas de primer curso de FP Grado Medio Sistemas Microinformaticos y Redes (SMR)."
             },
             "projects": {
                 "first-project-title": "Portfolio page",
@@ -75,9 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "second-project-title": "Área de trabajo Angular",
                 "second-project-description": "Area de trabajo con algunos proyectos sencillos en Angular.",
                 "third-project-title": "Proyecto Vesta",
-                "third-project-description": "Este es mi proyecto personal que presenté como TFG en el fin de mi grado superior de Desarrollo de Aplicaciones Web (DAW). Se trata de un proyecto que simula un Marketplace de una empresa de seguros con algunas funciones interesantes que quise implementar, si os interesa podeis informaros desde la documentación que guardo en el respositorio del proyecto API.",
-                "fourth-project-title": "Cuarto Proyecto",
-                "fourth-project-description": "Descripción de mi cuarto proyecto."
+                "third-project-description": "Este es mi proyecto personal que presenté como TFG en el fin de mi grado superior de Desarrollo de Aplicaciones Web (DAW). Se trata de un proyecto que simula un Marketplace de una empresa de seguros con algunas funciones extras que quise implementar, si os interesa podéis informaros desde la documentación que guardo en el repositorio del proyecto API.",
             },
             "skills": { "years": "Años de experiencia" },
             "download": { "download-pdf": "Descargar CV en PDF", "button-cv": "Descargar PDF", "social-media": "Redes Sociales" }
@@ -85,13 +123,20 @@ document.addEventListener("DOMContentLoaded", () => {
         "en": {
             "theme": { "mode-dark": "Dark Mode", "mode-white": "Light Mode" },
             "profile": {
-                "rol": "JUNIOR FULL-STACK DEVELOPER",
+                "rol": "JUNIOR FULL-STACK WEB DEVELOPER",
                 "description": "I have knowledge using various technologies during my studies and work stage. I like to see my future with ambition in addition to being positive and confident in everything I do. Enjoy also working as a team with people of all ages through the ones that I can listen to and also learn about."
             },
             "experiences": {
-                "first-job-title": "Web Developer",
-                "first-job-dates": "November 2023 - November 2024",
-                "first-job-description": "I participated in the maintenance of the platform (Secretary of the Interior Virtual). I used technologies such as Java, SQL and PL/SQL. My the main responsibility was to carry out the changes requested in the database and participate in corrections of web errors together with my team. I used Git for the version control."
+                "section-title": "Experience",
+                "first-job-title": "Full Stack Junior Developer",
+                "first-job-dates": "February 2026 - Present",
+                "first-job-description": "Internship of the second year of Higher Vocational Training in Web Application Development (DAW).",
+                "second-job-title": "Computer Programming Activities",
+                "second-job-dates": "November 2023 - November 2024",
+                "second-job-description": "I participated in the maintenance of the platform \"Virtual Secretary\". I used technologies such as Java, SQL and PL/SQL. My main responsibility was to carry out the changes requested in the database and participate in corrections of web errors together with my team. I used Git for version control.",
+                "third-job-title": "Front-End Junior Developer",
+                "third-job-dates": "March 2023 - June 2023",
+                "third-job-description": "Internship of the first year of Mid-Level Vocational Training in Microcomputer Systems and Networks (SMR)."
             },
             "projects": {
                 "first-project-title": "Portfolio page",
@@ -99,18 +144,26 @@ document.addEventListener("DOMContentLoaded", () => {
                 "second-project-title": "Angular Workspace",
                 "second-project-description": "Workspace with some simple projects in Angular.",
                 "third-project-title": "Vesta Project",
-                "third-project-description": "This is my personal project that I presented as my Final Degree Project at the end of my Higher Technician in Web Application Development (DAW). It simulates a Marketplace for an insurance company with some interesting functions that I wanted to implement. If you are interested, you can find more information in the documentation kept in the API project repository.",
-                "fourth-project-title": "Fourth Project",
-                "fourth-project-description": "Description of my fourth project."
+                "third-project-description": "This is my personal project that I presented as my Final Degree Project at the end of my Higher Technician in Web Application Development (DAW). It simulates a Marketplace for an insurance company with some extra functions that I wanted to implement. If you are interested, you can find more information in the documentation kept in the API project repository.",
             },
             "skills": { "years": "Years of experience" },
             "download": { "download-pdf": "Download CV in PDF", "button-cv": "Download PDF", "social-media": "Social Media" }
         }
     };
+    // ────────────────────────────────────────────────────────────────────────
 
+    /**
+     * Cambia el idioma de la interfaz actualizando todos los elementos
+     * que tengan los atributos `data-section` y `data-value`.
+     * Busca el texto correspondiente en el objeto `translations` y lo
+     * inyecta via innerHTML para soportar etiquetas HTML (p.ej. <br>).
+     *
+     * @param {string} language - Código del idioma a aplicar ('es' | 'en').
+     */
     const changeLanguage = (language) => {
         languageData = translations[language];
         currentLanguage = language;
+        document.documentElement.lang = language; // A11y & SEO
 
         for (const textToChange of textsToChange) {
             const section = textToChange.dataset.section;
@@ -124,61 +177,76 @@ document.addEventListener("DOMContentLoaded", () => {
         updateToggleText();
     };
 
+    /**
+     * Escucha clics en el selector de idioma (banderas).
+     * Aplica el idioma correspondiente y lo guarda en localStorage.
+     */
     flagsElement.addEventListener("click", (e) => {
         const flag = e.target.closest(".flags__item");
         if (flag) {
             changeLanguage(flag.dataset.language);
+            localStorage.setItem('portfolio-lang', flag.dataset.language);
         }
     });
 
+    /**
+     * Alterna entre modo oscuro y modo claro al hacer clic en el botón
+     * de tema. Actualiza el icono, el texto y guarda la preferencia
+     * en localStorage.
+     */
     toggleTheme.addEventListener("click", () => {
         document.body.classList.toggle("dark");
+        const isDark = document.body.classList.contains("dark");
 
-        if (toggleIcon.src.includes("moon.png")) {
-            toggleIcon.src = "assets/icons/sun.png";
-        } else {
+        if (isDark) {
             toggleIcon.src = "assets/icons/moon.png";
+            localStorage.setItem('portfolio-theme', 'dark');
+        } else {
+            toggleIcon.src = "assets/icons/sun.png";
+            localStorage.setItem('portfolio-theme', 'light');
         }
 
         updateToggleText();
     });
 
+    /**
+     * Escucha clics en el selector de colores de acento.
+     * Lee los valores de hue, saturación y luminosidad del elemento
+     * clicado y los aplica como variables CSS. Guarda la selección
+     * en localStorage para persistirla entre sesiones.
+     */
     toggleColors.addEventListener("click", (e) => {
         const target = e.target.closest(".colors__item");
         if (!target) return;
 
         if (target.dataset.hue) {
-            rootStyles.setProperty("--primary-hue", target.dataset.hue);
+            const hue = target.dataset.hue;
+            const sat = target.dataset.sat || '84%';
+            const light = target.dataset.light || '56%';
 
-            // Set saturation if present, else default
-            if (target.dataset.sat) {
-                rootStyles.setProperty("--primary-sat", target.dataset.sat);
-            } else {
-                rootStyles.setProperty("--primary-sat", "84%");
-            }
+            rootStyles.setProperty("--primary-hue", hue);
+            rootStyles.setProperty("--primary-sat", sat);
+            rootStyles.setProperty("--primary-light", light);
 
-            // Set lightness if present, else default
-            if (target.dataset.light) {
-                rootStyles.setProperty("--primary-light", target.dataset.light);
-            } else {
-                rootStyles.setProperty("--primary-light", "56%");
-            }
+            localStorage.setItem('portfolio-hue', hue);
+            localStorage.setItem('portfolio-sat', sat);
+            localStorage.setItem('portfolio-light', light);
         }
     });
 
-
+    // ── Inicialización ───────────────────────────────────────────────────────
     calculateSkillBars();
+    changeLanguage(currentLanguage);
+    // ────────────────────────────────────────────────────────────────────────
 
-
-    changeLanguage('es');
-
-
-
+    /**
+     * Gestiona la navegación de la galería de imágenes de los proyectos.
+     * Desplaza la galería a izquierda o derecha según el botón pulsado,
+     * usando scroll suave con la anchura del contenedor como unidad.
+     */
     document.addEventListener("click", (e) => {
-
         const button = e.target.closest(".gallery-button");
         if (!button) return;
-
 
         const container = button.closest(".card__image-container");
         if (!container) return;
@@ -186,18 +254,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const gallery = container.querySelector(".project-gallery");
         if (!gallery) return;
 
-
         const scrollAmount = gallery.clientWidth;
         let scrollDirection = 0;
 
         if (button.classList.contains("gallery-button--right")) {
-
             scrollDirection = scrollAmount;
         } else {
-
             scrollDirection = -scrollAmount;
         }
-
 
         gallery.scrollBy({
             left: scrollDirection,
@@ -205,57 +269,76 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-
-
-
-
+    // ── Lightbox ─────────────────────────────────────────────────────────────
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = lightbox.querySelector('.lightbox__image');
     const lightboxClose = lightbox.querySelector('.lightbox__close');
     const imagesToPreview = document.querySelectorAll('[data-lightbox-img]');
 
-
+    /**
+     * Abre el lightbox mostrando la imagen indicada a pantalla completa.
+     * Añade la clase 'active' al overlay y bloquea el scroll del body.
+     *
+     * @param {string} imgSrc - URL de la imagen a mostrar en el lightbox.
+     */
     const openLightbox = (imgSrc) => {
         lightboxImage.src = imgSrc;
         lightbox.classList.add('active');
         document.body.classList.add('lightbox-active');
     };
 
-
+    /**
+     * Cierra el lightbox, elimina la clase 'active' del overlay,
+     * restaura el scroll del body y limpia el src de la imagen.
+     */
     const closeLightbox = () => {
         lightbox.classList.remove('active');
         document.body.classList.remove('lightbox-active');
         lightboxImage.src = "";
     };
 
-
+    /**
+     * Asigna el evento de clic a cada imagen con `data-lightbox-img`
+     * para abrir el lightbox al pulsarla. Se detiene la propagación
+     * para evitar que el clic en la imagen cierre el lightbox.
+     */
     imagesToPreview.forEach(image => {
         image.addEventListener('click', (e) => {
-
             e.stopPropagation();
-
-
             const imgSrc = image.getAttribute('data-lightbox-img');
             openLightbox(imgSrc);
         });
     });
 
-
-
-
-
+    /** Cierra el lightbox al hacer clic en el botón de cierre (×). */
     lightboxClose.addEventListener('click', () => {
         closeLightbox();
     });
 
-
+    /** Cierra el lightbox al hacer clic fuera de la imagen (en el overlay). */
     lightbox.addEventListener('click', (e) => {
-
         if (e.target === lightbox) {
             closeLightbox();
         }
     });
+    // ────────────────────────────────────────────────────────────────────────
 
+    // ── Botón Volver Arriba ─────────────────────────────────────────────────
+    const btnScrollTop = document.getElementById("btn-scroll-top");
+    if (btnScrollTop) {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                btnScrollTop.classList.add("show");
+            } else {
+                btnScrollTop.classList.remove("show");
+            }
+        });
 
-
+        btnScrollTop.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    }
 });

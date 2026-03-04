@@ -1,7 +1,7 @@
+/* No usamos @property para hue/sat/light, porque al interpolar un ángulo hue 
+   (por ejemplo: de 150 a 350) se genera un "efecto arcoíris" pasando por amarillos, naranjas, etc.
+   En su lugar, hacemos que interpolen mediante CSS transitions estándar. */
 :root {
-    --primary-hue: 214;
-    --primary-sat: 84%;
-    --primary-light: 56%;
     --primary-color: hsl(var(--primary-hue), var(--primary-sat), var(--primary-light));
     --text-color: hsl(0, 0%, 90%);
     /* Light text for dark mode default */
@@ -34,10 +34,23 @@ body:not(.dark) {
     /* Colored shadow for depth */
 }
 
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    /* Transición directa de las propiedades de color (sin interpolar el ángulo HSL)
+       del antiguo al nuevo en 0.5s limpios */
+    transition: background-color 0.5s ease,
+        color 0.5s ease,
+        border-color 0.5s ease,
+        box-shadow 0.5s ease,
+        fill 0.5s ease;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -299,8 +312,14 @@ body:not(.dark) .toggle-theme__icon {
 .experience__job {
     font-size: 1.1rem;
     font-weight: 600;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.3em;
     color: var(--text-color);
+}
+
+.experience__company {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5em;
 }
 
 .experience__description {
@@ -334,6 +353,16 @@ body:not(.dark) .toggle-theme__icon {
     width: 100%;
 }
 
+@keyframes fillBar {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: var(--skills-bar-length);
+    }
+}
+
 .skills__bar::after {
     content: '';
     position: absolute;
@@ -343,7 +372,7 @@ body:not(.dark) .toggle-theme__icon {
     width: var(--skills-bar-length);
     background: var(--primary-color);
     border-radius: 10px;
-    transition: width 1s ease-out;
+    animation: fillBar 1s ease-out forwards;
 }
 
 /* Projects */
@@ -411,9 +440,15 @@ body:not(.dark) .toggle-theme__icon {
     font-weight: 600;
     font-size: 0.9rem;
     cursor: pointer;
-    transition: var(--transition);
+    transition: transform 0.1s ease, background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     border: 1px solid transparent;
+}
+
+.button--primary:active,
+.button--code:active,
+.button--cv:active {
+    transform: scale(0.95);
 }
 
 .button--primary {
@@ -617,4 +652,37 @@ body:not(.dark) .rs-img img {
     .card--project .card__image-container {
         height: 200px;
     }
+}
+
+/* ── Botón Volver Arriba ────────────────────────────────────────── */
+.btn-scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, background-color 0.5s ease;
+    z-index: 999;
+}
+
+.btn-scroll-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.btn-scroll-top:hover {
+    background-color: hsla(var(--primary-hue), var(--primary-sat), calc(var(--primary-light) - 10%), 1);
+    transform: translateY(-3px) scale(0.95);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }

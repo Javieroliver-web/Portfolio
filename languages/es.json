@@ -1,35 +1,40 @@
 {
     "theme": {
-        "mode-dark":"Modo Oscuro",
-        "mode-white":"Modo Claro"
+        "mode-dark": "Modo Oscuro",
+        "mode-white": "Modo Claro"
     },
     "profile": {
         "rol": "Desarrollador Front-end",
         "description": "Tengo conocimientos usando varias tecnologías durante mis estudios y etapa laboral. Me gusta ver mi futuro con ambición además de ser positivo y seguro de todo lo que hago. Disfruto también trabajando en equipo con personas de todas las edades a las que puedo escuchar y también aprender sobre ellos."
     },
     "experiences": {
-        "first-job-title": "Desarrollador Web",
-        "first-job-dates": "Noviembre 2023 - Noviembre 2024",
-        "first-job-description": "Participé en el mantenimiento de la plataforma “Secretaria Virtual”. Utilicé tecnologías como Java, SQL y PL/SQL. Mi responsabilidad principal fue llevar a cabo los cambios solicitados en la base de datos y participar en las correcciones de errores de la web junto a mi equipo. Utilicé Git para el control de versiones."
+        "section-title": "Experiencia",
+        "first-job-title": "Desarrollador Full Stack Junior",
+        "first-job-dates": "Febrero 2026 - Actualidad",
+        "first-job-description": "Prácticas de segundo curso de FP Grado Superior de Desarrollo de Aplicaciones Web (DAW).",
+        "second-job-title": "Actividades de programación informática",
+        "second-job-dates": "Noviembre 2023 - Noviembre 2024",
+        "second-job-description": "Participé en el mantenimiento de la plataforma \"Secretaria Virtual\". Utilicé tecnologías como Java, SQL y PL/SQL. Mi responsabilidad principal fue llevar a cabo los cambios solicitados en la base de datos y participar en las correcciones de errores de la web junto a mi equipo. Utilicé Git para el control de versiones.",
+        "third-job-title": "Desarrollador Front-End Junior",
+        "third-job-dates": "Marzo 2023 - Junio 2023",
+        "third-job-description": "Prácticas de primer curso de FP Grado Medio Sistemas Microinformaticos y Redes (SMR)."
     },
     "projects": {
-        "first-project-title":"Portfolio page",
-        "first-project-description":"Proyecto actualmente en desarrollo",
-        "second-project-title":"Área de trabajo Angular",
-        "second-project-description":"Area de trabajo con algunos proyectos sencillos en Angular.",
-        "third-project-title":"Tercer Proyecto",
-        "third-project-description":"Descripción de mi tercer proyecto.",
-        "fourth-project-title":"Cuarto Proyecto",
-        "fourth-project-description":"Descripción de mi cuarto proyecto."
+        "first-project-title": "Portfolio page",
+        "first-project-description": "Proyecto actualmente en desarrollo",
+        "second-project-title": "Área de trabajo Angular",
+        "second-project-description": "Area de trabajo con algunos proyectos sencillos en Angular.",
+        "third-project-title": "Tercer Proyecto",
+        "third-project-description": "Descripción de mi tercer proyecto.",
+        "fourth-project-title": "Cuarto Proyecto",
+        "fourth-project-description": "Descripción de mi cuarto proyecto."
     },
     "skills": {
-        "years":"Años de experiencia"
+        "years": "Años de experiencia"
     },
     "download": {
-        "download-pdf":"Descargar CV en PDF",
-        "button-cv":"Descargar PDF",
-        "social-media":"Redes Sociales"
+        "download-pdf": "Descargar CV en PDF",
+        "button-cv": "Descargar PDF",
+        "social-media": "Redes Sociales"
     }
-
-        
 }
