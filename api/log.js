@@ -30,6 +30,16 @@ export default async function handler(req, res) {
     // Obtener la IP del usuario (Vercel inyecta x-forwarded-for)
     const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'IP desconocida';
 
+    // Obtener localización (Vercel inyecta estas cabeceras automáticamente)
+    const country = req.headers['x-vercel-ip-country'] || '';
+    const region = req.headers['x-vercel-ip-country-region'] || '';
+    const city = req.headers['x-vercel-ip-city'] || '';
+
+    let location = 'Desconocida';
+    if (country) {
+        location = `${city}${city ? ', ' : ''}${region}${region ? ' ' : ''}[${country}]`.trim();
+    }
+
     const embed = {
         username: '📊 Portfolio Logger',
         embeds: [
@@ -44,6 +54,7 @@ export default async function handler(req, res) {
                     { name: '🌐 Página', value: page || 'Desconocida', inline: false },
                     { name: '🔍 Navegador', value: browserName, inline: true },
                     { name: '🛡️ IP', value: ip, inline: true },
+                    { name: '📍 Ubicación', value: location, inline: false },
                 ],
                 footer: { text: 'Portfolio | javieroliver-web' },
                 timestamp: new Date().toISOString(),
