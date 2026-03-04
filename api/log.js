@@ -31,14 +31,22 @@ export default async function handler(req, res) {
     const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'IP desconocida';
 
     // Obtener localización (Vercel inyecta estas cabeceras automáticamente)
-    const country = req.headers['x-vercel-ip-country'] || '';
-    const region = req.headers['x-vercel-ip-country-region'] || '';
-    const city = req.headers['x-vercel-ip-city'] || '';
+    const rawCountry = req.headers['x-vercel-ip-country'] || '';
+    const rawRegion = req.headers['x-vercel-ip-country-region'] || '';
+    const rawCity = req.headers['x-vercel-ip-city'] || '';
+
+    const country = rawCountry ? decodeURIComponent(rawCountry) : '';
+    const region = rawRegion ? decodeURIComponent(rawRegion) : '';
+    const city = rawCity ? decodeURIComponent(rawCity) : '';
 
     let location = 'Desconocida';
     if (country) {
         location = `${city}${city ? ', ' : ''}${region}${region ? ' ' : ''}[${country}]`.trim();
     }
+
+    // Detectar si es un bot de Vercel (Generador de capturas/previsualizaciones)
+    const isVercelBot = userAgent && userAgent.toLowerCase().includes('vercel-screenshot');
+    const finalBrowserName = isVercelBot ? `🤖 Vercel Bot (${browserName})` : browserName;
 
     const embed = {
         username: '📊 Portfolio Logger',
@@ -52,7 +60,7 @@ export default async function handler(req, res) {
                     { name: '🖥️ Pantalla', value: screen || 'Desconocida', inline: true },
                     { name: '🔗 Referrer', value: referrer || 'Acceso directo', inline: false },
                     { name: '🌐 Página', value: page || 'Desconocida', inline: false },
-                    { name: '🔍 Navegador', value: browserName, inline: true },
+                    { name: '🔍 Navegador', value: finalBrowserName, inline: true },
                     { name: '🛡️ IP', value: ip, inline: true },
                     { name: '📍 Ubicación', value: location, inline: false },
                 ],
