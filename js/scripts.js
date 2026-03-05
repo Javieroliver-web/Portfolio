@@ -46,9 +46,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const savedHue = localStorage.getItem('portfolio-hue');
     const savedSat = localStorage.getItem('portfolio-sat');
     const savedLight = localStorage.getItem('portfolio-light');
-    if (savedHue) rootStyles.setProperty('--primary-hue', savedHue);
-    if (savedSat) rootStyles.setProperty('--primary-sat', savedSat);
-    if (savedLight) rootStyles.setProperty('--primary-light', savedLight);
+    // Si el usuario ya eligió un color, lo restauramos; si no, aplicamos azul por defecto
+    const defaultHue = '214';
+    const defaultSat = '84%';
+    const defaultLight = '56%';
+    const activeHue = savedHue || defaultHue;
+    const activeSat = savedSat || defaultSat;
+    const activeLight = savedLight || defaultLight;
+    rootStyles.setProperty('--primary-hue', activeHue);
+    rootStyles.setProperty('--primary-sat', activeSat);
+    rootStyles.setProperty('--primary-light', activeLight);
+    // Marcar visualmente el color activo en el picker
+    document.querySelectorAll('.colors__item').forEach(item => {
+        item.classList.remove('colors__item--active');
+    });
+    const activeItem = document.querySelector(`.colors__item[data-hue="${activeHue}"]`);
+    if (activeItem) {
+        activeItem.classList.add('colors__item--active');
+    }
     // ────────────────────────────────────────────────────────────────────────
 
     /**
@@ -231,6 +246,15 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem('portfolio-hue', hue);
             localStorage.setItem('portfolio-sat', sat);
             localStorage.setItem('portfolio-light', light);
+
+            // Actualizar indicador visual del color activo
+            document.querySelectorAll('.colors__item').forEach(item => {
+                item.classList.remove('colors__item--active');
+            });
+            target.classList.add('colors__item--active');
+
+            // Actualizar color del cursor SVG
+            window._updateCursorColor?.();
         }
     });
 
@@ -349,4 +373,77 @@ document.addEventListener("DOMContentLoaded", () => {
         const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
         lastUpdatedEl.textContent = today.toLocaleDateString('es-ES', options);
     }
+
+    // ── Cursor blob (mix-blend-mode: difference) ────────────────────
+    /**
+     * Único círculo blanco que invierte los colores debajo de él.
+     * Sin dependencias de color ni de tema — funciona en cualquier fondo.
+     * Basado en el patrón usado por Bruno Simon y Vercel.
+     */
+    const isTouchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+    if (!isTouchDevice) {
+        const blob = document.createElement('div');
+        blob.classList.add('cursor-blob');
+        blob.style.opacity = '0'; // oculto hasta que el ratón se mueva por primera vez
+        document.body.appendChild(blob);
+
+        // Seguir al cursor; revelarlo en el primer movimiento real
+        let blobX = 0, blobY = 0;
+        window.addEventListener('mousemove', (e) => {
+            blobX = e.clientX;
+            blobY = e.clientY;
+            blob.style.transform = `translate(calc(${blobX}px - 50%), calc(${blobY}px - 50%))`;
+            blob.style.opacity = '1'; // ya tiene posición real, mostrar
+        }, { once: false });
+
+        // Hover: el blob se expande
+        const interactives = 'a, button, [role="button"], .colors__item, .flags__item, .toggle-theme, .filter-btn, .gallery-button, .lightbox__close, .btn-scroll-top';
+        document.querySelectorAll(interactives).forEach(el => {
+            el.addEventListener('mouseenter', () => blob.classList.add('cursor-blob--hover'));
+            el.addEventListener('mouseleave', () => blob.classList.remove('cursor-blob--hover'));
+        });
+
+        // Click: contracción
+        window.addEventListener('mousedown', () => blob.classList.add('cursor-blob--clicking'));
+        window.addEventListener('mouseup', () => blob.classList.remove('cursor-blob--clicking'));
+
+        // Desaparecer al salir del viewport
+        document.addEventListener('mouseleave', () => blob.style.opacity = '0');
+        document.addEventListener('mouseenter', () => blob.style.opacity = '1');
+    }
+    // ────────────────────────────────────────────────────────────────
+
+    // ── Filtro de proyectos ─────────────────────────────────────────
+    /**
+     * Lee el filtro activo del botón pulsado y muestra/oculta
+     * las tarjetas de proyecto según su atributo data-tags.
+     * Usa una clase CSS para la transición de opacidad.
+     */
+    const filterBar = document.getElementById('filter-bar');
+    if (filterBar) {
+        const projectCards = document.querySelectorAll('.card--project');
+
+        filterBar.addEventListener('click', (e) => {
+            const btn = e.target.closest('.filter-btn');
+            if (!btn) return;
+
+            // Actualizar botón activo
+            filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('filter-btn--active'));
+            btn.classList.add('filter-btn--active');
+
+            const filter = btn.dataset.filter;
+
+            projectCards.forEach(card => {
+                const tags = (card.dataset.tags || '').toLowerCase();
+                const matches = filter === 'all' || tags.includes(filter);
+
+                if (matches) {
+                    card.classList.remove('card--hidden');
+                } else {
+                    card.classList.add('card--hidden');
+                }
+            });
+        });
+    }
+    // ────────────────────────────────────────────────────────────────
 });

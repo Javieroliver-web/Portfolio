@@ -2,6 +2,10 @@
    (por ejemplo: de 150 a 350) se genera un "efecto arcoíris" pasando por amarillos, naranjas, etc.
    En su lugar, hacemos que interpolen mediante CSS transitions estándar. */
 :root {
+    /* Color de acento por defecto: azul (se sobreescribe con localStorage o el picker) */
+    --primary-hue: 214;
+    --primary-sat: 84%;
+    --primary-light: 56%;
     --primary-color: hsl(var(--primary-hue), var(--primary-sat), var(--primary-light));
     --text-color: hsl(0, 0%, 90%);
     /* Light text for dark mode default */
@@ -33,6 +37,67 @@ body:not(.dark) {
     --shadow-soft: 0 10px 30px -10px rgba(0, 50, 100, 0.1);
     /* Colored shadow for depth */
 }
+
+/* ── Cursor blob (mix-blend-mode: difference) ───────────────────── *
+ * Un único círculo blanco que invierte lo que hay debajo.            *
+ * Se adapta solo a cualquier fondo: dark mode, light mode, imágenes.*
+ * ─────────────────────────────────────────────────────────────────*/
+@media (hover: hover) and (pointer: fine) {
+
+    body,
+    a,
+    button,
+    [role="button"],
+    .colors__item,
+    .flags__item,
+    .toggle-theme,
+    .filter-btn,
+    .gallery-button,
+    .lightbox__close,
+    .btn-scroll-top {
+        cursor: none !important;
+    }
+}
+
+.cursor-blob {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    mix-blend-mode: difference;
+    transform: translate(-50%, -50%);
+    will-change: transform, width, height;
+    transition:
+        width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        height 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        opacity 0.3s ease;
+}
+
+.cursor-blob--hover {
+    width: 48px;
+    height: 48px;
+}
+
+.cursor-blob--clicking {
+    width: 10px;
+    height: 10px;
+    transition: width 0.1s ease, height 0.1s ease;
+}
+
+@media (hover: none),
+(pointer: coarse) {
+    .cursor-blob {
+        display: none !important;
+    }
+}
+
+/* ──────────────────────────────────────────────────────────────── */
+
 
 *,
 *::before,
@@ -165,6 +230,17 @@ body:not(.dark) .toggle-theme__icon {
     border: 2px solid transparent;
 }
 
+/* Indicador visual del color de acento activo */
+.colors__item--active {
+    outline: 2px solid rgba(255, 255, 255, 0.9);
+    outline-offset: 2px;
+}
+
+body:not(.dark) .colors__item--active {
+    outline: 2px solid rgba(0, 0, 0, 0.5);
+    outline-offset: 2px;
+}
+
 
 
 /* Main Layout */
@@ -207,6 +283,11 @@ body:not(.dark) .toggle-theme__icon {
 .card:hover {
     border-color: rgba(255, 255, 255, 0.2);
     box-shadow: 0 15px 50px -10px rgba(0, 0, 0, 0.6);
+}
+
+body:not(.dark) .card:hover {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 50px -10px rgba(0, 50, 100, 0.15);
 }
 
 /* Profile Card */
@@ -351,6 +432,10 @@ body:not(.dark) .toggle-theme__icon {
     overflow: hidden;
     position: relative;
     width: 100%;
+}
+
+body:not(.dark) .skills__bar {
+    background: rgba(0, 0, 0, 0.1);
 }
 
 @keyframes fillBar {
@@ -696,4 +781,96 @@ body:not(.dark) .rs-img img {
     color: var(--text-muted);
     font-size: 0.9rem;
     font-weight: 500;
+}
+
+/* ── Filtro de proyectos ────────────────────────────────────────── */
+.filter-bar {
+    display: flex;
+    gap: 0.6em;
+    flex-wrap: wrap;
+    margin-bottom: 1.5em;
+}
+
+.filter-btn {
+    padding: 0.4em 1.1em;
+    border-radius: 2em;
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+    border: 1.5px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.15s ease;
+}
+
+.filter-btn:hover {
+    background: hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.12);
+}
+
+.filter-btn--active {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* Tarjeta de proyecto oculta por filtro */
+.card--project {
+    transition: opacity 0.35s ease, transform 0.35s ease, max-height 0.35s ease;
+}
+
+.card--hidden {
+    opacity: 0;
+    transform: scale(0.97);
+    pointer-events: none;
+    display: none;
+}
+
+/* ── Galería horizontal de proyectos ────────────────────────────── */
+.project-gallery {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+}
+
+.gallery__image {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    scroll-snap-align: start;
+    border-radius: 0;
+    cursor: zoom-in;
+}
+
+.gallery-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s ease;
+}
+
+.gallery-button:hover {
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.gallery-button--left {
+    left: 8px;
+}
+
+.gallery-button--right {
+    right: 8px;
 }

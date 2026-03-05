@@ -49,7 +49,7 @@ export default async function handler(req, res) {
     const finalBrowserName = isVercelBot ? `🤖 Vercel Bot (${browserName})` : browserName;
 
     const embed = {
-        username: '📊 Portfolio Logger',
+        username: '2B',
         embeds: [
             {
                 title: '👤 Nueva visita al Portfolio',
