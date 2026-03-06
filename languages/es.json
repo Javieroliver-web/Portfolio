@@ -19,6 +19,28 @@
         "third-job-dates": "Marzo 2023 - Junio 2023",
         "third-job-description": "Prácticas de primer curso de FP Grado Medio Sistemas Microinformaticos y Redes (SMR)."
     },
+    "education": {
+        "section-title": "Educación",
+        "skills-label": "Aptitudes",
+        "first-edu-title": "Ciclo Formativo de Grado Superior, Desarrollo de Aplicaciones Web",
+        "first-edu-school": "Centro Educativo Altair",
+        "first-edu-dates": "sept. 2025 - jul. 2026",
+        "first-edu-description": "Segundo año de Grado Superior de Desarrollo de Aplicaciones Web (DAW).",
+        "second-edu-title": "Ciclo Formativo de Grado Superior, Desarrollo de Aplicaciones Web",
+        "second-edu-school": "MEDAC",
+        "second-edu-dates": "sept. 2024 - jul. 2025",
+        "second-edu-description": "Primer año de Grado Superior de Desarrollo de Aplicaciones Web (DAW). Nota: 6.41",
+        "third-edu-title": "Formación Profesional de Grado Medio, Sistemas microinformaticos y redes",
+        "third-edu-school": "Diocesanos Nuestra Señora de las Mercedes Sevilla",
+        "third-edu-dates": "",
+        "third-edu-description": "Nota: 8.1"
+    },
+    "licenses": {
+        "section-title": "Licencias y certificaciones",
+        "license-1-title": "Permiso de conducción B",
+        "license-1-issuer": "Dirección General de Tráfico",
+        "license-1-dates": "Expedición nov. 2024 · Vencimiento: nov. 2034"
+    },
     "projects": {
         "first-project-title": "Portfolio page",
         "first-project-description": "Proyecto actualmente en desarrollo",

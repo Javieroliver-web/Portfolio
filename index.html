@@ -192,6 +192,83 @@
                 </div>
             </article>
 
+            <!-- Tarjeta de educación: 3 entradas ordenadas cronológicamente -->
+            <article class="card card--experience">
+                <h2 class="card__title" data-section="education" data-value="section-title">Educación</h2>
+
+                <!-- Educación 1: Centro Educativo Altair (Sept 2025 - Jul 2026) -->
+                <div class="experience">
+                    <img src="assets/images/altair.png" alt="logo Centro Educativo Altair" class="experience__image"
+                        width="60" height="60">
+                    <div class="experience__info">
+                        <p class="experience__time" data-section="education" data-value="first-edu-dates">sept. 2025 -
+                            jul. 2026</p>
+                        <h3 class="experience__job" data-section="education" data-value="first-edu-title">Ciclo
+                            Formativo de Grado Superior, Desarrollo de Aplicaciones Web</h3>
+                        <p class="experience__company" data-section="education" data-value="first-edu-school">Centro
+                            Educativo Altair</p>
+                        <p class="experience__description" data-section="education" data-value="first-edu-description">
+                            Segundo año de Grado Superior de Desarrollo de Aplicaciones Web (DAW).</p>
+                        <p class="experience__skills"><strong data-section="education"
+                                data-value="skills-label">Aptitudes:</strong> API de Postman · Desarrollo de API ·
+                            Docker · Pruebas API · Angular</p>
+                    </div>
+                </div>
+
+                <!-- Educación 2: MEDAC (Sept 2024 - Jul 2025) -->
+                <div class="experience">
+                    <img src="assets/images/medac.png" alt="logo MEDAC" class="experience__image" width="60"
+                        height="60">
+                    <div class="experience__info">
+                        <p class="experience__time" data-section="education" data-value="second-edu-dates">sept. 2024 -
+                            jul. 2025</p>
+                        <h3 class="experience__job" data-section="education" data-value="second-edu-title">Ciclo
+                            Formativo de Grado Superior, Desarrollo de Aplicaciones Web</h3>
+                        <p class="experience__company" data-section="education" data-value="second-edu-school">MEDAC</p>
+                        <p class="experience__description" data-section="education" data-value="second-edu-description">
+                            Primer año de Grado Superior de Desarrollo de Aplicaciones Web (DAW). Nota: 6.41</p>
+                    </div>
+                </div>
+
+                <!-- Educación 3: Diocesanos Nuestra Señora de las Mercedes Sevilla -->
+                <div class="experience">
+                    <img src="assets/images/diocesanos.png" alt="logo Diocesanos" class="experience__image" width="60"
+                        height="60">
+                    <div class="experience__info">
+                        <p class="experience__time" data-section="education" data-value="third-edu-dates"></p>
+                        <h3 class="experience__job" data-section="education" data-value="third-edu-title">Formación
+                            Profesional de Grado Medio, Sistemas microinformaticos y redes</h3>
+                        <p class="experience__company" data-section="education" data-value="third-edu-school">Diocesanos
+                            Nuestra Señora de las Mercedes Sevilla</p>
+                        <p class="experience__description" data-section="education" data-value="third-edu-description">
+                            Nota: 8.1</p>
+                        <p class="experience__skills"><strong data-section="education"
+                                data-value="skills-label">Aptitudes:</strong> Microsoft Visual Studio Code · Draw.io ·
+                            Informática · Programación · XML · Microsoft Excel · HTML5 · Reparación de equipos
+                            informáticos · Microsoft Office</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Tarjeta de licencias y certificaciones -->
+            <article class="card card--experience">
+                <h2 class="card__title" data-section="licenses" data-value="section-title">Licencias y certificaciones
+                </h2>
+
+                <!-- Licencia 1: Permiso de conducción B -->
+                <div class="experience">
+                    <img src="assets/images/dgt.png" alt="logo DGT" class="experience__image" width="60" height="60">
+                    <div class="experience__info">
+                        <h3 class="experience__job" data-section="licenses" data-value="license-1-title">Permiso de
+                            conducción B</h3>
+                        <p class="experience__company" data-section="licenses" data-value="license-1-issuer">Dirección
+                            General de Tráfico</p>
+                        <p class="experience__description" data-section="licenses" data-value="license-1-dates">
+                            Expedición nov. 2024 · Vencimiento: nov. 2034</p>
+                    </div>
+                </div>
+            </article>
+
             <!-- Tarjeta de descarga del CV en PDF -->
             <article class="card card--CV">
                 <h2 class="card__title" data-section="download" data-value="download-pdf">Descargar CV en PDF</h2>
@@ -291,6 +368,10 @@
                         <p class="skills__tech">PostgreSQL</p>
                         <div class="skills__bar" data-years="0.4"></div>
                     </div>
+                    <div class="skills__item">
+                        <p class="skills__tech">Node.js</p>
+                        <div class="skills__bar" data-years="0.4"></div>
+                    </div>
                 </div>
             </article>
 
@@ -359,13 +440,13 @@
                         <span class="project__tag">#CSS</span>
                         <span class="project__tag">#JavaScript</span>
                         <span class="project__tag">#Responsive</span>
+                        <span class="project__tag">#Vercel</span>
+                        <span class="project__tag">#Node</span>
                     </div>
                     <h2 class="card__title" data-section="projects" data-value="first-project-title">Portfolio page</h2>
                     <p class="card__text" data-section="projects" data-value="first-project-description">Proyecto
                         constantemente en desarrollo.</p>
                     <div class="buttons">
-                        <a href="https://javieroliver-web.github.io/Portfolio/" class="button--primary"
-                            target="_blank">Demo</a>
                         <a href="https://github.com/Javieroliver-web/Portfolio" class="button--code"
                             target="_blank">Code</a>
                     </div>
@@ -447,7 +528,7 @@
 
     <!-- ── FOOTER VERSIONADO ──────────────────────────────────────── -->
     <footer class="footer">
-        <p>Actualizado: <span id="last-updated">05/03/2026</span> | v1.1.0.6</p>
+        <p>Actualizado: <span id="last-updated">05/03/2026</span> | v1.1.0.61</p>
     </footer>
 
     <!-- ════════════════════════════════════════════════════════════

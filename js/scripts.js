@@ -252,9 +252,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 item.classList.remove('colors__item--active');
             });
             target.classList.add('colors__item--active');
-
-            // Actualizar color del cursor SVG
-            window._updateCursorColor?.();
         }
     });
 
@@ -373,45 +370,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
         lastUpdatedEl.textContent = today.toLocaleDateString('es-ES', options);
     }
-
-    // ── Cursor blob (mix-blend-mode: difference) ────────────────────
-    /**
-     * Único círculo blanco que invierte los colores debajo de él.
-     * Sin dependencias de color ni de tema — funciona en cualquier fondo.
-     * Basado en el patrón usado por Bruno Simon y Vercel.
-     */
-    const isTouchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
-    if (!isTouchDevice) {
-        const blob = document.createElement('div');
-        blob.classList.add('cursor-blob');
-        blob.style.opacity = '0'; // oculto hasta que el ratón se mueva por primera vez
-        document.body.appendChild(blob);
-
-        // Seguir al cursor; revelarlo en el primer movimiento real
-        let blobX = 0, blobY = 0;
-        window.addEventListener('mousemove', (e) => {
-            blobX = e.clientX;
-            blobY = e.clientY;
-            blob.style.transform = `translate(calc(${blobX}px - 50%), calc(${blobY}px - 50%))`;
-            blob.style.opacity = '1'; // ya tiene posición real, mostrar
-        }, { once: false });
-
-        // Hover: el blob se expande
-        const interactives = 'a, button, [role="button"], .colors__item, .flags__item, .toggle-theme, .filter-btn, .gallery-button, .lightbox__close, .btn-scroll-top';
-        document.querySelectorAll(interactives).forEach(el => {
-            el.addEventListener('mouseenter', () => blob.classList.add('cursor-blob--hover'));
-            el.addEventListener('mouseleave', () => blob.classList.remove('cursor-blob--hover'));
-        });
-
-        // Click: contracción
-        window.addEventListener('mousedown', () => blob.classList.add('cursor-blob--clicking'));
-        window.addEventListener('mouseup', () => blob.classList.remove('cursor-blob--clicking'));
-
-        // Desaparecer al salir del viewport
-        document.addEventListener('mouseleave', () => blob.style.opacity = '0');
-        document.addEventListener('mouseenter', () => blob.style.opacity = '1');
-    }
-    // ────────────────────────────────────────────────────────────────
 
     // ── Filtro de proyectos ─────────────────────────────────────────
     /**

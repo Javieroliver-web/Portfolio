@@ -19,6 +19,28 @@
         "third-job-dates": "March 2023 - June 2023",
         "third-job-description": "Internship of the first year of Mid-Level Vocational Training in Microcomputer Systems and Networks (SMR)."
     },
+    "education": {
+        "section-title": "Education",
+        "skills-label": "Skills",
+        "first-edu-title": "Higher Vocational Training, Web Application Development",
+        "first-edu-school": "Centro Educativo Altair",
+        "first-edu-dates": "Sept. 2025 - Jul. 2026",
+        "first-edu-description": "Second year of Higher Vocational Training in Web Application Development (DAW).",
+        "second-edu-title": "Higher Vocational Training, Web Application Development",
+        "second-edu-school": "MEDAC",
+        "second-edu-dates": "Sept. 2024 - Jul. 2025",
+        "second-edu-description": "First year of Higher Vocational Training in Web Application Development (DAW). Grade: 6.41",
+        "third-edu-title": "Mid-Level Vocational Training, Microcomputer Systems and Networks",
+        "third-edu-school": "Diocesanos Nuestra Señora de las Mercedes Sevilla",
+        "third-edu-dates": "",
+        "third-edu-description": "Grade: 8.1"
+    },
+    "licenses": {
+        "section-title": "Licenses & Certifications",
+        "license-1-title": "Driving license class B",
+        "license-1-issuer": "Directorate-General for Traffic (DGT)",
+        "license-1-dates": "Issued Nov 2024 · Expires: Nov 2034"
+    },
     "projects": {
         "first-project-title": "Portfolio page",
         "first-project-description": "Project currently under development",
