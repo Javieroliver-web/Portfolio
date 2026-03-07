@@ -5,7 +5,7 @@
     },
     "profile": {
         "rol": "Desarrollador Front-end",
-        "description": "Tengo conocimientos usando varias tecnologías durante mis estudios y etapa laboral. Me gusta ver mi futuro con ambición además de ser positivo y seguro de todo lo que hago. Disfruto también trabajando en equipo con personas de todas las edades a las que puedo escuchar y también aprender sobre ellos."
+        "description": "He adquirido conocimientos en diversas tecnologías durante mis estudios y experiencia laboral. Afronto mi futuro con ambición, manteniendo una actitud positiva y segura en todo lo que hago. Disfruto mucho del trabajo en equipo con personas de todas las edades, ya que me permite escuchar distintas perspectivas y aprender continuamente."
     },
     "experiences": {
         "section-title": "Experiencia",
@@ -44,12 +44,9 @@
     "projects": {
         "first-project-title": "Portfolio page",
         "first-project-description": "Proyecto actualmente en desarrollo",
-        "second-project-title": "Área de trabajo Angular",
-        "second-project-description": "Area de trabajo con algunos proyectos sencillos en Angular.",
-        "third-project-title": "Tercer Proyecto",
-        "third-project-description": "Descripción de mi tercer proyecto.",
-        "fourth-project-title": "Cuarto Proyecto",
-        "fourth-project-description": "Descripción de mi cuarto proyecto."
+        "second-project-title": "Proyecto Vesta",
+        "second-project-description": "Este es mi proyecto personal que presenté como TFG en el fin de mi grado superior de Desarrollo de Aplicaciones Web (DAW). Se trata de un proyecto que simula un Marketplace de una empresa de seguros con algunas funciones extras que quise implementar, si os interesa podéis informaros desde la documentación que guardo en el repositorio del proyecto API.",
+        "second-project-warning": "⚠️ Acceso web limitado hasta el 14 de abril de 2026 por restricciones de servidor."
     },
     "skills": {
         "years": "Años de experiencia"

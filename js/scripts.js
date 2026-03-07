@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "theme": { "mode-dark": "Modo Oscuro", "mode-white": "Modo Claro" },
             "profile": {
                 "rol": "DESARROLLADOR WEB<br>FULL-STACK JUNIOR",
-                "description": "Tengo conocimientos usando varias tecnologías durante mis estudios y etapa laboral. Me gusta ver mi futuro con ambición además de ser positivo y seguro de todo lo que hago. Disfruto también trabajando en equipo con personas de todas las edades a las que puedo escuchar y también aprender sobre ellos."
+                "description": "He adquirido conocimientos en diversas tecnologías durante mis estudios y experiencia laboral. Afronto mi futuro con ambición, manteniendo una actitud positiva y segura en todo lo que hago. Disfruto mucho del trabajo en equipo con personas de todas las edades, ya que me permite escuchar distintas perspectivas y aprender continuamente."
             },
             "experiences": {
                 "section-title": "Experiencia",
@@ -127,10 +127,9 @@ document.addEventListener("DOMContentLoaded", () => {
             "projects": {
                 "first-project-title": "Portfolio page",
                 "first-project-description": "Proyecto constantemente en desarrollo.",
-                "second-project-title": "Área de trabajo Angular",
-                "second-project-description": "Area de trabajo con algunos proyectos sencillos en Angular.",
-                "third-project-title": "Proyecto Vesta",
-                "third-project-description": "Este es mi proyecto personal que presenté como TFG en el fin de mi grado superior de Desarrollo de Aplicaciones Web (DAW). Se trata de un proyecto que simula un Marketplace de una empresa de seguros con algunas funciones extras que quise implementar, si os interesa podéis informaros desde la documentación que guardo en el repositorio del proyecto API.",
+                "second-project-title": "Proyecto Vesta",
+                "second-project-description": "Este es mi proyecto personal que presenté como TFG en el fin de mi grado superior de Desarrollo de Aplicaciones Web (DAW). Se trata de un proyecto que simula un Marketplace de una empresa de seguros con algunas funciones extras que quise implementar, si os interesa podéis informaros desde la documentación que guardo en el repositorio del proyecto API.",
+                "second-project-warning": "⚠️ Acceso web limitado hasta el 14 de abril de 2026 por restricciones de servidor."
             },
             "skills": { "years": "Años de experiencia" },
             "download": { "download-pdf": "Descargar CV en PDF", "button-cv": "Descargar PDF", "social-media": "Redes Sociales" }
@@ -139,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "theme": { "mode-dark": "Dark Mode", "mode-white": "Light Mode" },
             "profile": {
                 "rol": "JUNIOR FULL-STACK WEB DEVELOPER",
-                "description": "I have knowledge using various technologies during my studies and work stage. I like to see my future with ambition in addition to being positive and confident in everything I do. Enjoy also working as a team with people of all ages through the ones that I can listen to and also learn about."
+                "description": "I have acquired knowledge of various technologies during my studies and work experience. I face my future with ambition, maintaining a positive and confident attitude in everything I do. I truly enjoy working in teams with people of all ages, as it allows me to listen to different perspectives and continuously learn from them."
             },
             "experiences": {
                 "section-title": "Experience",
@@ -156,10 +155,9 @@ document.addEventListener("DOMContentLoaded", () => {
             "projects": {
                 "first-project-title": "Portfolio page",
                 "first-project-description": "Project constantly under development.",
-                "second-project-title": "Angular Workspace",
-                "second-project-description": "Workspace with some simple projects in Angular.",
-                "third-project-title": "Vesta Project",
-                "third-project-description": "This is my personal project that I presented as my Final Degree Project at the end of my Higher Technician in Web Application Development (DAW). It simulates a Marketplace for an insurance company with some extra functions that I wanted to implement. If you are interested, you can find more information in the documentation kept in the API project repository.",
+                "second-project-title": "Vesta Project",
+                "second-project-description": "This is my personal project that I presented as my Final Degree Project at the end of my Higher Technician in Web Application Development (DAW). It simulates a Marketplace for an insurance company with some extra functions that I wanted to implement. If you are interested, you can find more information in the documentation kept in the API project repository.",
+                "second-project-warning": "⚠️ Web access limited until April 14, 2026 due to server constraints."
             },
             "skills": { "years": "Years of experience" },
             "download": { "download-pdf": "Download CV in PDF", "button-cv": "Download PDF", "social-media": "Social Media" }

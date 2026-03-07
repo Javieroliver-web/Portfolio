@@ -5,7 +5,7 @@
     },
     "profile": {
         "rol": "Front-end Developer",
-        "description": "I have knowledge using various technologies during my studies and work stage. I like to see my future with ambition in addition to being positive and confident in everything I do. Enjoy also working as a team with people of all ages through the ones that I can listen to and also learn about."
+        "description": "I have acquired knowledge of various technologies during my studies and work experience. I face my future with ambition, maintaining a positive and confident attitude in everything I do. I truly enjoy working in teams with people of all ages, as it allows me to listen to different perspectives and continuously learn from them."
     },
     "experiences": {
         "section-title": "Experience",
@@ -44,12 +44,9 @@
     "projects": {
         "first-project-title": "Portfolio page",
         "first-project-description": "Project currently under development",
-        "second-project-title": "Angular Workspace",
-        "second-project-description": "Workspace with some simple projects in Angular.",
-        "third-project-title": "Third Project",
-        "third-project-description": "Description of my third project.",
-        "fourth-project-title": "Fourth Project",
-        "fourth-project-description": "Description of my fourth project."
+        "second-project-title": "Vesta Project",
+        "second-project-description": "This is my personal project that I presented as my Final Degree Project at the end of my Higher Technician in Web Application Development (DAW). It simulates a Marketplace for an insurance company with some extra functions that I wanted to implement. If you are interested, you can find more information in the documentation kept in the API project repository.",
+        "second-project-warning": "⚠️ Web access limited until April 14, 2026 due to server constraints."
     },
     "skills": {
         "years": "Years of experience"
