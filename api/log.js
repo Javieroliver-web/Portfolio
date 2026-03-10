@@ -4,11 +4,11 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    // Webhook proporcionado anteriormente o variable de entorno
-    const webhookUrl = process.env.DISCORD_WEBHOOK_URL || "https://discord.com/api/webhooks/1478670444197314722/HFh25OqSJUtdRMERUISdYwUYf9QW6ROHZWJxaLrI8JEnXlAvs_WChmoN_F_MgSAZYFMA";
+
+    const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
 
     if (!webhookUrl) {
-        console.error("[log.js] Error: Webhook not configured");
+        console.error("[log.js] Error: DISCORD_WEBHOOK_URL no configurado");
         return res.status(500).json({ error: 'Webhook not configured' });
     }
 
