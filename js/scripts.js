@@ -507,4 +507,38 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
     // ────────────────────────────────────────────────────────────────
+
+    // ── Tracking de clics en Proyectos ──────────────────────────────
+    /**
+     * Detecta clics en los enlaces de los proyectos (Web, Code, API)
+     * buscando el atributo data-project.
+     */
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('[data-project]');
+        if (!link) return;
+
+        const isProduction = location.hostname !== 'localhost' && location.hostname !== '127.0.0.1';
+        if (!isProduction) return;
+
+        const projectData = {
+            timestamp: new Date().toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }),
+            language: navigator.language || navigator.userLanguage,
+            screen: `${screen.width}x${screen.height}`,
+            userAgent: navigator.userAgent,
+            page: location.href,
+            project: link.dataset.project,
+            action: link.dataset.projectAction || 'unknown',
+        };
+
+        fetch('/api/log-project', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                // Cabecera de seguridad compartida con el servidor
+                'X-Log-Secret': 'pf-log-9x3k7m2w8q4e1r6t0y5',
+            },
+            body: JSON.stringify(projectData),
+        }).catch(() => { }); // silencioso
+    });
+    // ────────────────────────────────────────────────────────────────
 });
