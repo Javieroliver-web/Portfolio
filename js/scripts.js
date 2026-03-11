@@ -458,4 +458,43 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     // ────────────────────────────────────────────────────────────────
+
+    // ── Tracking de clics en Redes Sociales ────────────────────────
+    /**
+     * Registra silenciosamente cuándo alguien hace clic en un enlace
+     * de red social, enviando los datos del visitante al webhook de Discord
+     * configurado en DISCORD_SOCIAL_WEBHOOK_URL.
+     * Solo se ejecuta en producción (no en localhost).
+     */
+    const socialLinks = [
+        { id: 'linkedin-link',  social: 'linkedin'  },
+        { id: 'instagram-link', social: 'instagram' },
+        { id: 'whatsapp-link',  social: 'whatsapp'  },
+    ];
+
+    socialLinks.forEach(({ id, social }) => {
+        const link = document.getElementById(id);
+        if (!link) return;
+
+        link.addEventListener('click', () => {
+            const isProduction = location.hostname !== 'localhost' && location.hostname !== '127.0.0.1';
+            if (!isProduction) return;
+
+            const clickData = {
+                timestamp: new Date().toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }),
+                language: navigator.language || navigator.userLanguage,
+                screen: `${screen.width}x${screen.height}`,
+                userAgent: navigator.userAgent,
+                page: location.href,
+                social,
+            };
+
+            fetch('/api/log-social', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(clickData),
+            }).catch(() => { }); // silencioso: no muestra errores al usuario
+        });
+    });
+    // ────────────────────────────────────────────────────────────────
 });

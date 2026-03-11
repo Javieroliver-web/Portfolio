@@ -1,0 +1,14 @@
+# Dependencias Node
+node_modules/
+
+# Variables de entorno locales
+.env
+.env.local
+.env.*.local
+
+# Logs de visitas y clics (estadísticas locales, no se suben al repo)
+logs/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
