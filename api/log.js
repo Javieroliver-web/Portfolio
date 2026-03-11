@@ -14,6 +14,17 @@ export default async function handler(req, res) {
         return res.status(500).json({ error: 'Webhook not configured' });
     }
 
+    // Verificar cabecera secreta para bloquear peticiones no autorizadas
+    const secret = process.env.LOG_SECRET;
+    if (secret && req.headers['x-log-secret'] !== secret) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+
+    // Comprobar que el cuerpo de la peticion es un objeto valido
+    if (!req.body || typeof req.body !== 'object') {
+        return res.status(400).json({ error: 'Invalid request body' });
+    }
+
     const { timestamp, referrer, language, screen, userAgent, page } = req.body;
 
     // Función auxiliar para parsear el navegador
@@ -29,8 +40,9 @@ export default async function handler(req, res) {
 
     const browserName = parseUserAgent(userAgent);
 
-    // Obtener la IP del usuario (Vercel inyecta x-forwarded-for)
-    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'IP desconocida';
+    // Obtener la IP real: Vercel añade la IP real al FINAL de x-forwarded-for
+    const rawIp = req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'IP desconocida';
+    const ip = rawIp.split(',').pop().trim();
 
     // Obtener localización (Vercel inyecta estas cabeceras automáticamente)
     const rawCountry = req.headers['x-vercel-ip-country'] || '';
@@ -50,6 +62,7 @@ export default async function handler(req, res) {
     const isVercelBot = userAgent && userAgent.toLowerCase().includes('vercel-screenshot');
     const finalBrowserName = isVercelBot ? `🤖 Vercel Bot (${browserName})` : browserName;
 
+    // Construir el payload para la API de Discord (formato embed)
     const embed = {
         username: '2B',
         embeds: [

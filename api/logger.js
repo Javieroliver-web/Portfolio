@@ -2,19 +2,22 @@ import fs from 'fs';
 import path from 'path';
 
 /**
- * Appends a JSON entry (one per line, NDJSON format) to a log file.
- * In production (Vercel) the filesystem is ephemeral, so this is mainly
- * useful for local development and statistics review.
+ * Escribe una entrada JSON en una nueva linea al final del archivo indicado
+ * (formato NDJSON: una entrada por linea).
  *
- * @param {string} filename  - Name of the log file (e.g. 'visits.log')
- * @param {object} entry     - Data object to serialize and append.
+ * En produccion (Vercel), el sistema de archivos es efimero y los datos
+ * no persisten entre invocaciones. Esta funcion es util principalmente
+ * durante el desarrollo local.
+ *
+ * @param {string} filename - Nombre del archivo de log (p.ej. 'visits.log').
+ * @param {object} entry    - Objeto con los datos a registrar.
  */
 export function appendLog(filename, entry) {
     try {
-        // Resolve logs/ relative to the project root (one level above /api)
+        // Resolver la ruta a logs/ relativa a la raiz del proyecto (un nivel sobre /api)
         const logsDir = path.resolve(process.cwd(), 'logs');
 
-        // Create the directory if it doesn't exist yet
+        // Crear el directorio si no existe todavia
         if (!fs.existsSync(logsDir)) {
             fs.mkdirSync(logsDir, { recursive: true });
         }
@@ -23,7 +26,8 @@ export function appendLog(filename, entry) {
         const line = JSON.stringify(entry) + '\n';
         fs.appendFileSync(filePath, line, 'utf8');
     } catch (err) {
-        // Never crash the handler because of a logging failure
+        // Capturar el error sin propagar: un fallo de escritura nunca debe
+        // interrumpir la respuesta del handler principal.
         console.error(`[logger.js] No se pudo escribir en ${filename}:`, err.message);
     }
 }

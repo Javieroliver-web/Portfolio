@@ -15,7 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
         };
         fetch('/api/log', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json',
+                // Cabecera de seguridad compartida con el servidor para bloquear peticiones externas
+                'X-Log-Secret': 'pf-log-9x3k7m2w8q4e1r6t0y5',
+            },
             body: JSON.stringify(visitData),
         }).catch(() => { }); // silencioso: no muestra errores al usuario
     };
@@ -402,6 +406,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnScrollTop = document.getElementById("btn-scroll-top");
     if (btnScrollTop) {
         window.addEventListener("scroll", () => {
+            // Mostrar el boton cuando el usuario ha bajado mas de 300px desde el inicio
             if (window.scrollY > 300) {
                 btnScrollTop.classList.add("show");
             } else {
@@ -466,6 +471,7 @@ document.addEventListener("DOMContentLoaded", () => {
      * configurado en DISCORD_SOCIAL_WEBHOOK_URL.
      * Solo se ejecuta en producción (no en localhost).
      */
+    // Cada entrada mapea el id del enlace en el HTML con su nombre de red social
     const socialLinks = [
         { id: 'linkedin-link',  social: 'linkedin'  },
         { id: 'instagram-link', social: 'instagram' },
@@ -491,7 +497,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             fetch('/api/log-social', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    // Cabecera de seguridad compartida con el servidor para bloquear peticiones externas
+                    'X-Log-Secret': 'pf-log-9x3k7m2w8q4e1r6t0y5',
+                },
                 body: JSON.stringify(clickData),
             }).catch(() => { }); // silencioso: no muestra errores al usuario
         });

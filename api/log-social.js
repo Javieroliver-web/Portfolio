@@ -13,7 +13,24 @@ export default async function handler(req, res) {
         return res.status(500).json({ error: 'Webhook not configured' });
     }
 
+    // Verificar cabecera secreta para bloquear peticiones no autorizadas
+    const secret = process.env.LOG_SECRET;
+    if (secret && req.headers['x-log-secret'] !== secret) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+
+    // Comprobar que el cuerpo de la peticion es un objeto valido
+    if (!req.body || typeof req.body !== 'object') {
+        return res.status(400).json({ error: 'Invalid request body' });
+    }
+
     const { timestamp, language, screen, userAgent, page, social } = req.body;
+
+    // Validar que el campo social sea uno de los permitidos
+    const allowedSocials = ['linkedin', 'instagram', 'whatsapp'];
+    if (!allowedSocials.includes(social)) {
+        return res.status(400).json({ error: 'Invalid social network' });
+    }
 
     // Función auxiliar para parsear el navegador
     function parseUserAgent(ua) {
@@ -28,8 +45,9 @@ export default async function handler(req, res) {
 
     const browserName = parseUserAgent(userAgent);
 
-    // Obtener la IP del usuario (Vercel inyecta x-forwarded-for)
-    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'IP desconocida';
+    // Obtener la IP real: Vercel añade la IP real al FINAL de x-forwarded-for
+    const rawIp = req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'IP desconocida';
+    const ip = rawIp.split(',').pop().trim();
 
     // Obtener localización (Vercel inyecta estas cabeceras automáticamente)
     const rawCountry = req.headers['x-vercel-ip-country'] || '';
@@ -45,20 +63,22 @@ export default async function handler(req, res) {
         location = `${city}${city ? ', ' : ''}${region}${region ? ' ' : ''}[${country}]`.trim();
     }
 
-    // Detectar bots de Vercel
+    // Detectar si es un bot de Vercel (generador de capturas/previsualizaciones)
     const isVercelBot = userAgent && userAgent.toLowerCase().includes('vercel-screenshot');
     const finalBrowserName = isVercelBot ? `🤖 Vercel Bot (${browserName})` : browserName;
 
-    // Personalizar título e color según la red social
+    // Personalizar titulo y color segun la red social
     const socialMeta = {
         linkedin:  { label: 'LinkedIn',   emoji: '💼', color: 0x0a66c2 },
         instagram: { label: 'Instagram',  emoji: '📸', color: 0xe1306c },
         whatsapp:  { label: 'WhatsApp',   emoji: '💬', color: 0x25d366 },
     };
-    const meta = socialMeta[social] || { label: social || 'Desconocida', emoji: '🔗', color: 0x5865f2 };
+    // El campo 'social' ya fue validado arriba; el fallback es solo defensa adicional
+    const meta = socialMeta[social] || { label: social || 'Desconocida', emoji: '?', color: 0x5865f2 };
 
+    // Construir el payload para la API de Discord (formato embed)
     const embed = {
-        username: '2B',
+        username: 'Vivy',
         embeds: [
             {
                 title: `${meta.emoji} Clic en ${meta.label} desde el Portfolio`,
