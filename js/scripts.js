@@ -124,6 +124,34 @@ document.addEventListener("DOMContentLoaded", () => {
                 "third-job-dates": "Marzo 2023 - Junio 2023",
                 "third-job-description": "Prácticas de primer curso de FP Grado Medio Sistemas Microinformaticos y Redes (SMR)."
             },
+            "education": {
+                "section-title": "Educación",
+                "skills-label": "Aptitudes",
+                "first-edu-title": "Ciclo Formativo de Grado Superior, Desarrollo de Aplicaciones Web",
+                "first-edu-school": "Centro Educativo Altair",
+                "first-edu-dates": "sept. 2025 - jul. 2026",
+                "first-edu-description": "Segundo año de Grado Superior de Desarrollo de Aplicaciones Web (DAW).",
+                "second-edu-title": "Ciclo Formativo de Grado Superior, Desarrollo de Aplicaciones Web",
+                "second-edu-school": "MEDAC",
+                "second-edu-dates": "sept. 2024 - jul. 2025",
+                "second-edu-description": "Primer año de Grado Superior de Desarrollo de Aplicaciones Web (DAW). Nota: 6.41",
+                "third-edu-title": "Formación Profesional de Grado Medio, Sistemas microinformaticos y redes",
+                "third-edu-school": "Diocesanos Nuestra Señora de las Mercedes Sevilla",
+                "third-edu-dates": "",
+                "third-edu-description": "Nota: 8.1"
+            },
+            "licenses": {
+                "section-title": "Licencias y certificaciones",
+                "license-1-title": "Permiso de conducción B",
+                "license-1-issuer": "Dirección General de Tráfico",
+                "license-1-dates": "Expedición nov. 2024 · Vencimiento: nov. 2034",
+                "cert-1-title": "Certificado Curso Seguridad de la Información",
+                "cert-1-issuer": "Ayesa",
+                "cert-1-btn": "Previsualizar",
+                "cert-2-title": "Certificado Curso Prevención Riesgos Laborales",
+                "cert-2-issuer": "Ayesa",
+                "cert-2-btn": "Previsualizar"
+            },
             "projects": {
                 "first-project-title": "Portfolio page",
                 "first-project-description": "Proyecto constantemente en desarrollo.",
@@ -151,6 +179,34 @@ document.addEventListener("DOMContentLoaded", () => {
                 "third-job-title": "Front-End Junior Developer",
                 "third-job-dates": "March 2023 - June 2023",
                 "third-job-description": "Internship of the first year of Mid-Level Vocational Training in Microcomputer Systems and Networks (SMR)."
+            },
+            "education": {
+                "section-title": "Education",
+                "skills-label": "Skills",
+                "first-edu-title": "Higher Vocational Training, Web Application Development",
+                "first-edu-school": "Centro Educativo Altair",
+                "first-edu-dates": "Sept. 2025 - Jul. 2026",
+                "first-edu-description": "Second year of Higher Vocational Training in Web Application Development (DAW).",
+                "second-edu-title": "Higher Vocational Training, Web Application Development",
+                "second-edu-school": "MEDAC",
+                "second-edu-dates": "Sept. 2024 - Jul. 2025",
+                "second-edu-description": "First year of Higher Vocational Training in Web Application Development (DAW). Grade: 6.41",
+                "third-edu-title": "Mid-Level Vocational Training, Microcomputer Systems and Networks",
+                "third-edu-school": "Diocesanos Nuestra Señora de las Mercedes Sevilla",
+                "third-edu-dates": "",
+                "third-edu-description": "Grade: 8.1"
+            },
+            "licenses": {
+                "section-title": "Licenses & Certifications",
+                "license-1-title": "Driving license class B",
+                "license-1-issuer": "Directorate-General for Traffic (DGT)",
+                "license-1-dates": "Issued Nov 2024 · Expires: Nov 2034",
+                "cert-1-title": "Information Security Certificate Course",
+                "cert-1-issuer": "Ayesa",
+                "cert-1-btn": "Preview",
+                "cert-2-title": "Occupational Risk Prevention Certificate Course",
+                "cert-2-issuer": "Ayesa",
+                "cert-2-btn": "Preview"
             },
             "projects": {
                 "first-project-title": "Portfolio page",
