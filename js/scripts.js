@@ -154,7 +154,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 "cert-1-btn": "Previsualizar",
                 "cert-2-title": "Certificado Curso Prevención Riesgos Laborales",
                 "cert-2-issuer": "Ayesa",
-                "cert-2-btn": "Previsualizar"
+                "cert-2-btn": "Previsualizar",
+                "cert-3-title": "Certificado Reglamento Protección de Datos",
+                "cert-3-issuer": "Ayesa",
+                "cert-3-btn": "Previsualizar"
             },
             "projects": {
                 "first-project-title": "Portfolio page",
@@ -210,7 +213,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 "cert-1-btn": "Preview",
                 "cert-2-title": "Occupational Risk Prevention Certificate Course",
                 "cert-2-issuer": "Ayesa",
-                "cert-2-btn": "Preview"
+                "cert-2-btn": "Preview",
+                "cert-3-title": "Data Protection Regulation Certificate",
+                "cert-3-issuer": "Ayesa",
+                "cert-3-btn": "Preview"
             },
             "projects": {
                 "first-project-title": "Portfolio page",

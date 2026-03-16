@@ -14,6 +14,12 @@ import path from 'path';
  */
 export function appendLog(filename, entry) {
     try {
+        // En Vercel el sistema de archivos es de solo lectura (excepto /tmp)
+        // y los logs no persisten, omitimos la escritura local.
+        if (process.env.VERCEL) {
+            return;
+        }
+
         // Resolver la ruta a logs/ relativa a la raiz del proyecto (un nivel sobre /api)
         const logsDir = path.resolve(process.cwd(), 'logs');
 
