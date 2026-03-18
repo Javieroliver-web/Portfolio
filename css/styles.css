@@ -594,24 +594,41 @@ body:not(.dark) .card:hover {
     justify-content: center;
 }
 
-.rs-img img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain; /* Obliga a mantener la proporción original */
-    filter: grayscale(100%);
+.rs-icon {
+    font-size: 2.2rem;
+    color: var(--text-color);
     opacity: 0.7;
     transition: var(--transition);
 }
 
-/* Original colors in light mode */
-body:not(.dark) .rs-img img {
-    filter: none;
+/* En modo claro los iconos resaltan más por defecto */
+body:not(.dark) .rs-icon {
     opacity: 1;
 }
 
-.rs-img img:hover {
-    filter: grayscale(0%);
+/* Colores originales al pasar el ratón */
+#linkedin-link:hover .rs-icon {
+    color: #0e76a8;
     opacity: 1;
+    transform: scale(1.1);
+}
+
+#github-link:hover .rs-icon {
+    color: var(--primary-color);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+#instagram-link:hover .rs-icon {
+    color: #E1306C;
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+#whatsapp-link:hover .rs-icon {
+    color: #25D366;
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 /* Lightbox */
