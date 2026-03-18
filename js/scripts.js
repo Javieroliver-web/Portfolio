@@ -234,6 +234,18 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
+        // Actualizar la ruta del CV y su nombre de descarga según el idioma
+        const cvLink = document.querySelector(".button--cv");
+        if (cvLink) {
+            if (language === 'en') {
+                cvLink.href = 'assets/descargas/cv_18-03-2026-en.pdf';
+                cvLink.download = 'CV_Francisco_Javier_Parraga_EN.pdf';
+            } else {
+                cvLink.href = 'assets/descargas/cv_18-03-2026.pdf';
+                cvLink.download = 'CV_Francisco_Javier_Parraga.pdf';
+            }
+        }
+
         updateToggleText();
         // Reiniciar typewriter al nuevo idioma (si ya fue inicializado)
         if (typeof window.__resetTypewriter === 'function') {
