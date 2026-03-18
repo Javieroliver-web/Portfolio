@@ -454,6 +454,8 @@ body:not(.dark) .skills__bar {
 
 .buttons {
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     gap: 1em;
     margin-top: auto;
     padding-top: 1.5em;
@@ -462,6 +464,9 @@ body:not(.dark) .skills__bar {
 .button--primary,
 .button--code,
 .button--cv {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 0.6em 1.5em;
     border-radius: 2em;
     font-weight: 600;
