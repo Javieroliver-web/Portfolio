@@ -52,7 +52,7 @@ export default async function handler(req, res) {
     const cvName = cvLanguage === 'en' ? 'Curriculum en Inglés' : 'Curriculum en Español';
 
     const embed = {
-        username: '2B - CV Tracker',
+        username: 'Yuki',
         embeds: [
             {
                 title: `📄 ¡Han descargado tu CV! ${flagIcon}`,
