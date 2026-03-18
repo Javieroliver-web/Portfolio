@@ -618,4 +618,35 @@ document.addEventListener("DOMContentLoaded", () => {
         }).catch(() => { }); // silencioso
     });
     // ────────────────────────────────────────────────────────────────
+
+    // ── Tracking de Descargas de CV ─────────────────────────────────
+    const cvDownloadBtn = document.querySelector('.button--cv');
+    if (cvDownloadBtn) {
+        cvDownloadBtn.addEventListener('click', () => {
+            const isProduction = location.hostname !== 'localhost' && location.hostname !== '127.0.0.1';
+            if (!isProduction) return; // Se bloquea en localhost para no llenar de registros falsos
+
+            // Sabe el idioma mirando a dónde apunta actualmente el enlace
+            const cvLang = cvDownloadBtn.href.includes('-en.pdf') ? 'en' : 'es';
+
+            const downloadData = {
+                timestamp: new Date().toLocaleString('es-ES', { timeZone: 'Europe/Madrid' }),
+                language: navigator.language || navigator.userLanguage,
+                screen: `${screen.width}x${screen.height}`,
+                userAgent: navigator.userAgent,
+                page: location.href,
+                cvLanguage: cvLang
+            };
+
+            fetch('/api/log-cv', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Log-Secret': 'pf-log-9x3k7m2w8q4e1r6t0y5',
+                },
+                body: JSON.stringify(downloadData),
+            }).catch(() => {});
+        });
+    }
+
 });
