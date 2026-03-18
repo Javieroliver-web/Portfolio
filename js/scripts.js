@@ -95,6 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             "experiences": {
                 "section-title": "Experiencia",
+                "ayesa-meta": "Ayesa · Contrato de prácticas · Sevilla, Andalucía, España · Híbrido",
                 "first-job-title": "Desarrollador Full Stack Junior",
                 "first-job-dates": "Febrero 2026 - Actualidad",
                 "first-job-description": "Prácticas de segundo curso de FP Grado Superior de Desarrollo de Aplicaciones Web (DAW).",
@@ -155,6 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             "experiences": {
                 "section-title": "Experience",
+                "ayesa-meta": "Ayesa · Internship contract · Seville, Andalusia, Spain · Hybrid",
                 "first-job-title": "Full Stack Junior Developer",
                 "first-job-dates": "February 2026 - Present",
                 "first-job-description": "Internship of the second year of Higher Vocational Training in Web Application Development (DAW).",
