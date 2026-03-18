@@ -482,6 +482,8 @@ document.addEventListener("DOMContentLoaded", () => {
         { id: 'linkedin-link',  social: 'linkedin'  },
         { id: 'instagram-link', social: 'instagram' },
         { id: 'whatsapp-link',  social: 'whatsapp'  },
+        { id: 'github-link',    social: 'github'    },
+        { id: 'github-link-profile', social: 'github' }
     ];
 
     socialLinks.forEach(({ id, social }) => {

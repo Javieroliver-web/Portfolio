@@ -27,7 +27,7 @@ export default async function handler(req, res) {
     const { timestamp, language, screen, userAgent, page, social } = req.body;
 
     // Validar que el campo social sea uno de los permitidos
-    const allowedSocials = ['linkedin', 'instagram', 'whatsapp'];
+    const allowedSocials = ['linkedin', 'instagram', 'whatsapp', 'github'];
     if (!allowedSocials.includes(social)) {
         return res.status(400).json({ error: 'Invalid social network' });
     }
@@ -72,6 +72,7 @@ export default async function handler(req, res) {
         linkedin:  { label: 'LinkedIn',   emoji: '💼', color: 0x0a66c2 },
         instagram: { label: 'Instagram',  emoji: '📸', color: 0xe1306c },
         whatsapp:  { label: 'WhatsApp',   emoji: '💬', color: 0x25d366 },
+        github:    { label: 'GitHub',     emoji: '💻', color: 0x333333 },
     };
     // El campo 'social' ya fue validado arriba; el fallback es solo defensa adicional
     const meta = socialMeta[social] || { label: social || 'Desconocida', emoji: '?', color: 0x5865f2 };
