@@ -71,29 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // ────────────────────────────────────────────────────────────────────────
 
     /**
-     * Calcula y aplica el ancho de cada barra de habilidades en función
-     * de los años de experiencia indicados en el atributo `data-years`.
-     * Convierte los años a un porcentaje (máx. 100%) y lo redondea al
-     * múltiplo de 10 más cercano para aplicar la clase CSS correspondiente.
-     */
-    const calculateSkillBars = () => {
-        const skillBars = document.querySelectorAll(".skills__bar[data-years]");
-
-        skillBars.forEach(bar => {
-            const years = parseFloat(bar.getAttribute("data-years"));
-
-            // Escala: 3 años = 100%
-            let percentage = Math.min((years / 3) * 100, 100);
-
-            // Redondeamos al múltiplo de 10 más cercano para las clases CSS
-            percentage = Math.round(percentage / 10) * 10;
-
-            bar.className = "skills__bar";
-            bar.classList.add(`skills__bar--${percentage}`);
-        });
-    };
-
-    /**
      * Actualiza el texto del botón de tema (Modo Oscuro / Modo Claro)
      * según el estado actual del body y el idioma activo.
      * No hace nada si aún no se ha cargado el idioma.
@@ -160,13 +137,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 "cert-3-btn": "Previsualizar"
             },
             "projects": {
+                "section-title": "Proyectos",
                 "first-project-title": "Portfolio page",
                 "first-project-description": "Proyecto constantemente en desarrollo.",
                 "second-project-title": "Proyecto Vesta",
                 "second-project-description": "Este es mi proyecto personal que presenté como TFG en el fin de mi grado superior de Desarrollo de Aplicaciones Web (DAW). Se trata de un proyecto que simula un Marketplace de una empresa de seguros con algunas funciones extras que quise implementar, si os interesa podéis informaros desde la documentación que guardo en el repositorio del proyecto API.",
                 "second-project-warning": "⚠️ Acceso web limitado hasta el 14 de abril de 2026 por restricciones de servidor."
             },
-            "skills": { "years": "Años de experiencia" },
+            "skills": { "years": "Años de experiencia", "section-title": "Habilidades Técnicas", "tools": "Herramientas" },
             "download": { "download-pdf": "Descargar CV en PDF", "button-cv": "Descargar PDF", "social-media": "Redes Sociales" }
         },
         "en": {
@@ -219,13 +197,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 "cert-3-btn": "Preview"
             },
             "projects": {
+                "section-title": "Projects",
                 "first-project-title": "Portfolio page",
                 "first-project-description": "Project constantly under development.",
                 "second-project-title": "Vesta Project",
                 "second-project-description": "This is my personal project that I presented as my Final Degree Project at the end of my Higher Technician in Web Application Development (DAW). It simulates a Marketplace for an insurance company with some extra functions that I wanted to implement. If you are interested, you can find more information in the documentation kept in the API project repository.",
                 "second-project-warning": "⚠️ Web access limited until April 14, 2026 due to server constraints."
             },
-            "skills": { "years": "Years of experience" },
+            "skills": { "years": "Years of experience", "section-title": "Technical Skills", "tools": "Tools" },
             "download": { "download-pdf": "Download CV in PDF", "button-cv": "Download PDF", "social-media": "Social Media" }
         }
     };
@@ -254,6 +233,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         updateToggleText();
+        // Reiniciar typewriter al nuevo idioma (si ya fue inicializado)
+        if (typeof window.__resetTypewriter === 'function') {
+            window.__resetTypewriter();
+        }
     };
 
     /**
@@ -320,8 +303,80 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ── Inicialización ───────────────────────────────────────────────────────
-    calculateSkillBars();
     changeLanguage(currentLanguage);
+    // ────────────────────────────────────────────────────────────────────────
+
+    // ── Efecto Typewriter en el subtítulo de perfil ─────────────────────────
+    /**
+     * Cicla a través de una lista de roles, escribiéndolos y borrándolos
+     * con velocidades realistas. Se reinicia automáticamente al cambiar idioma.
+     */
+    const typewriterEl = document.getElementById('typewriter-text');
+
+    const typewriterRoles = {
+        es: [
+            'DESARROLLADOR WEB FULL-STACK',
+            'EN BÚSQUEDA DE EMPLEO',
+        ],
+        en: [
+            'FULL-STACK WEB DEVELOPER',
+            'OPEN TO WORK',
+        ],
+    };
+
+    let twIndex      = 0;   // índice del rol actual
+    let twCharIndex  = 0;   // posición del carácter que se está escribiendo
+    let twDeleting   = false;
+    let twTimeout    = null;
+
+    const SPEED_TYPE   = 65;   // ms por carácter al escribir
+    const SPEED_DELETE = 35;   // ms por carácter al borrar
+    const PAUSE_AFTER  = 2000; // ms de pausa tras terminar de escribir
+    const PAUSE_NEXT   = 400;  // ms de pausa antes de empezar la siguiente word
+
+    const typewriterTick = () => {
+        if (!typewriterEl) return;
+        const roles = typewriterRoles[currentLanguage] || typewriterRoles['es'];
+        const current = roles[twIndex];
+
+        if (twDeleting) {
+            twCharIndex--;
+            typewriterEl.textContent = current.substring(0, twCharIndex);
+            if (twCharIndex === 0) {
+                twDeleting = false;
+                twIndex = (twIndex + 1) % roles.length;
+                twTimeout = setTimeout(typewriterTick, PAUSE_NEXT);
+                return;
+            }
+            twTimeout = setTimeout(typewriterTick, SPEED_DELETE);
+        } else {
+            twCharIndex++;
+            typewriterEl.textContent = current.substring(0, twCharIndex);
+            if (twCharIndex === current.length) {
+                twDeleting = true;
+                twTimeout = setTimeout(typewriterTick, PAUSE_AFTER);
+                return;
+            }
+            twTimeout = setTimeout(typewriterTick, SPEED_TYPE);
+        }
+    };
+
+    /**
+     * Reinicia el typewriter desde el primer rol del idioma activo.
+     * Cancela cualquier tick pendiente para evitar condiciones de carrera.
+     */
+    const resetTypewriter = () => {
+        clearTimeout(twTimeout);
+        twIndex     = 0;
+        twCharIndex = 0;
+        twDeleting  = false;
+        if (typewriterEl) typewriterEl.textContent = '';
+        twTimeout = setTimeout(typewriterTick, 300);
+    };
+
+    // Arrancar al cargar y exponer para que changeLanguage pueda reiniciarlo
+    resetTypewriter();
+    window.__resetTypewriter = resetTypewriter;
     // ────────────────────────────────────────────────────────────────────────
 
     /**

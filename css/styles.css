@@ -270,6 +270,21 @@ body:not(.dark) .card:hover {
     font-size: 1rem;
     letter-spacing: 1px;
     text-transform: uppercase;
+    min-height: 1.6em; /* evita que la tarjeta salte mientras se tipea */
+}
+
+/* Cursor parpadeante del efecto typewriter */
+.typewriter-cursor {
+    display: inline-block;
+    color: var(--primary-color);
+    font-weight: 300;
+    animation: blink 0.75s step-end infinite;
+    margin-left: 1px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
 }
 
 .card__link {
@@ -350,56 +365,83 @@ body:not(.dark) .card:hover {
     color: var(--text-muted);
 }
 
-/* Skills */
-.skills {
-    margin-top: 1.5em;
-}
-
-.skills__item {
-    margin-bottom: 1.2em;
-}
-
-.skills__tech {
+/* Skills — cuadrícula de iconos por categoría */
+.card--skills {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5em;
-    font-size: 0.9rem;
+    flex-direction: column;
+    gap: 1.8em;
+}
+
+.skills-main-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.2em;
+    padding-bottom: 0.8em;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.skills-group {
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.skills-group:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.skills-group .card__title {
+    font-size: 1rem;
+    margin-bottom: 0.9em;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.78rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+    gap: 0.75em;
+}
+
+.skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    padding: 0.9em 0.5em;
+    border-radius: 0.75rem;
+    background: hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.05);
+    border: 1px solid hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.15);
+    cursor: default;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-card:hover {
+    background: hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.12);
+    border-color: hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.15);
+}
+
+.skill-card__icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+/* El icono de GitHub no tiene clase colored; lo adaptamos al tema */
+.skill-card__icon--themed {
+    color: var(--text-color);
+}
+
+.skill-card__name {
+    font-size: 0.72rem;
     font-weight: 500;
-}
-
-.skills__bar {
-    height: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-}
-
-body:not(.dark) .skills__bar {
-    background: rgba(0, 0, 0, 0.1);
-}
-
-@keyframes fillBar {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: var(--skills-bar-length);
-    }
-}
-
-.skills__bar::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: var(--skills-bar-length);
-    background: var(--primary-color);
-    border-radius: 10px;
-    animation: fillBar 1s ease-out forwards;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.2;
 }
 
 /* Projects */

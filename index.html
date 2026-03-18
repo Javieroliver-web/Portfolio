@@ -41,6 +41,7 @@
 
     <!-- Iconos y fuentes externas -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style"
@@ -108,9 +109,10 @@
                 </div>
                 <div class="card__header">
                     <h2 id="card__title" class="card__title">Francisco Javier<br>Párraga Oliver</h2>
-                    <!-- El texto del rol lo sobreescribe scripts.js según el idioma -->
-                    <p id="card__subtitle" class="card__subtitle" data-section="profile" data-value="rol">DESARROLLADOR
-                        WEB FULL-STACK JUNIOR</p>
+                    <!-- El texto del rol anima escritura/borrado via scripts.js -->
+                    <p id="card__subtitle" class="card__subtitle">
+                        <span id="typewriter-text"></span><span class="typewriter-cursor">|</span>
+                    </p>
                 </div>
                 <div class="card__body">
                     <!-- Enlace de correo electrónico -->
@@ -352,115 +354,109 @@
         <!-- ── COLUMNA DERECHA ────────────────────────────────────── -->
         <section class="column column--right">
 
-            <!-- Tarjeta de habilidades Front End con barras de progreso -->
-            <!-- data-years indica los años de experiencia; scripts.js lo convierte a % -->
-            <article class="card">
-                <h2 class="card__title">Front End</h2>
-                <small data-section="skills" data-value="years">Años de experiencia</small>
-                <span class="skills__start-level">0</span>
-                <span>-</span>
-                <span class="skills__start-level">3</span>
-                <div class="skills">
-                    <div class="skills__item">
-                        <p id="skills__tech" class="skills__tech">HTML/CSS</p>
-                        <div class="skills__bar" data-years="3"></div>
-                    </div>
-                    <div class="skills__item">
-                        <p class="skills__tech">JavaScript</p>
-                        <div class="skills__bar" data-years="2.6"></div>
-                    </div>
-                    <div class="skills__item">
-                        <p class="skills__tech">Angular</p>
-                        <div class="skills__bar" data-years="0.6"></div>
-                    </div>
-                    <div class="skills__item">
-                        <p class="skills__tech">Thymeleaf</p>
-                        <div class="skills__bar" data-years="0.4"></div>
-                    </div>
-                    <div class="skills__item">
-                        <p class="skills__tech">Bootstrap</p>
-                        <div class="skills__bar" data-years="0.4"></div>
-                    </div>
-                </div>
-            </article>
+            <!-- Tarjeta de habilidades: icono + nombre en cuadrícula, sin autovaloración -->
+            <article class="card card--skills">
 
-            <!-- Tarjeta de habilidades Back End con barras de progreso -->
-            <article class="card">
-                <h2 class="card__title">Back End</h2>
-                <span class="skills__start-level">0</span>
-                <span>-</span>
-                <span class="skills__start-level">3</span>
-                <div class="skills">
-                    <div class="skills__item">
-                        <p class="skills__tech">Java</p>
-                        <div class="skills__bar" data-years="1.9"></div>
-                    </div>
-                    <div class="skills__item">
-                        <p class="skills__tech">SQL</p>
-                        <div class="skills__bar" data-years="1.4"></div>
-                    </div>
-                    <div class="skills__item">
-                        <p class="skills__tech">PL/SQL</p>
-                        <div class="skills__bar" data-years="0.8"></div>
-                    </div>
-                    <div class="skills__item">
-                        <p class="skills__tech">Spring Boot</p>
-                        <div class="skills__bar" data-years="0.4"></div>
-                    </div>
-                    <div class="skills__item">
-                        <p class="skills__tech">PostgreSQL</p>
-                        <div class="skills__bar" data-years="0.4"></div>
-                    </div>
-                    <div class="skills__item">
-                        <p class="skills__tech">Node.js</p>
-                        <div class="skills__bar" data-years="0.4"></div>
-                    </div>
-                </div>
-            </article>
+                <h2 class="card__title skills-main-title" data-section="skills" data-value="section-title">Habilidades Técnicas</h2>
 
-            <!-- Tarjeta de herramientas y DevOps con barras de progreso -->
-            <article class="card">
-                <h2 class="card__title">Herramientas</h2>
-                <span class="skills__start-level">0</span>
-                <span>-</span>
-                <span class="skills__start-level">3</span>
-                <div class="skills">
-                    <div class="skills__item">
-                        <p class="skills__tech">Git</p>
-                        <div class="skills__bar" data-years="2"></div>
-                    </div>
-                    <div class="skills__item">
-                        <p class="skills__tech">GitHub</p>
-                        <div class="skills__bar" data-years="2"></div>
-                    </div>
-                    <div class="skills__item">
-                        <p class="skills__tech">GitLab</p>
-                        <div class="skills__bar" data-years="1.4"></div>
-                    </div>
-                    <div class="skills__item">
-                        <p class="skills__tech">Oracle SQL Developer</p>
-                        <div class="skills__bar" data-years="1.0"></div>
-                    </div>
-                    <div class="skills__item">
-                        <p class="skills__tech">Docker</p>
-                        <div class="skills__bar" data-years="0.5"></div>
-                    </div>
-                    <div class="skills__item">
-                        <p class="skills__tech">Google Cloud</p>
-                        <div class="skills__bar" data-years="0.4"></div>
-                    </div>
-                    <div class="skills__item">
-                        <p class="skills__tech">AI</p>
-                        <div class="skills__bar" data-years="0.4"></div>
-                    </div>
-                    <div class="skills__item">
-                        <p class="skills__tech">Jenkins</p>
-                        <div class="skills__bar" data-years="0.25"></div>
+                <!-- Front End -->
+                <div class="skills-group">
+                    <h2 class="card__title">Front End</h2>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <i class="devicon-html5-plain colored skill-card__icon"></i>
+                            <span class="skill-card__name">HTML/CSS</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="devicon-javascript-plain colored skill-card__icon"></i>
+                            <span class="skill-card__name">JavaScript</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="devicon-angularjs-plain colored skill-card__icon"></i>
+                            <span class="skill-card__name">Angular</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="devicon-thymeleaf-original colored skill-card__icon"></i>
+                            <span class="skill-card__name">Thymeleaf</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="devicon-bootstrap-plain colored skill-card__icon"></i>
+                            <span class="skill-card__name">Bootstrap</span>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Back End -->
+                <div class="skills-group">
+                    <h2 class="card__title">Back End</h2>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <i class="devicon-java-plain colored skill-card__icon"></i>
+                            <span class="skill-card__name">Java</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="devicon-azuresqldatabase-plain colored skill-card__icon"></i>
+                            <span class="skill-card__name">SQL / PL/SQL</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="devicon-spring-plain colored skill-card__icon"></i>
+                            <span class="skill-card__name">Spring Boot</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="devicon-postgresql-plain colored skill-card__icon"></i>
+                            <span class="skill-card__name">PostgreSQL</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="devicon-nodejs-plain colored skill-card__icon"></i>
+                            <span class="skill-card__name">Node.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Herramientas -->
+                <div class="skills-group">
+                    <h2 class="card__title" data-section="skills" data-value="tools">Herramientas</h2>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <i class="devicon-git-plain colored skill-card__icon"></i>
+                            <span class="skill-card__name">Git</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="devicon-github-original skill-card__icon skill-card__icon--themed"></i>
+                            <span class="skill-card__name">GitHub</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="devicon-gitlab-plain colored skill-card__icon"></i>
+                            <span class="skill-card__name">GitLab</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="devicon-oracle-original colored skill-card__icon"></i>
+                            <span class="skill-card__name">Oracle SQL</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="devicon-docker-plain colored skill-card__icon"></i>
+                            <span class="skill-card__name">Docker</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="devicon-googlecloud-plain colored skill-card__icon"></i>
+                            <span class="skill-card__name">Google Cloud</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="devicon-jenkins-plain colored skill-card__icon"></i>
+                            <span class="skill-card__name">Jenkins</span>
+                        </div>
+                        <div class="skill-card">
+                            <i class="devicon-postman-plain colored skill-card__icon"></i>
+                            <span class="skill-card__name">Postman</span>
+                        </div>
+                    </div>
+                </div>
+
             </article>
 
             <!-- ── PROYECTOS ─────────────────────────────────────── -->
+
+            <h2 class="section-title" data-section="projects" data-value="section-title">Proyectos</h2>
 
             <!-- Barra de filtros por tecnología -->
             <div id="filter-bar" class="filter-bar">
