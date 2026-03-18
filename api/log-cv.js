@@ -3,8 +3,12 @@ import { appendLog } from './logger.js';
 export default async function handler(req, res) {
     if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-    // URL específica para el canal de descargas de CV proporcionada
-    const webhookUrl = process.env.DISCORD_CV_WEBHOOK_URL || 'https://discord.com/api/webhooks/1483813727999365171/vbwKB-LWDPIFuwjWTt8dzrZeEiTTxd3AjxhSD8osxBJHXJnO-CxFvLKWgGmadZzzV5I5';
+    const webhookUrl = process.env.DISCORD_CV_WEBHOOK_URL;
+
+    if (!webhookUrl) {
+        console.error('[log-cv.js] Error: DISCORD_CV_WEBHOOK_URL no configurado');
+        return res.status(500).json({ error: 'Webhook not configured' });
+    }
 
     const secret = process.env.LOG_SECRET;
     if (secret && req.headers['x-log-secret'] !== secret) {
