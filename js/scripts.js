@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "second-job-description": "Participé en el mantenimiento de la plataforma \"Secretaria Virtual\". Utilicé tecnologías como Java, SQL y PL/SQL. Mi responsabilidad principal fue llevar a cabo los cambios solicitados en la base de datos y participar en las correcciones de errores de la web junto a mi equipo. Utilicé Git para el control de versiones.",
                 "third-job-title": "Desarrollador Front-End Junior",
                 "third-job-dates": "Marzo 2023 - Junio 2023",
-                "third-job-description": "Prácticas de primer curso de FP Grado Medio Sistemas Microinformaticos y Redes (SMR)."
+                "third-job-description": "Prácticas de primer curso de FP Grado Medio Sistemas Microinformáticos y Redes (SMR)."
             },
             "education": {
                 "section-title": "Educación",
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "second-edu-school": "MEDAC",
                 "second-edu-dates": "sept. 2024 - jul. 2025",
                 "second-edu-description": "Primer año de Grado Superior de Desarrollo de Aplicaciones Web (DAW). Nota: 6.41",
-                "third-edu-title": "Formación Profesional de Grado Medio, Sistemas microinformaticos y redes",
+                "third-edu-title": "Formación Profesional de Grado Medio, Sistemas Microinformáticos y Redes",
                 "third-edu-school": "Diocesanos Nuestra Señora de las Mercedes Sevilla",
                 "third-edu-dates": "",
                 "third-edu-description": "Nota: 8.1"
@@ -135,7 +135,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 "cert-2-btn": "Previsualizar",
                 "cert-3-title": "Certificado Reglamento Protección de Datos",
                 "cert-3-issuer": "Ayesa",
-                "cert-3-btn": "Previsualizar"
+                "cert-3-btn": "Previsualizar",
+                "cert-4-title": "Certificado Gestión Ambiental",
+                "cert-4-issuer": "Ayesa",
+                "cert-4-btn": "Previsualizar"
             },
             "projects": {
                 "section-title": "Proyectos",
@@ -159,13 +162,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 "ayesa-meta": "Ayesa · Internship contract · Seville, Andalusia, Spain · Hybrid",
                 "first-job-title": "Full Stack Junior Developer",
                 "first-job-dates": "February 2026 - Present",
-                "first-job-description": "Internship of the second year of Higher Vocational Training in Web Application Development (DAW).",
+                "first-job-description": "Second-year internship of the Higher Vocational Training in Web Application Development (DAW).",
                 "second-job-title": "Computer Programming Activities",
                 "second-job-dates": "November 2023 - November 2024",
-                "second-job-description": "I participated in the maintenance of the platform \"Virtual Secretary\". I used technologies such as Java, SQL and PL/SQL. My main responsibility was to carry out the changes requested in the database and participate in corrections of web errors together with my team. I used Git for version control.",
+                "second-job-description": "I participated in the maintenance of the 'Virtual Secretary' platform. I used technologies such as Java, SQL and PL/SQL. My main responsibilities were to carry out the requested changes in the database and participate in the resolution of web errors alongside my team. I used Git for version control.",
                 "third-job-title": "Front-End Junior Developer",
                 "third-job-dates": "March 2023 - June 2023",
-                "third-job-description": "Internship of the first year of Mid-Level Vocational Training in Microcomputer Systems and Networks (SMR)."
+                "third-job-description": "First-year internship of the Mid-Level Vocational Training in Microcomputer Systems and Networks (SMR)."
             },
             "education": {
                 "section-title": "Education",
@@ -188,15 +191,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 "license-1-title": "Driving license class B",
                 "license-1-issuer": "Directorate-General for Traffic (DGT)",
                 "license-1-dates": "Issued Nov 2024 · Expires: Nov 2034",
-                "cert-1-title": "Information Security Certificate Course",
+                "cert-1-title": "Certificate in Information Security",
                 "cert-1-issuer": "Ayesa",
                 "cert-1-btn": "Preview",
-                "cert-2-title": "Occupational Risk Prevention Certificate Course",
+                "cert-2-title": "Certificate in Occupational Risk Prevention",
                 "cert-2-issuer": "Ayesa",
                 "cert-2-btn": "Preview",
-                "cert-3-title": "Data Protection Regulation Certificate",
+                "cert-3-title": "Certificate in Data Protection Regulation",
                 "cert-3-issuer": "Ayesa",
-                "cert-3-btn": "Preview"
+                "cert-3-btn": "Preview",
+                "cert-4-title": "Certificate in Environmental Management",
+                "cert-4-issuer": "Ayesa",
+                "cert-4-btn": "Preview"
             },
             "projects": {
                 "section-title": "Projects",
