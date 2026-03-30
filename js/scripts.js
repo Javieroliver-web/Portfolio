@@ -26,6 +26,15 @@ document.addEventListener("DOMContentLoaded", () => {
     initVisitLogger();
     // ────────────────────────────────────────────────────────────────────────
 
+    // ── Soporte de teclado (A11y) ───────────────────────────────────────────
+    document.addEventListener("keydown", (e) => {
+        if ((e.key === 'Enter' || e.key === ' ') && e.target.getAttribute('role') === 'button') {
+            e.preventDefault(); // Evitar scroll al pulsar espacio
+            e.target.click();
+        }
+    });
+    // ────────────────────────────────────────────────────────────────────────
+
     // ── Referencias a elementos del DOM ─────────────────────────────────────
     const toggleTheme = document.getElementById("toggle-icon");
     const toggleIcon = document.getElementById("toggle-image");

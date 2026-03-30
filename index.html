@@ -69,15 +69,15 @@
 
         <!-- Botón de tema (oscuro/claro) y selector de idioma (ES/EN) -->
         <div class="switches">
-            <div id="toggle-icon" class="toggle-theme">
+            <div id="toggle-icon" class="toggle-theme" role="button" tabindex="0" aria-label="Cambiar tema">
                 <img id="toggle-image" src="assets/icons/moon.png" alt="icon theme" class="toggle-theme__icon" />
                 <p id="toggle-text" class="toggle-theme__text">Modo Oscuro</p>
             </div>
             <div id="flags" class="flags">
-                <div class="flags__item" data-language="es">
+                <div class="flags__item" data-language="es" role="button" tabindex="0" aria-label="Cambiar idioma a Español">
                     <img src="assets/icons/es.svg" alt="Español">
                 </div>
-                <div class="flags__item" data-language="en">
+                <div class="flags__item" data-language="en" role="button" tabindex="0" aria-label="Cambiar idioma a Inglés">
                     <img src="assets/icons/gb.svg" alt="English">
                 </div>
             </div>
@@ -85,10 +85,10 @@
 
         <!-- Selector de color de acento principal -->
         <div id="toggle-colors" class="colors">
-            <div data-hue="214" class="colors__item colors__item--blue"></div>
-            <div data-hue="150" class="colors__item colors__item--green"></div>
-            <div data-hue="270" class="colors__item colors__item--purple"></div>
-            <div data-hue="350" data-sat="85%" data-light="40%" class="colors__item colors__item--wine"></div>
+            <div data-hue="214" class="colors__item colors__item--blue" role="button" tabindex="0" aria-label="Acento Azul"></div>
+            <div data-hue="150" class="colors__item colors__item--green" role="button" tabindex="0" aria-label="Acento Verde"></div>
+            <div data-hue="270" class="colors__item colors__item--purple" role="button" tabindex="0" aria-label="Acento Morado"></div>
+            <div data-hue="350" data-sat="85%" data-light="40%" class="colors__item colors__item--wine" role="button" tabindex="0" aria-label="Acento Vino"></div>
         </div>
 
     </header>
@@ -108,7 +108,7 @@
                         height="150" loading="eager" fetchpriority="high">
                 </div>
                 <div class="card__header">
-                    <h2 id="card__title" class="card__title">Francisco Javier<br>Párraga Oliver</h2>
+                    <h1 id="card__title" class="card__title">Francisco Javier<br>Párraga Oliver</h1>
                     <!-- El texto del rol anima escritura/borrado via scripts.js -->
                     <p id="card__subtitle" class="card__subtitle">
                         <span id="typewriter-text"></span><span class="typewriter-cursor">|</span>
@@ -572,7 +572,7 @@
 
     <!-- ── FOOTER VERSIONADO ──────────────────────────────────────── -->
     <footer class="footer">
-        <p>Actualizado: <span id="last-updated">30/03/2026</span> | v1.1.3.8</p>
+        <p>Actualizado: <span id="last-updated">30/03/2026</span> | v1.1.3.9</p>
     </footer>
 
     <!-- ════════════════════════════════════════════════════════════
