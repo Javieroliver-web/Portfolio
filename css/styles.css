@@ -906,6 +906,7 @@ body:not(.dark) .rs-icon {
     padding: 1em;
     opacity: 0;
     pointer-events: none;
+    overflow: hidden;   /* el wrapper nunca hace scroll */
     transition: opacity 0.3s ease;
 }
 
@@ -936,7 +937,11 @@ body:not(.dark) .rs-icon {
     width: 100%;
     max-width: 560px;
     max-height: 85vh;
-    overflow-y: auto;
+    max-height: 85dvh;
+    /* Clave: el panel es flex-column con header fijo y body scrollable */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
     transform: translateY(24px) scale(0.97);
     transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -945,23 +950,21 @@ body:not(.dark) .rs-icon {
     transform: translateY(0) scale(1);
 }
 
+/* El header NO usa sticky — es un hijo fijo del flex-column */
 .ayesa-modal__header {
     display: flex;
     align-items: center;
     gap: 1em;
-    padding: 1.5em 1.5em 1.2em;
+    padding: 1.2em 1.5em 1em;
     border-bottom: 1px solid var(--border-color);
-    position: sticky;
-    top: 0;
-    background: var(--bg-card-color);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    flex-shrink: 0;  /* nunca se comprime */
     border-radius: var(--border-radius) var(--border-radius) 0 0;
+    background: var(--bg-card-color);
 }
 
 .ayesa-modal__logo {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     object-fit: contain;
     background: white;
     padding: 4px;
@@ -971,14 +974,14 @@ body:not(.dark) .rs-icon {
 
 .ayesa-modal__title {
     font-family: var(--font-heading);
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--text-color);
-    margin: 0 0 0.15em;
+    margin: 0 0 0.1em;
 }
 
 .ayesa-modal__subtitle {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--primary-color);
     font-weight: 600;
 }
@@ -988,7 +991,7 @@ body:not(.dark) .rs-icon {
     flex-shrink: 0;
     background: none;
     border: none;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     line-height: 1;
     color: var(--text-muted);
     cursor: pointer;
@@ -1006,9 +1009,14 @@ body:not(.dark) .rs-icon {
     color: var(--text-color);
 }
 
+/* La lista es el único elemento que hace scroll */
 .ayesa-modal__list {
     list-style: none;
-    padding: 0.75em 0;
+    padding: 0.5em 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;  /* scroll suave iOS */
+    overscroll-behavior: contain;       /* evita que el scroll se propague al body */
+    flex: 1;
 }
 
 .ayesa-modal__item {
@@ -1059,14 +1067,29 @@ body:not(.dark) .rs-icon {
     white-space: nowrap;
 }
 
+/* Móvil: panel como bottom sheet que sube desde abajo */
 @media screen and (max-width: 480px) {
-    .ayesa-modal__item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.6em;
+    .ayesa-modal {
+        padding: 0;
+        align-items: flex-end;
     }
 
-    .ayesa-modal__btn {
-        align-self: flex-start;
+    .ayesa-modal__panel {
+        max-width: 100%;
+        max-height: 80dvh;
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+        transform: translateY(100%);
+    }
+
+    .ayesa-modal.active .ayesa-modal__panel {
+        transform: translateY(0);
+    }
+
+    .ayesa-modal__header {
+        padding: 1em 1.2em 0.9em;
+    }
+
+    .ayesa-modal__item {
+        padding: 0.85em 1.2em;
     }
 }
