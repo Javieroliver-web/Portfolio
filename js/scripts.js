@@ -122,6 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "first-edu-school": "Centro Educativo Altair",
                 "first-edu-dates": "sept. 2025 - jul. 2026",
                 "first-edu-description": "Segundo año de Grado Superior de Desarrollo de Aplicaciones Web (DAW).",
+                "first-edu-btn": "Ver notas",
                 "second-edu-title": "Ciclo Formativo de Grado Superior, Desarrollo de Aplicaciones Web",
                 "second-edu-school": "MEDAC",
                 "second-edu-dates": "sept. 2024 - jul. 2025",
@@ -160,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "second-project-description": "Este es mi proyecto personal que presenté como TFG en el fin de mi grado superior de Desarrollo de Aplicaciones Web (DAW). Se trata de un proyecto que simula un Marketplace de una empresa de seguros con algunas funciones extras que quise implementar, si os interesa podéis informaros desde la documentación que guardo en el repositorio del proyecto API.",
                 "second-project-warning": "⚠️ Acceso web limitado hasta el 14 de abril de 2026 por restricciones de servidor."
             },
-            "skills": { "years": "Años de experiencia", "section-title": "Habilidades Técnicas", "tools": "Herramientas" },
+            "skills": { "section-title": "Habilidades Técnicas", "tools": "Herramientas" },
             "download": { "download-pdf": "Descargar CV en PDF", "button-cv": "Descargar PDF", "social-media": "Redes Sociales" }
         },
         "en": {
@@ -189,6 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "first-edu-school": "Centro Educativo Altair",
                 "first-edu-dates": "Sept. 2025 - Jul. 2026",
                 "first-edu-description": "Second year of Higher Vocational Training in Web Application Development (DAW).",
+                "first-edu-btn": "View grades",
                 "second-edu-title": "Higher Vocational Training, Web Application Development",
                 "second-edu-school": "MEDAC",
                 "second-edu-dates": "Sept. 2024 - Jul. 2025",
@@ -227,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "second-project-description": "This is my personal project that I presented as my Final Degree Project at the end of my Higher Technician in Web Application Development (DAW). It simulates a Marketplace for an insurance company with some extra functions that I wanted to implement. If you are interested, you can find more information in the documentation kept in the API project repository.",
                 "second-project-warning": "⚠️ Web access limited until April 14, 2026 due to server constraints."
             },
-            "skills": { "years": "Years of experience", "section-title": "Technical Skills", "tools": "Tools" },
+            "skills": { "section-title": "Technical Skills", "tools": "Tools" },
             "download": { "download-pdf": "Download CV in PDF", "button-cv": "Download PDF", "social-media": "Social Media" }
         }
     };
