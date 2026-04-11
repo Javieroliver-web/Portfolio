@@ -894,3 +894,179 @@ body:not(.dark) .rs-icon {
 .gallery-button--right {
     right: 8px;
 }
+
+/* ── Modal de Cursos Ayesa ──────────────────────────────────────── */
+.ayesa-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.ayesa-modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.ayesa-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    cursor: pointer;
+}
+
+.ayesa-modal__panel {
+    position: relative;
+    z-index: 1;
+    background: var(--bg-card-color);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5),
+                0 0 0 1px hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.15);
+    width: 100%;
+    max-width: 560px;
+    max-height: 85vh;
+    overflow-y: auto;
+    transform: translateY(24px) scale(0.97);
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ayesa-modal.active .ayesa-modal__panel {
+    transform: translateY(0) scale(1);
+}
+
+.ayesa-modal__header {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 1.5em 1.5em 1.2em;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    background: var(--bg-card-color);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.ayesa-modal__logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    background: white;
+    padding: 4px;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.ayesa-modal__title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0 0 0.15em;
+}
+
+.ayesa-modal__subtitle {
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.ayesa-modal__close {
+    margin-left: auto;
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.ayesa-modal__close:hover {
+    background: hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.12);
+    color: var(--text-color);
+}
+
+.ayesa-modal__list {
+    list-style: none;
+    padding: 0.75em 0;
+}
+
+.ayesa-modal__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    padding: 0.9em 1.5em;
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.2s ease;
+}
+
+.ayesa-modal__item:last-child {
+    border-bottom: none;
+}
+
+.ayesa-modal__item:hover {
+    background: hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.05);
+}
+
+.ayesa-modal__item-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+    flex: 1;
+    min-width: 0;
+}
+
+.ayesa-modal__item-info span {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    font-weight: 500;
+    line-height: 1.35;
+}
+
+.ayesa-modal__icon {
+    font-size: 1rem;
+    color: var(--primary-color);
+    flex-shrink: 0;
+    width: 1.2em;
+    text-align: center;
+}
+
+.ayesa-modal__btn {
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    padding: 0.4em 1em;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 480px) {
+    .ayesa-modal__item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6em;
+    }
+
+    .ayesa-modal__btn {
+        align-self: flex-start;
+    }
+}

@@ -272,62 +272,14 @@
                     </div>
                 </div>
 
-                <!-- Certificado 1: Seguridad de la Información -->
+                <!-- Cursos Ayesa (agrupados en modal) -->
                 <div class="experience">
                     <img src="assets/images/ayesa.jpg" alt="logo Ayesa" class="experience__image" width="60" height="60">
                     <div class="experience__info">
-                        <h3 class="experience__job" data-section="licenses" data-value="cert-1-title">Certificado Curso Seguridad de la Información</h3>
-                        <p class="experience__company" data-section="licenses" data-value="cert-1-issuer">Ayesa</p>
+                        <h3 class="experience__job" data-section="licenses" data-value="ayesa-certs-title">Cursos y certificados Ayesa</h3>
+                        <p class="experience__company" data-section="licenses" data-value="ayesa-certs-issuer">Ayesa · 5 certificados</p>
                         <div class="buttons" style="padding-top: 0.5em; margin-top: 0.5em;">
-                            <a href="assets/descargas/Ayesa_Certificado_seguridad_informacion.pdf" class="button--code" target="_blank" data-section="licenses" data-value="cert-1-btn">Previsualizar</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certificado 2: Curso Prevención Riesgos Laborales -->
-                <div class="experience">
-                    <img src="assets/images/ayesa.jpg" alt="logo Ayesa" class="experience__image" width="60" height="60">
-                    <div class="experience__info">
-                        <h3 class="experience__job" data-section="licenses" data-value="cert-2-title">Certificado Curso Prevención Riesgos Laborales</h3>
-                        <p class="experience__company" data-section="licenses" data-value="cert-2-issuer">Ayesa</p>
-                        <div class="buttons" style="padding-top: 0.5em; margin-top: 0.5em;">
-                            <a href="assets/descargas/Ayesa_Certificado_curso_Prevencion_Riesgos_Laborales.pdf" class="button--code" target="_blank" data-section="licenses" data-value="cert-2-btn">Previsualizar</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certificado 3: Reglamento Protección de Datos -->
-                <div class="experience">
-                    <img src="assets/images/ayesa.jpg" alt="logo Ayesa" class="experience__image" width="60" height="60">
-                    <div class="experience__info">
-                        <h3 class="experience__job" data-section="licenses" data-value="cert-3-title">Certificado Reglamento Protección de Datos</h3>
-                        <p class="experience__company" data-section="licenses" data-value="cert-3-issuer">Ayesa</p>
-                        <div class="buttons" style="padding-top: 0.5em; margin-top: 0.5em;">
-                            <a href="assets/descargas/certificado_reglamento_proteccion_de_datos.pdf" class="button--code" target="_blank" data-section="licenses" data-value="cert-3-btn">Previsualizar</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certificado 4: Gestión Ambiental -->
-                <div class="experience">
-                    <img src="assets/images/ayesa.jpg" alt="logo Ayesa" class="experience__image" width="60" height="60">
-                    <div class="experience__info">
-                        <h3 class="experience__job" data-section="licenses" data-value="cert-4-title">Certificado Gestión Ambiental</h3>
-                        <p class="experience__company" data-section="licenses" data-value="cert-4-issuer">Ayesa</p>
-                        <div class="buttons" style="padding-top: 0.5em; margin-top: 0.5em;">
-                            <a href="assets/descargas/Certificado_gestion_ambiental.pdf" class="button--code" target="_blank" data-section="licenses" data-value="cert-4-btn">Previsualizar</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certificado 5: Personal Expuesto -->
-                <div class="experience">
-                    <img src="assets/images/ayesa.jpg" alt="logo Ayesa" class="experience__image" width="60" height="60">
-                    <div class="experience__info">
-                        <h3 class="experience__job" data-section="licenses" data-value="cert-5-title">Certificado Personal Expuesto</h3>
-                        <p class="experience__company" data-section="licenses" data-value="cert-5-issuer">Ayesa</p>
-                        <div class="buttons" style="padding-top: 0.5em; margin-top: 0.5em;">
-                            <a href="assets/descargas/Ayesa_Certificado_personal_expuesto.pdf" class="button--code" target="_blank" data-section="licenses" data-value="cert-5-btn">Previsualizar</a>
+                            <button id="btn-open-ayesa-modal" class="button--code" data-section="licenses" data-value="ayesa-certs-btn">Ver cursos</button>
                         </div>
                     </div>
                 </div>
@@ -584,8 +536,63 @@
 
     <!-- ── FOOTER VERSIONADO ──────────────────────────────────────── -->
     <footer class="footer">
-        <p>Actualizado: <span id="last-updated">11/04/2026</span> | v1.1.3.10</p>
+        <p>Actualizado: <span id="last-updated">11/04/2026</span> | v1.1.4.0</p>
     </footer>
+
+    <!-- ════════════════════════════════════════════════════════════
+         MODAL — Cursos y certificados de Ayesa
+         Se abre al pulsar el botón "Ver cursos" en la sección de licencias
+         ════════════════════════════════════════════════════════════ -->
+    <div id="ayesa-modal" class="ayesa-modal" role="dialog" aria-modal="true" aria-labelledby="ayesa-modal-title">
+        <div class="ayesa-modal__backdrop"></div>
+        <div class="ayesa-modal__panel">
+            <div class="ayesa-modal__header">
+                <img src="assets/images/ayesa.jpg" alt="logo Ayesa" class="ayesa-modal__logo">
+                <div>
+                    <h2 id="ayesa-modal-title" class="ayesa-modal__title" data-section="licenses" data-value="modal-title">Cursos y certificados Ayesa</h2>
+                    <p class="ayesa-modal__subtitle" data-section="licenses" data-value="modal-subtitle">5 certificados emitidos por Ayesa</p>
+                </div>
+                <button class="ayesa-modal__close" aria-label="Cerrar modal">&times;</button>
+            </div>
+            <ul class="ayesa-modal__list">
+                <li class="ayesa-modal__item">
+                    <div class="ayesa-modal__item-info">
+                        <i class="fas fa-shield-alt ayesa-modal__icon"></i>
+                        <span data-section="licenses" data-value="cert-1-title">Certificado Curso Seguridad de la Información</span>
+                    </div>
+                    <a href="assets/descargas/Ayesa_Certificado_seguridad_informacion.pdf" class="button--code ayesa-modal__btn" target="_blank" data-section="licenses" data-value="cert-1-btn">Previsualizar</a>
+                </li>
+                <li class="ayesa-modal__item">
+                    <div class="ayesa-modal__item-info">
+                        <i class="fas fa-hard-hat ayesa-modal__icon"></i>
+                        <span data-section="licenses" data-value="cert-2-title">Certificado Curso Prevención Riesgos Laborales</span>
+                    </div>
+                    <a href="assets/descargas/Ayesa_Certificado_curso_Prevencion_Riesgos_Laborales.pdf" class="button--code ayesa-modal__btn" target="_blank" data-section="licenses" data-value="cert-2-btn">Previsualizar</a>
+                </li>
+                <li class="ayesa-modal__item">
+                    <div class="ayesa-modal__item-info">
+                        <i class="fas fa-user-lock ayesa-modal__icon"></i>
+                        <span data-section="licenses" data-value="cert-3-title">Certificado Reglamento Protección de Datos</span>
+                    </div>
+                    <a href="assets/descargas/certificado_reglamento_proteccion_de_datos.pdf" class="button--code ayesa-modal__btn" target="_blank" data-section="licenses" data-value="cert-3-btn">Previsualizar</a>
+                </li>
+                <li class="ayesa-modal__item">
+                    <div class="ayesa-modal__item-info">
+                        <i class="fas fa-leaf ayesa-modal__icon"></i>
+                        <span data-section="licenses" data-value="cert-4-title">Certificado Gestión Ambiental</span>
+                    </div>
+                    <a href="assets/descargas/Certificado_gestion_ambiental.pdf" class="button--code ayesa-modal__btn" target="_blank" data-section="licenses" data-value="cert-4-btn">Previsualizar</a>
+                </li>
+                <li class="ayesa-modal__item">
+                    <div class="ayesa-modal__item-info">
+                        <i class="fas fa-user-shield ayesa-modal__icon"></i>
+                        <span data-section="licenses" data-value="cert-5-title">Certificado Personal Expuesto</span>
+                    </div>
+                    <a href="assets/descargas/Ayesa_Certificado_personal_expuesto.pdf" class="button--code ayesa-modal__btn" target="_blank" data-section="licenses" data-value="cert-5-btn">Previsualizar</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
     <!-- ════════════════════════════════════════════════════════════
          LIGHTBOX — Overlay para ver imágenes a pantalla completa

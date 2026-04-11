@@ -136,20 +136,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 "license-1-title": "Permiso de conducción B",
                 "license-1-issuer": "Dirección General de Tráfico",
                 "license-1-dates": "Expedición nov. 2024 · Vencimiento: nov. 2034",
+                "ayesa-certs-title": "Cursos y certificados Ayesa",
+                "ayesa-certs-issuer": "Ayesa · 5 certificados",
+                "ayesa-certs-btn": "Ver cursos",
+                "modal-title": "Cursos y certificados Ayesa",
+                "modal-subtitle": "5 certificados emitidos por Ayesa",
                 "cert-1-title": "Certificado Curso Seguridad de la Información",
-                "cert-1-issuer": "Ayesa",
                 "cert-1-btn": "Previsualizar",
                 "cert-2-title": "Certificado Curso Prevención Riesgos Laborales",
-                "cert-2-issuer": "Ayesa",
                 "cert-2-btn": "Previsualizar",
                 "cert-3-title": "Certificado Reglamento Protección de Datos",
-                "cert-3-issuer": "Ayesa",
                 "cert-3-btn": "Previsualizar",
                 "cert-4-title": "Certificado Gestión Ambiental",
-                "cert-4-issuer": "Ayesa",
                 "cert-4-btn": "Previsualizar",
                 "cert-5-title": "Certificado Personal Expuesto",
-                "cert-5-issuer": "Ayesa",
                 "cert-5-btn": "Previsualizar"
             },
             "projects": {
@@ -203,20 +203,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 "license-1-title": "Driving license class B",
                 "license-1-issuer": "Directorate-General for Traffic (DGT)",
                 "license-1-dates": "Issued Nov 2024 · Expires: Nov 2034",
+                "ayesa-certs-title": "Ayesa Courses & Certificates",
+                "ayesa-certs-issuer": "Ayesa · 5 certificates",
+                "ayesa-certs-btn": "View courses",
+                "modal-title": "Ayesa Courses & Certificates",
+                "modal-subtitle": "5 certificates issued by Ayesa",
                 "cert-1-title": "Certificate in Information Security",
-                "cert-1-issuer": "Ayesa",
                 "cert-1-btn": "Preview",
                 "cert-2-title": "Certificate in Occupational Risk Prevention",
-                "cert-2-issuer": "Ayesa",
                 "cert-2-btn": "Preview",
                 "cert-3-title": "Certificate in Data Protection Regulation",
-                "cert-3-issuer": "Ayesa",
                 "cert-3-btn": "Preview",
                 "cert-4-title": "Certificate in Environmental Management",
-                "cert-4-issuer": "Ayesa",
                 "cert-4-btn": "Preview",
                 "cert-5-title": "Certificate for Exposed Personnel",
-                "cert-5-issuer": "Ayesa",
                 "cert-5-btn": "Preview"
             },
             "projects": {
@@ -558,6 +558,34 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+    // ────────────────────────────────────────────────────────────────
+
+    // ── Modal de Cursos Ayesa ───────────────────────────────────────
+    const ayesaModal    = document.getElementById('ayesa-modal');
+    const btnOpenModal  = document.getElementById('btn-open-ayesa-modal');
+    const btnCloseModal = ayesaModal?.querySelector('.ayesa-modal__close');
+    const modalBackdrop = ayesaModal?.querySelector('.ayesa-modal__backdrop');
+
+    const openAyesaModal = () => {
+        ayesaModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        btnCloseModal?.focus();
+    };
+
+    const closeAyesaModal = () => {
+        ayesaModal.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    btnOpenModal?.addEventListener('click', openAyesaModal);
+    btnCloseModal?.addEventListener('click', closeAyesaModal);
+    modalBackdrop?.addEventListener('click', closeAyesaModal);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && ayesaModal?.classList.contains('active')) {
+            closeAyesaModal();
+        }
+    });
     // ────────────────────────────────────────────────────────────────
 
     // ── Tracking de clics en Redes Sociales ────────────────────────
