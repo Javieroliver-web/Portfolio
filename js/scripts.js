@@ -147,7 +147,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 "cert-3-btn": "Previsualizar",
                 "cert-4-title": "Certificado Gestión Ambiental",
                 "cert-4-issuer": "Ayesa",
-                "cert-4-btn": "Previsualizar"
+                "cert-4-btn": "Previsualizar",
+                "cert-5-title": "Certificado Personal Expuesto",
+                "cert-5-issuer": "Ayesa",
+                "cert-5-btn": "Previsualizar"
             },
             "projects": {
                 "section-title": "Proyectos",
@@ -211,7 +214,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 "cert-3-btn": "Preview",
                 "cert-4-title": "Certificate in Environmental Management",
                 "cert-4-issuer": "Ayesa",
-                "cert-4-btn": "Preview"
+                "cert-4-btn": "Preview",
+                "cert-5-title": "Certificate for Exposed Personnel",
+                "cert-5-issuer": "Ayesa",
+                "cert-5-btn": "Preview"
             },
             "projects": {
                 "section-title": "Projects",
