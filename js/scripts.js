@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             "projects": {
                 "section-title": "Proyectos",
-                "first-project-title": "Portfolio page",
+                "first-project-title": "Portfolio web",
                 "first-project-description": "Proyecto constantemente en desarrollo.",
                 "second-project-title": "Proyecto Vesta",
                 "second-project-description": "Este es mi proyecto personal que presenté como TFG en el fin de mi grado superior de Desarrollo de Aplicaciones Web (DAW). Se trata de un proyecto que simula un Marketplace de una empresa de seguros con algunas funciones extras que quise implementar, si os interesa podéis informaros desde la documentación que guardo en el repositorio del proyecto API.",
