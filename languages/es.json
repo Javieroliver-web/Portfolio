@@ -46,7 +46,7 @@
         "first-project-description": "Proyecto actualmente en desarrollo",
         "second-project-title": "Proyecto Vesta",
         "second-project-description": "Este es mi proyecto personal que presenté como TFG en el fin de mi grado superior de Desarrollo de Aplicaciones Web (DAW). Se trata de un proyecto que simula un Marketplace de una empresa de seguros con algunas funciones extras que quise implementar, si os interesa podéis informaros desde la documentación que guardo en el repositorio del proyecto API.",
-        "second-project-warning": "⚠️ Acceso web limitado hasta el 14 de abril de 2026 por restricciones de servidor."
+        "second-project-warning": "⚠️ Acceso web deshabilitado por migracion en curso, se presentaron restricciones de servidor."
     },
     "skills": {
         "years": "Años de experiencia"

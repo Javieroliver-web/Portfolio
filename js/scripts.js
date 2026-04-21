@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "first-project-description": "Proyecto constantemente en desarrollo.",
                 "second-project-title": "Proyecto Vesta",
                 "second-project-description": "Este es mi proyecto personal que presenté como TFG en el fin de mi grado superior de Desarrollo de Aplicaciones Web (DAW). Se trata de un proyecto que simula un Marketplace de una empresa de seguros con algunas funciones extras que quise implementar, si os interesa podéis informaros desde la documentación que guardo en el repositorio del proyecto API.",
-                "second-project-warning": "⚠️ Acceso web limitado hasta el 14 de abril de 2026 por restricciones de servidor."
+                "second-project-warning": "⚠️ Acceso web deshabilitado por migracion en curso, se presentaron restricciones de servidor."
             },
             "skills": { "section-title": "Habilidades Técnicas", "tools": "Herramientas" },
             "download": { "download-pdf": "Descargar CV en PDF", "button-cv": "Descargar PDF", "social-media": "Redes Sociales" }
@@ -239,7 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "first-project-description": "Project constantly under development.",
                 "second-project-title": "Vesta Project",
                 "second-project-description": "This is my personal project that I presented as my Final Degree Project at the end of my Higher Technician in Web Application Development (DAW). It simulates a Marketplace for an insurance company with some extra functions that I wanted to implement. If you are interested, you can find more information in the documentation kept in the API project repository.",
-                "second-project-warning": "⚠️ Web access limited until April 14, 2026 due to server constraints."
+                "second-project-warning": "⚠️ Web access disabled due to ongoing migration, server restrictions encountered."
             },
             "skills": { "section-title": "Technical Skills", "tools": "Tools" },
             "download": { "download-pdf": "Download CV in PDF", "button-cv": "Download PDF", "social-media": "Social Media" }
