@@ -475,9 +475,57 @@ body:not(.dark) .card:hover {
     transition: transform 0.5s ease;
 }
 
+/* Project Gallery (Carousel) */
+.project-gallery {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+}
 
+.project-gallery::-webkit-scrollbar {
+    display: none;
+}
 
-.project {
+.project-gallery img {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+}
+
+.gallery-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 5;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.gallery-button:hover {
+    background: var(--primary-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.gallery-button--left {
+    left: 10px;
+}
+
+.gallery-button--right {
+    right: 10px;
+}.project {
     padding: 2em;
     flex: 1;
     display: flex;
@@ -498,6 +546,27 @@ body:not(.dark) .card:hover {
     background: hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.1);
     color: var(--primary-color);
     border: 1px solid hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.2);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5em;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.project-header .card__title {
+    margin-bottom: 0;
+}
+
+.project-date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-weight: 500;
+    opacity: 0.8;
 }
 
 .buttons {
@@ -674,6 +743,39 @@ body:not(.dark) .rs-icon {
     background: none;
     border: none;
     cursor: pointer;
+    z-index: 1020;
+}
+
+.lightbox__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1010;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.lightbox__nav:hover {
+    background: var(--primary-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox__nav--prev {
+    left: 20px;
+}
+
+.lightbox__nav--next {
+    right: 20px;
 }
 
 /* Skill bar specifics for JS to hook into */
@@ -804,11 +906,53 @@ body:not(.dark) .rs-icon {
 }
 
 /* ── Filtro de proyectos ────────────────────────────────────────── */
+.projects-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-bottom: 1.5em;
+}
+
 .filter-bar {
     display: flex;
     gap: 0.6em;
     flex-wrap: wrap;
-    margin-bottom: 1.5em;
+}
+
+.sort-bar {
+    display: flex;
+    align-items: center;
+}
+
+.sort-select {
+    background: var(--bg-card-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 0.4em 1em;
+    border-radius: 2em;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    cursor: pointer;
+    outline: none;
+    transition: var(--transition);
+}
+
+.sort-select:hover {
+    background: hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.12);
+    border-color: hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.4);
+}
+
+.sort-select option {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
 }
 
 .filter-btn {

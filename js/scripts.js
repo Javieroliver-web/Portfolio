@@ -161,14 +161,27 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             "projects": {
                 "section-title": "Proyectos",
+                "filter-all": "Todos",
+                "sort-default": "Por defecto",
+                "sort-newest": "Más recientes",
+                "sort-oldest": "Más antiguos",
+                "sort-az": "Alfabético (A-Z)",
+                "sort-za": "Alfabético (Z-A)",
                 "first-project-title": "Portfolio web",
-                "first-project-description": "Proyecto constantemente en desarrollo.",
+                "first-project-date": "Iniciado en Junio 2025",
+                "first-project-description": "<p>Mi portfolio personal, diseñado y desarrollado desde cero como un proyecto vivo que refleja mi evolución como desarrollador Full-Stack.</p><p style=\"margin-top: 0.8rem;\">El frontend está construido con <strong>HTML, CSS y JavaScript Vanilla</strong>, implementando una arquitectura modular con soporte multi-idioma, temas dinámicos interactivos y un diseño responsivo. En el backend, cuenta con una <strong>API REST en Node.js</strong> contenedorizada con <strong>Docker</strong> para gestionar telemetría y logging de visitas. Todo el ciclo de vida (CI/CD) está automatizado y desplegado en <strong>Vercel</strong>, garantizando la calidad del código mediante inspección continua con <strong>SonarQube</strong>.</p>",
                 "second-project-title": "Proyecto Vesta",
+                "second-project-date": "Iniciado en Noviembre 2025",
                 "second-project-description": "Este es mi proyecto personal que presenté como TFG en el fin de mi grado superior de Desarrollo de Aplicaciones Web (DAW). Se trata de un proyecto que simula un Marketplace de una empresa de seguros con algunas funciones extras que quise implementar, si os interesa podéis informaros desde la documentación que guardo en el repositorio del proyecto API.",
-                "second-project-warning": "⚠️ Acceso web deshabilitado por migracion en curso, se presentaron restricciones de servidor."
+                "second-project-warning": "⚠️ Acceso web deshabilitado por migracion en curso, se presentaron restricciones de servidor.",
+                "third-project-title": "Carnicería Raúl Oliver - Experiencia Digital Premium",
+                "third-project-date": "Iniciado en Mayo 2026",
+                "third-project-description": "<p>El proyecto nace con el objetivo de impulsar la transformación digital de un negocio tradicional, dotándolo de una presencia online moderna, atractiva y altamente funcional. Más allá de crear una simple página estática, el enfoque ha sido diseñar una experiencia de usuario (UX) inmersiva y fluida que logre transmitir la calidad y profesionalidad del comercio desde el primer clic.</p><p style=\"margin-top: 0.8rem;\">La arquitectura del proyecto ha sido concebida para deslumbrar visualmente con microinteracciones, asegurar tiempos de carga casi instantáneos y una adaptabilidad perfecta a cualquier dispositivo (Mobile First), demostrando un fuerte compromiso con los estándares de desarrollo frontend actual.</p><h3 style=\"margin-top: 0.8rem; font-size: 1.05rem; font-weight: 600;\">Tecnologías y Enfoque Técnico:</h3><ul style=\"margin-top: 0.5rem; margin-left: 1.2rem; list-style-type: disc; gap: 0.3rem; display: flex; flex-direction: column;\"><li><strong>Rendimiento:</strong> Construido con React 18 y Vite.</li><li><strong>Escalabilidad:</strong> Tipado estricto con TypeScript.</li><li><strong>Estilos:</strong> Tailwind CSS (v4), Radix UI y Material UI.</li><li><strong>Animaciones:</strong> Framer Motion y Embla Carousel para una experiencia fluida.</li></ul>",
+                "third-project-warning": "⚠️ Proyecto en fase de desarrollo activo. La versión final puede variar."
             },
             "skills": { "section-title": "Habilidades Técnicas", "tools": "Herramientas" },
-            "download": { "download-pdf": "Descargar CV en PDF", "button-cv": "Descargar PDF", "social-media": "Redes Sociales" }
+            "download": { "download-pdf": "Descargar CV en PDF", "button-cv": "Descargar PDF", "social-media": "Redes Sociales" },
+            "footer": { "updated": "Actualizado:" }
         },
         "en": {
             "theme": { "mode-dark": "Dark Mode", "mode-white": "Light Mode" },
@@ -235,14 +248,27 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             "projects": {
                 "section-title": "Projects",
+                "filter-all": "All",
+                "sort-default": "Default",
+                "sort-newest": "Newest",
+                "sort-oldest": "Oldest",
+                "sort-az": "Alphabetical (A-Z)",
+                "sort-za": "Alphabetical (Z-A)",
                 "first-project-title": "Portfolio page",
-                "first-project-description": "Project constantly under development.",
+                "first-project-date": "Started in June 2025",
+                "first-project-description": "<p>My personal portfolio, designed and developed from scratch as a living project that reflects my evolution as a Full-Stack developer.</p><p style=\"margin-top: 0.8rem;\">The frontend is built with <strong>vanilla HTML, CSS, and JavaScript</strong>, implementing a modular architecture with multi-language support, interactive dynamic themes, and a responsive design. On the backend, it features a <strong>Node.js REST API</strong> containerized with <strong>Docker</strong> to manage telemetry and visit logging. The entire project lifecycle (CI/CD) is automated and deployed on <strong>Vercel</strong>, ensuring code quality through continuous inspection with <strong>SonarQube</strong>.</p>",
                 "second-project-title": "Vesta Project",
+                "second-project-date": "Started in November 2025",
                 "second-project-description": "This is my personal project that I presented as my Final Degree Project at the end of my Higher Technician in Web Application Development (DAW). It simulates a Marketplace for an insurance company with some extra functions that I wanted to implement. If you are interested, you can find more information in the documentation kept in the API project repository.",
-                "second-project-warning": "⚠️ Web access disabled due to ongoing migration, server restrictions encountered."
+                "second-project-warning": "⚠️ Web access disabled due to ongoing migration, server restrictions encountered.",
+                "third-project-title": "Carnicería Raúl Oliver - Premium Digital Experience",
+                "third-project-date": "Started in May 2026",
+                "third-project-description": "<p>The project was created to drive the digital transformation of a traditional business, providing it with a modern, attractive, and highly functional online presence. Beyond creating a simple static page, the focus has been on designing an immersive and fluid user experience (UX) that conveys the quality and professionalism of the business from the first click.</p><p style=\"margin-top: 0.8rem;\">The project's architecture has been designed to dazzle visually with micro-interactions, ensure near-instant load times, and perfect adaptability to any device (Mobile First), demonstrating a strong commitment to current frontend development standards.</p><h3 style=\"margin-top: 0.8rem; font-size: 1.05rem; font-weight: 600;\">Technologies and Technical Approach:</h3><ul style=\"margin-top: 0.5rem; margin-left: 1.2rem; list-style-type: disc; gap: 0.3rem; display: flex; flex-direction: column;\"><li><strong>Performance:</strong> Built with React 18 and Vite.</li><li><strong>Scalability:</strong> Strict typing with TypeScript.</li><li><strong>Styles:</strong> Tailwind CSS (v4), Radix UI, and Material UI.</li><li><strong>Animations:</strong> Framer Motion and Embla Carousel for a smooth experience.</li></ul>",
+                "third-project-warning": "⚠️ Project in active development phase. The final version may vary."
             },
             "skills": { "section-title": "Technical Skills", "tools": "Tools" },
-            "download": { "download-pdf": "Download CV in PDF", "button-cv": "Download PDF", "social-media": "Social Media" }
+            "download": { "download-pdf": "Download CV in PDF", "button-cv": "Download PDF", "social-media": "Social Media" },
+            "footer": { "updated": "Last updated:" }
         }
     };
     // ────────────────────────────────────────────────────────────────────────
@@ -463,6 +489,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const lightboxImage = lightbox.querySelector('.lightbox__image');
     const lightboxClose = lightbox.querySelector('.lightbox__close');
     const imagesToPreview = document.querySelectorAll('[data-lightbox-img]');
+    const lightboxPrev = lightbox.querySelector('.lightbox__nav--prev');
+    const lightboxNext = lightbox.querySelector('.lightbox__nav--next');
+
+    let currentLightboxGroup = [];
+    let currentLightboxIndex = 0;
+
+    const updateLightboxNav = () => {
+        if (currentLightboxGroup.length <= 1) {
+            if (lightboxPrev) lightboxPrev.style.display = 'none';
+            if (lightboxNext) lightboxNext.style.display = 'none';
+        } else {
+            if (lightboxPrev) lightboxPrev.style.display = 'flex';
+            if (lightboxNext) lightboxNext.style.display = 'flex';
+        }
+    };
 
     /**
      * Abre el lightbox mostrando la imagen indicada a pantalla completa.
@@ -474,6 +515,7 @@ document.addEventListener("DOMContentLoaded", () => {
         lightboxImage.src = imgSrc;
         lightbox.classList.add('active');
         document.body.classList.add('lightbox-active');
+        updateLightboxNav();
     };
 
     /**
@@ -494,10 +536,36 @@ document.addEventListener("DOMContentLoaded", () => {
     imagesToPreview.forEach(image => {
         image.addEventListener('click', (e) => {
             e.stopPropagation();
+            
+            // Buscar todas las imágenes relacionadas en la misma tarjeta/sección
+            const container = image.closest('.card') || document.body;
+            currentLightboxGroup = Array.from(container.querySelectorAll('[data-lightbox-img]'));
+            currentLightboxIndex = currentLightboxGroup.indexOf(image);
+            
             const imgSrc = image.getAttribute('data-lightbox-img');
             openLightbox(imgSrc);
         });
     });
+
+    if (lightboxPrev) {
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (currentLightboxGroup.length > 0) {
+                currentLightboxIndex = (currentLightboxIndex - 1 + currentLightboxGroup.length) % currentLightboxGroup.length;
+                lightboxImage.src = currentLightboxGroup[currentLightboxIndex].getAttribute('data-lightbox-img');
+            }
+        });
+    }
+
+    if (lightboxNext) {
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (currentLightboxGroup.length > 0) {
+                currentLightboxIndex = (currentLightboxIndex + 1) % currentLightboxGroup.length;
+                lightboxImage.src = currentLightboxGroup[currentLightboxIndex].getAttribute('data-lightbox-img');
+            }
+        });
+    }
 
     /** Cierra el lightbox al hacer clic en el botón de cierre (×). */
     lightboxClose.addEventListener('click', () => {
@@ -532,14 +600,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ── Footer: Última actualización (Fecha actual de carga del cliente) ────
-    const lastUpdatedEl = document.getElementById("last-updated");
-    if (lastUpdatedEl) {
-        const today = new Date();
-        const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-        lastUpdatedEl.textContent = today.toLocaleDateString('es-ES', options);
-    }
-
     // ── Filtro de proyectos ─────────────────────────────────────────
     /**
      * Lee el filtro activo del botón pulsado y muestra/oculta
@@ -570,6 +630,40 @@ document.addEventListener("DOMContentLoaded", () => {
                     card.classList.add('card--hidden');
                 }
             });
+        });
+    }
+    // ────────────────────────────────────────────────────────────────
+
+    // ── Ordenamiento de proyectos ───────────────────────────────────
+    const sortSelect = document.getElementById('sort-projects');
+    const projectsList = document.getElementById('projects-list');
+    
+    if (sortSelect && projectsList) {
+        // Guardar el orden original
+        const originalOrder = Array.from(projectsList.children);
+
+        sortSelect.addEventListener('change', (e) => {
+            const sortType = e.target.value;
+            const currentCards = Array.from(projectsList.children);
+
+            if (sortType === 'default') {
+                originalOrder.forEach(card => projectsList.appendChild(card));
+            } else {
+                currentCards.sort((a, b) => {
+                    if (sortType === 'newest') {
+                        return new Date(b.dataset.date) - new Date(a.dataset.date);
+                    } else if (sortType === 'oldest') {
+                        return new Date(a.dataset.date) - new Date(b.dataset.date);
+                    } else if (sortType === 'az') {
+                        return a.dataset.title.localeCompare(b.dataset.title);
+                    } else if (sortType === 'za') {
+                        return b.dataset.title.localeCompare(a.dataset.title);
+                    }
+                    return 0;
+                });
+                // Re-añadir en el nuevo orden
+                currentCards.forEach(card => projectsList.appendChild(card));
+            }
         });
     }
     // ────────────────────────────────────────────────────────────────

@@ -457,16 +457,31 @@
 
             <h2 class="section-title" data-section="projects" data-value="section-title">Proyectos</h2>
 
-            <!-- Barra de filtros por tecnología -->
-            <div id="filter-bar" class="filter-bar">
-                <button class="filter-btn filter-btn--active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="html">HTML/CSS/JS</button>
-                <button class="filter-btn" data-filter="angular">Angular</button>
-                <button class="filter-btn" data-filter="java">Java</button>
+            <!-- Controles de proyectos (Filtros y Ordenamiento) -->
+            <div class="projects-controls">
+                <div id="filter-bar" class="filter-bar">
+                    <button class="filter-btn filter-btn--active" data-filter="all" data-section="projects" data-value="filter-all">Todos</button>
+                    <button class="filter-btn" data-filter="html">HTML/CSS/JS</button>
+                    <button class="filter-btn" data-filter="angular">Angular</button>
+                    <button class="filter-btn" data-filter="java">Java</button>
+                    <button class="filter-btn" data-filter="react">React</button>
+                </div>
+                
+                <div class="sort-bar">
+                    <select id="sort-projects" class="sort-select">
+                        <option value="default" data-section="projects" data-value="sort-default">Por defecto</option>
+                        <option value="newest" data-section="projects" data-value="sort-newest">Más recientes</option>
+                        <option value="oldest" data-section="projects" data-value="sort-oldest">Más antiguos</option>
+                        <option value="az" data-section="projects" data-value="sort-az">A - Z</option>
+                        <option value="za" data-section="projects" data-value="sort-za">Z - A</option>
+                    </select>
+                </div>
             </div>
 
+            <div id="projects-list" class="projects-list">
+
             <!-- Proyecto 1: Portfolio personal -->
-            <article class="card card--project" data-tags="html">
+            <article class="card card--project" data-tags="html" data-date="2025-06-01" data-title="Portfolio web">
                 <div class="card__image-container">
                     <!-- data-lightbox-img: al hacer clic abre la imagen en lightbox -->
                     <img src="assets/images/Portfolio_project.png" alt="Portfolio page" class="card__image"
@@ -485,9 +500,14 @@
                         <span class="project__tag">#API</span>
                         <span class="project__tag">#CI/CD</span>
                     </div>
-                    <h2 class="card__title" data-section="projects" data-value="first-project-title">Portfolio web</h2>
-                    <p class="card__text" data-section="projects" data-value="first-project-description">Proyecto
-                        constantemente en desarrollo.</p>
+                    <div class="project-header">
+                        <h2 class="card__title" data-section="projects" data-value="first-project-title">Portfolio web</h2>
+                        <span class="project-date" data-section="projects" data-value="first-project-date">Iniciado en Junio 2025</span>
+                    </div>
+                    <div class="card__text" style="font-size: 0.95rem;" data-section="projects" data-value="first-project-description">
+                        <p>Mi portfolio personal, diseñado y desarrollado desde cero como un proyecto vivo que refleja mi evolución como desarrollador Full-Stack.</p>
+                        <p style="margin-top: 0.8rem;">El frontend está construido con <strong>HTML, CSS y JavaScript Vanilla</strong>, implementando una arquitectura modular con soporte multi-idioma, temas dinámicos interactivos y un diseño responsivo. En el backend, cuenta con una <strong>API REST en Node.js</strong> contenedorizada con <strong>Docker</strong> para gestionar telemetría y logging de visitas. Todo el ciclo de vida (CI/CD) está automatizado y desplegado en <strong>Vercel</strong>, garantizando la calidad del código mediante inspección continua con <strong>SonarQube</strong>.</p>
+                    </div>
                     <div class="buttons">
                         <a href="https://github.com/Javieroliver-web/Portfolio" class="button--code"
                             target="_blank" data-project="portfolio" data-project-action="code">Code</a>
@@ -496,7 +516,7 @@
             </article>
 
             <!-- Proyecto 2: Proyecto Vesta (TFG) -->
-            <article class="card card--project" data-tags="java">
+            <article class="card card--project" data-tags="java" data-date="2025-11-23" data-title="Proyecto Vesta">
                 <div class="card__image-container">
                     <img src="assets/images/vesta_project.png" alt="Proyecto Vesta" class="card__image" loading="lazy"
                         data-lightbox-img="assets/images/vesta_project.png">
@@ -512,7 +532,10 @@
                         <span class="project__tag">#GoogleCloud</span>
                         <span class="project__tag">#AI</span>
                     </div>
-                    <h2 class="card__title" data-section="projects" data-value="second-project-title">Proyecto Vesta</h2>
+                    <div class="project-header">
+                        <h2 class="card__title" data-section="projects" data-value="second-project-title">Proyecto Vesta</h2>
+                        <span class="project-date" data-section="projects" data-value="second-project-date">Iniciado en Noviembre 2025</span>
+                    </div>
                     <p class="card__text" data-section="projects" data-value="second-project-description">Este es mi
                         proyecto personal que presenté como TFG en el fin de mi grado superior de Desarrollo de
                         Aplicaciones Web (DAW). Se trata de un proyecto que simula un Marketplace de una empresa de
@@ -533,6 +556,47 @@
                 </div>
             </article>
 
+            <!-- Proyecto 3: Carnicería Raúl Oliver -->
+            <article class="card card--project" data-tags="react typescript" data-date="2026-05-01" data-title="Carnicería Raúl Oliver">
+                <div class="card__image-container" style="position: relative;">
+                    <div class="project-gallery">
+                        <img src="assets/images/carniceria_1.png" alt="Carnicería Raúl Oliver - Inicio" class="card__image" loading="lazy" data-lightbox-img="assets/images/carniceria_1.png">
+                        <img src="assets/images/carniceria_2.png" alt="Carnicería Raúl Oliver - Nosotros" class="card__image" loading="lazy" data-lightbox-img="assets/images/carniceria_2.png">
+                        <img src="assets/images/carniceria_3.png" alt="Carnicería Raúl Oliver - Contacto" class="card__image" loading="lazy" data-lightbox-img="assets/images/carniceria_3.png">
+                    </div>
+                    <button class="gallery-button gallery-button--left" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
+                    <button class="gallery-button gallery-button--right" aria-label="Siguiente imagen"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="project">
+                    <div class="project__tags">
+                        <span class="project__tag">#React</span>
+                        <span class="project__tag">#TypeScript</span>
+                        <span class="project__tag">#Vite</span>
+                        <span class="project__tag">#Tailwind CSS</span>
+                        <span class="project__tag">#Framer Motion</span>
+                        <span class="project__tag">#Radix UI</span>
+                    </div>
+                    <div class="project-header">
+                        <h2 class="card__title" data-section="projects" data-value="third-project-title">Carnicería Raúl Oliver - Experiencia Digital Premium</h2>
+                        <span class="project-date" data-section="projects" data-value="third-project-date">Iniciado en Mayo 2026</span>
+                    </div>
+                    <div class="card__text" style="font-size: 0.95rem;" data-section="projects" data-value="third-project-description">
+                        <!-- El texto se inyecta desde scripts.js -->
+                    </div>
+                    <div class="buttons">
+                        <a href="https://javieroliver-web.github.io/Carniceria-Raul-Oliver/" class="button--primary"
+                            target="_blank" data-project="carniceria" data-project-action="web">Web</a>
+                        <a href="https://github.com/Javieroliver-web/Carniceria-Raul-Oliver" class="button--code"
+                            target="_blank" data-project="carniceria" data-project-action="code-web">Code Web</a>
+                    </div>
+                    <p class="card__text card__text--warning" style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-color); opacity: 0.8; font-style: italic;" data-section="projects" data-value="third-project-warning">
+                        ⚠️ Proyecto en fase de desarrollo activo. La versión final puede variar.
+                    </p>
+                </div>
+            </article>
+
+            </div> <!-- Fin de projects-list -->
+
         </section>
         <!-- ── FIN COLUMNA DERECHA ────────────────────────────────── -->
 
@@ -541,7 +605,7 @@
 
     <!-- ── FOOTER VERSIONADO ──────────────────────────────────────── -->
     <footer class="footer">
-        <p>Actualizado: <span id="last-updated">21/04/2026</span> | v1.1.4.6</p>
+        <p><span data-section="footer" data-value="updated">Actualizado:</span> <span id="last-updated">19/05/2026</span> | v1.2.0.0</p>
     </footer>
 
     <!-- ════════════════════════════════════════════════════════════
@@ -625,10 +689,12 @@
          Se activa al hacer clic en cualquier imagen con data-lightbox-img
          ════════════════════════════════════════════════════════════ -->
     <div id="lightbox" class="lightbox">
+        <button class="lightbox__nav lightbox__nav--prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
         <div class="lightbox__content">
             <button class="lightbox__close">&times;</button>
             <img src="" alt="Imagen grande del proyecto" class="lightbox__image">
         </div>
+        <button class="lightbox__nav lightbox__nav--next" aria-label="Siguiente imagen"><i class="fas fa-chevron-right"></i></button>
     </div>
 
     <!-- Botón Volver Arriba -->
