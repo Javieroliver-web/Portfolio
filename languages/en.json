@@ -45,8 +45,7 @@
         "first-project-title": "Portfolio page",
         "first-project-description": "Project currently under development",
         "second-project-title": "Vesta Project",
-        "second-project-description": "This is my personal project that I presented as my Final Degree Project at the end of my Higher Technician in Web Application Development (DAW). It simulates a Marketplace for an insurance company with some extra functions that I wanted to implement. If you are interested, you can find more information in the documentation kept in the API project repository.",
-        "second-project-warning": "⚠️ Web access disabled due to ongoing migration, server restrictions encountered."
+        "second-project-description": "This is my personal project that I presented as my Final Degree Project at the end of my Higher Technician in Web Application Development (DAW). It simulates a Marketplace for an insurance company with some extra functions that I wanted to implement. It was originally hosted on Google Cloud, but has recently been migrated to Render (PaaS) and Neon (Serverless PostgreSQL) for cost optimization. If you are interested, you can find more information in the documentation kept in the API project repository."
     },
     "skills": {
         "years": "Years of experience"

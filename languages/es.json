@@ -45,8 +45,7 @@
         "first-project-title": "Portfolio page",
         "first-project-description": "Proyecto actualmente en desarrollo",
         "second-project-title": "Proyecto Vesta",
-        "second-project-description": "Este es mi proyecto personal que presenté como TFG en el fin de mi grado superior de Desarrollo de Aplicaciones Web (DAW). Se trata de un proyecto que simula un Marketplace de una empresa de seguros con algunas funciones extras que quise implementar, si os interesa podéis informaros desde la documentación que guardo en el repositorio del proyecto API.",
-        "second-project-warning": "⚠️ Acceso web deshabilitado por migracion en curso, se presentaron restricciones de servidor."
+        "second-project-description": "Este es mi proyecto personal que presenté como TFG en el fin de mi grado superior de Desarrollo de Aplicaciones Web (DAW). Se trata de un proyecto que simula un Marketplace de una empresa de seguros con algunas funciones extras que quise implementar. Originalmente fue desplegado en Google Cloud, pero ha sido migrado a Render (PaaS) y Neon (PostgreSQL serverless) por optimización de costes. Si os interesa podéis informaros desde la documentación que guardo en el repositorio del proyecto API."
     },
     "skills": {
         "years": "Años de experiencia"
