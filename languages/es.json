@@ -10,8 +10,8 @@
     "experiences": {
         "section-title": "Experiencia",
         "first-job-title": "Desarrollador Full Stack Junior",
-        "first-job-dates": "Febrero 2026 - Actualidad",
-        "first-job-description": "Prácticas de segundo curso de FP Grado Superior de Desarrollo de Aplicaciones Web (DAW).",
+        "first-job-dates": "Febrero 2026 - Mayo 2026",
+        "first-job-description": "En una nueva etapa en AYESA, me incorporé al equipo de desarrollo asumiendo el ciclo de vida completo del software, con un stack basado en Java y Spring Boot. Trabajé en la evolución y refactorización de cuadros de mando internos (DashboardAYESA) y en el desarrollo de JiraTicketManager, diseñando la lógica de cálculo de horas restantes por ticket mediante integraciones asíncronas con la API de Redmine. Complementé esto con el mantenimiento de procesos ETL para validación de datos críticos e I+D de herramientas corporativas, garantizando la calidad del código con SonarQube, pruebas unitarias y gestión de ramas orientada a producción.",
         "second-job-title": "Actividades de programación informática",
         "second-job-dates": "Noviembre 2023 - Noviembre 2024",
         "second-job-description": "Participé en el mantenimiento de la plataforma \"Secretaria Virtual\". Utilicé tecnologías como Java, SQL y PL/SQL. Mi responsabilidad principal fue llevar a cabo los cambios solicitados en la base de datos y participar en las correcciones de errores de la web junto a mi equipo. Utilicé Git para el control de versiones.",
