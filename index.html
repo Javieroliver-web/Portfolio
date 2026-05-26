@@ -69,26 +69,26 @@
 
         <!-- Botón de tema (oscuro/claro) y selector de idioma (ES/EN) -->
         <div class="switches">
-            <div id="toggle-icon" class="toggle-theme" role="button" tabindex="0" aria-label="Cambiar tema">
+            <button id="toggle-icon" class="toggle-theme" type="button" aria-label="Cambiar tema">
                 <img id="toggle-image" src="assets/icons/moon.png" alt="icon theme" class="toggle-theme__icon" />
-                <p id="toggle-text" class="toggle-theme__text">Modo Oscuro</p>
-            </div>
+                <span id="toggle-text" class="toggle-theme__text">Modo Oscuro</span>
+            </button>
             <div id="flags" class="flags">
-                <div class="flags__item" data-language="es" role="button" tabindex="0" aria-label="Cambiar idioma a Español">
+                <button class="flags__item" type="button" data-language="es" aria-label="Cambiar idioma a Español">
                     <img src="assets/icons/es.svg" alt="Español">
-                </div>
-                <div class="flags__item" data-language="en" role="button" tabindex="0" aria-label="Cambiar idioma a Inglés">
+                </button>
+                <button class="flags__item" type="button" data-language="en" aria-label="Cambiar idioma a Inglés">
                     <img src="assets/icons/gb.svg" alt="English">
-                </div>
+                </button>
             </div>
         </div>
 
         <!-- Selector de color de acento principal -->
         <div id="toggle-colors" class="colors">
-            <div data-hue="214" class="colors__item colors__item--blue" role="button" tabindex="0" aria-label="Acento Azul"></div>
-            <div data-hue="150" class="colors__item colors__item--green" role="button" tabindex="0" aria-label="Acento Verde"></div>
-            <div data-hue="270" class="colors__item colors__item--purple" role="button" tabindex="0" aria-label="Acento Morado"></div>
-            <div data-hue="350" data-sat="85%" data-light="40%" class="colors__item colors__item--wine" role="button" tabindex="0" aria-label="Acento Vino"></div>
+            <button type="button" data-hue="214" class="colors__item colors__item--blue" aria-label="Acento Azul"></button>
+            <button type="button" data-hue="150" class="colors__item colors__item--green" aria-label="Acento Verde"></button>
+            <button type="button" data-hue="270" class="colors__item colors__item--purple" aria-label="Acento Morado"></button>
+            <button type="button" data-hue="350" data-sat="85%" data-light="40%" class="colors__item colors__item--wine" aria-label="Acento Vino"></button>
         </div>
 
     </header>
@@ -619,7 +619,7 @@
 
     <!-- ── FOOTER VERSIONADO ──────────────────────────────────────── -->
     <footer class="footer">
-        <p><span data-section="footer" data-value="updated">Actualizado:</span> <span id="last-updated">26/05/2026</span> | v1.2.2.1</p>
+        <p><span data-section="footer" data-value="updated">Actualizado:</span> <span id="last-updated">26/05/2026</span> | v1.2.2.2</p>
     </footer>
 
     <!-- ════════════════════════════════════════════════════════════

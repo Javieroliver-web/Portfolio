@@ -1,5 +1,15 @@
 import { appendLog } from './logger.js';
 
+function parseUserAgent(ua) {
+    if (!ua) return 'Desconocido';
+    if (ua.includes('Edg/')) return 'Edge';
+    if (ua.includes('Chrome') && !ua.includes('Edg/')) return 'Chrome';
+    if (ua.includes('Safari') && !ua.includes('Chrome')) return 'Safari';
+    if (ua.includes('Firefox')) return 'Firefox';
+    if (ua.includes('Opera') || ua.includes('OPR/')) return 'Opera';
+    return ua.substring(0, 50);
+}
+
 export default async function handler(req, res) {
     if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
@@ -21,16 +31,6 @@ export default async function handler(req, res) {
 
     const { timestamp, language, screen, userAgent, page, cvLanguage } = req.body;
 
-    function parseUserAgent(ua) {
-        if (!ua) return 'Desconocido';
-        if (ua.includes('Edg/')) return 'Edge';
-        if (ua.includes('Chrome') && !ua.includes('Edg/')) return 'Chrome';
-        if (ua.includes('Safari') && !ua.includes('Chrome')) return 'Safari';
-        if (ua.includes('Firefox')) return 'Firefox';
-        if (ua.includes('Opera') || ua.includes('OPR/')) return 'Opera';
-        return ua.substring(0, 50);
-    }
-
     const browserName = parseUserAgent(userAgent);
     const rawIp = req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'IP desconocida';
     const ip = rawIp.split(',').pop().trim();
@@ -48,7 +48,7 @@ export default async function handler(req, res) {
         location = `${city}${city ? ', ' : ''}${region}${region ? ' ' : ''}[${country}]`.trim();
     }
 
-    const isVercelBot = userAgent && userAgent.toLowerCase().includes('vercel-screenshot');
+    const isVercelBot = userAgent?.toLowerCase().includes('vercel-screenshot');
     const finalBrowserName = isVercelBot ? `🤖 Vercel Bot (${browserName})` : browserName;
 
     // Diferenciar el idioma descargado para el mensaje de Discord
