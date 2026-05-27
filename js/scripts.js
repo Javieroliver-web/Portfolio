@@ -182,7 +182,8 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             "skills": { "section-title": "Habilidades Técnicas", "tools": "Herramientas" },
             "download": { "download-pdf": "Descargar CV en PDF", "button-cv": "Descargar PDF", "social-media": "Redes Sociales" },
-            "footer": { "updated": "Actualizado:" }
+            "footer": { "updated": "Actualizado:" },
+            "ui": { "read-more": "Ver más", "read-less": "Ver menos" }
         },
         "en": {
             "theme": { "mode-dark": "Dark Mode", "mode-white": "Light Mode" },
@@ -268,7 +269,8 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             "skills": { "section-title": "Technical Skills", "tools": "Tools" },
             "download": { "download-pdf": "Download CV in PDF", "button-cv": "Download PDF", "social-media": "Social Media" },
-            "footer": { "updated": "Last updated:" }
+            "footer": { "updated": "Last updated:" },
+            "ui": { "read-more": "Read more", "read-less": "Read less" }
         }
     };
     // ────────────────────────────────────────────────────────────────────────
@@ -312,6 +314,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (typeof window.__resetTypewriter === 'function') {
             window.__resetTypewriter();
         }
+        // Re-aplicar truncado con los textos del nuevo idioma
+        initReadMore();
     };
 
     /**
@@ -377,8 +381,84 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // ── Truncado de descripciones largas con botón "Ver más / Ver menos" ────
+    /**
+     * Límite de caracteres (texto plano) a partir del cual se colapsa la descripción.
+     * El umbral se aplica sobre el contenido de texto, ignorando etiquetas HTML.
+     */
+    const READ_MORE_THRESHOLD = 200;
+
+    /**
+     * Inicializa (o re-inicializa) el comportamiento de "Ver más / Ver menos"
+     * en todos los elementos con la clase .experience__description.
+     * Se puede llamar de forma segura múltiples veces: limpia el estado anterior
+     * antes de volver a aplicar la lógica.
+     */
+    const initReadMore = () => {
+        // Textos del botón según el idioma activo
+        const labelMore = languageData?.ui?.['read-more'] || 'Ver más';
+        const labelLess = languageData?.ui?.['read-less'] || 'Ver menos';
+
+        // Seleccionar únicamente las descripciones de experiencia/educación/licencias
+        const descriptions = document.querySelectorAll('.experience__description');
+
+        descriptions.forEach(desc => {
+            // ── Limpiar estado anterior ──────────────────────────────────────
+            // Si el elemento ya fue procesado, devolvemos el texto al contenedor
+            // original y eliminamos el wrapper y el botón anteriores.
+            const existingWrapper = desc.querySelector('.description-wrapper');
+            if (existingWrapper) {
+                // Sacar el contenido del wrapper al elemento padre
+                desc.innerHTML = existingWrapper.querySelector('.description-text').innerHTML;
+            }
+
+            // ── Comprobar si el texto supera el umbral ───────────────────────
+            const plainText = desc.textContent.trim();
+            if (plainText.length <= READ_MORE_THRESHOLD) return; // no necesita truncado
+
+            // ── Crear la estructura wrapper + botón ─────────────────────────
+            const originalHTML = desc.innerHTML;
+
+            const wrapper = document.createElement('div');
+            wrapper.className = 'description-wrapper is-collapsed';
+
+            const textSpan = document.createElement('div');
+            textSpan.className = 'description-text';
+            textSpan.innerHTML = originalHTML;
+
+            const btn = document.createElement('button');
+            btn.className = 'btn-read-more';
+            btn.setAttribute('type', 'button');
+            btn.setAttribute('aria-expanded', 'false');
+            btn.innerHTML = `${labelMore} <i class="btn-read-more__icon">▾</i>`;
+
+            btn.addEventListener('click', () => {
+                const isExpanded = wrapper.classList.contains('is-expanded');
+
+                if (isExpanded) {
+                    wrapper.classList.replace('is-expanded', 'is-collapsed');
+                    btn.setAttribute('aria-expanded', 'false');
+                    btn.innerHTML = `${labelMore} <i class="btn-read-more__icon">▾</i>`;
+                } else {
+                    wrapper.classList.replace('is-collapsed', 'is-expanded');
+                    btn.setAttribute('aria-expanded', 'true');
+                    btn.innerHTML = `${labelLess} <i class="btn-read-more__icon">▾</i>`;
+                }
+            });
+
+            wrapper.appendChild(textSpan);
+            wrapper.appendChild(btn);
+
+            // Reemplazar el contenido del párrafo con el wrapper
+            desc.innerHTML = '';
+            desc.appendChild(wrapper);
+        });
+    };
+    // ────────────────────────────────────────────────────────────────────────
+
     // ── Inicialización ───────────────────────────────────────────────────────
     changeLanguage(currentLanguage);
+    initReadMore();
     // ────────────────────────────────────────────────────────────────────────
 
     // ── Efecto Typewriter en el subtítulo de perfil ─────────────────────────
