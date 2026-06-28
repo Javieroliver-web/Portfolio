@@ -104,16 +104,22 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             "experiences": {
                 "section-title": "Experiencia",
-                "ayesa-meta": "Ayesa · Contrato de prácticas · Sevilla, Andalucía, España · Híbrido",
-                "first-job-title": "Desarrollador Full Stack Junior",
-                "first-job-dates": "Febrero 2026 - Mayo 2026",
-                "first-job-description": "En una nueva etapa en AYESA, me incorporé al equipo de desarrollo asumiendo el ciclo de vida completo del software, con un stack basado en Java y Spring Boot. Trabajé en la evolución y refactorización de cuadros de mando internos (DashboardAYESA) y en el desarrollo de JiraTicketManager, diseñando la lógica de cálculo de horas restantes por ticket mediante integraciones asíncronas con la API de Redmine. Complementé esto con el mantenimiento de procesos ETL para validación de datos críticos e I+D de herramientas corporativas, garantizando la calidad del código con SonarQube, pruebas unitarias y gestión de ramas orientada a producción.",
-                "second-job-title": "Actividades de programación informática",
-                "second-job-dates": "Noviembre 2023 - Noviembre 2024",
-                "second-job-description": "Participé en el mantenimiento de la plataforma \"Secretaria Virtual\". Utilicé tecnologías como Java, SQL y PL/SQL. Mi responsabilidad principal fue llevar a cabo los cambios solicitados en la base de datos y participar en las correcciones de errores de la web junto a mi equipo. Utilicé Git para el control de versiones.",
-                "third-job-title": "Desarrollador Front-End Junior",
-                "third-job-dates": "Marzo 2023 - Junio 2023",
-                "third-job-description": "Prácticas de primer curso de FP Grado Medio Sistemas Microinformáticos y Redes (SMR)."
+                "first-job-title": "Desarrollador Back-End",
+                "first-job-dates": "Junio 2026 - Actualidad",
+                "first-job-meta": "Ayesa Digital · Jornada completa · Sevilla, Andalucía, España · Híbrido",
+                "first-job-description": "Tras finalizar las prácticas el 28 de mayo, me incorporé el 17 de junio al equipo de microservicios de Ayesa Digital con contrato de jornada completa. Trabajo en HOMESAS, un proyecto con impacto real en la sanidad pública andaluza. Continúo con el stack Java y Spring Boot, asumiendo mayor responsabilidad en decisiones técnicas, revisión de código e integración de nuevas funcionalidades en producción.",
+                "second-job-title": "Desarrollador Full Stack Junior",
+                "second-job-dates": "Febrero 2026 - Mayo 2026",
+                "second-job-meta": "Ayesa · Contrato de prácticas · Sevilla, Andalucía, España · Híbrido",
+                "second-job-description": "En una nueva etapa en AYESA, me incorporé al equipo de desarrollo asumiendo el ciclo de vida completo del software, con un stack basado en Java y Spring Boot. Trabajé en la evolución y refactorización de cuadros de mando internos (DashboardAYESA) y en el desarrollo de JiraTicketManager, diseñando la lógica de cálculo de horas restantes por ticket mediante integraciones asíncronas con la API de Redmine. Complementé esto con el mantenimiento de procesos ETL para validación de datos críticos e I+D de herramientas corporativas, garantizando la calidad del código con SonarQube, pruebas unitarias y gestión de ramas orientada a producción.",
+                "third-job-title": "Actividades de programación informática",
+                "third-job-dates": "Noviembre 2023 - Noviembre 2024",
+                "third-job-meta": "Ayesa · Contrato de prácticas · Sevilla, Andalucía, España · Híbrido",
+                "third-job-description": "Participé en el mantenimiento de la plataforma \"Secretaria Virtual\". Utilicé tecnologías como Java, SQL y PL/SQL. Mi responsabilidad principal fue llevar a cabo los cambios solicitados en la base de datos y participar en las correcciones de errores de la web junto a mi equipo. Utilicé Git para el control de versiones.",
+                "fourth-job-title": "Desarrollador Front-End Junior",
+                "fourth-job-dates": "Marzo 2023 - Junio 2023",
+                "fourth-job-meta": "Ayesa · Contrato de prácticas · Sevilla, Andalucía, España · Híbrido",
+                "fourth-job-description": "Prácticas de primer curso de FP Grado Medio Sistemas Microinformáticos y Redes (SMR)."
             },
             "education": {
                 "section-title": "Educación",
@@ -193,16 +199,22 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             "experiences": {
                 "section-title": "Experience",
-                "ayesa-meta": "Ayesa · Internship contract · Seville, Andalusia, Spain · Hybrid",
-                "first-job-title": "Full Stack Junior Developer",
-                "first-job-dates": "February 2026 - May 2026",
-                "first-job-description": "In a new stage at AYESA, I joined the development team taking on the full software lifecycle, with a stack based on Java and Spring Boot. I worked on the evolution and refactoring of internal dashboards (DashboardAYESA) and on the development of JiraTicketManager, designing the remaining-hours calculation logic per ticket through asynchronous integrations with the Redmine API. I complemented this with the maintenance of ETL processes for critical data validation and R&D of corporate tools, ensuring code quality with SonarQube, unit testing, and production-oriented branch management.",
-                "second-job-title": "Computer Programming Activities",
-                "second-job-dates": "November 2023 - November 2024",
-                "second-job-description": "I participated in the maintenance of the 'Virtual Secretary' platform. I used technologies such as Java, SQL and PL/SQL. My main responsibilities were to carry out the requested changes in the database and participate in the resolution of web errors alongside my team. I used Git for version control.",
-                "third-job-title": "Front-End Junior Developer",
-                "third-job-dates": "March 2023 - June 2023",
-                "third-job-description": "First-year internship of the Mid-Level Vocational Training in Microcomputer Systems and Networks (SMR)."
+                "first-job-title": "Back-End Developer",
+                "first-job-dates": "June 2026 - Present",
+                "first-job-meta": "Ayesa Digital · Full-time · Seville, Andalusia, Spain · Hybrid",
+                "first-job-description": "After completing my internship on May 28th, I joined Ayesa Digital on June 17th as a full-time Back-End Developer in the microservices team. I work on HOMESAS, a project with real impact on the Andalusian public healthcare system. I continue working with Java and Spring Boot, taking on greater responsibility in technical decisions, code reviews, and the integration of new features into production.",
+                "second-job-title": "Full Stack Junior Developer",
+                "second-job-dates": "February 2026 - May 2026",
+                "second-job-meta": "Ayesa · Internship · Seville, Andalusia, Spain · Hybrid",
+                "second-job-description": "In a new stage at AYESA, I joined the development team taking on the full software lifecycle, with a stack based on Java and Spring Boot. I worked on the evolution and refactoring of internal dashboards (DashboardAYESA) and on the development of JiraTicketManager, designing the remaining-hours calculation logic per ticket through asynchronous integrations with the Redmine API. I complemented this with the maintenance of ETL processes for critical data validation and R&D of corporate tools, ensuring code quality with SonarQube, unit testing, and production-oriented branch management.",
+                "third-job-title": "Computer Programming Activities",
+                "third-job-dates": "November 2023 - November 2024",
+                "third-job-meta": "Ayesa · Internship · Seville, Andalusia, Spain · Hybrid",
+                "third-job-description": "I participated in the maintenance of the 'Virtual Secretary' platform. I used technologies such as Java, SQL and PL/SQL. My main responsibilities were to carry out the requested changes in the database and participate in the resolution of web errors alongside my team. I used Git for version control.",
+                "fourth-job-title": "Front-End Junior Developer",
+                "fourth-job-dates": "March 2023 - June 2023",
+                "fourth-job-meta": "Ayesa · Internship · Seville, Andalusia, Spain · Hybrid",
+                "fourth-job-description": "First-year internship of the Mid-Level Vocational Training in Microcomputer Systems and Networks (SMR)."
             },
             "education": {
                 "section-title": "Education",
@@ -471,11 +483,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const typewriterRoles = {
         es: [
             'DESARROLLADOR WEB FULL-STACK',
-            'EN BÚSQUEDA DE EMPLEO',
+            'BACK-END DEVELOPER EN AYESA DIGITAL',
         ],
         en: [
             'FULL-STACK WEB DEVELOPER',
-            'OPEN TO WORK',
+            'BACK-END DEVELOPER AT AYESA DIGITAL',
         ],
     };
 
