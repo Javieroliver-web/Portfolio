@@ -316,13 +316,8 @@ body:not(.dark) .card:hover {
     font-size: 1rem;
     letter-spacing: 1px;
     text-transform: uppercase;
-    min-height: 3.2em; /* Evita saltos en móvil (2 líneas) */
-}
-
-@media screen and (min-width: 900px) {
-    .card__subtitle {
-        min-height: 1.6em; /* 1 línea en PC */
-    }
+    min-height: 3.2em; /* Reserva espacio fijo para 2 líneas en todas las pantallas */
+    text-align: center;
 }
 
 /* Cursor parpadeante del efecto typewriter */
@@ -1100,8 +1095,8 @@ body:not(.dark) .form-input:focus, body:not(.dark) .form-input:focus-visible {
     border-color: hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.4);
 }
 
-.sort-select:focus {
-    /* Flecha mirando hacia arriba cuando está desplegado/enfocado */
+.sort-select.is-open {
+    /* Flecha mirando hacia arriba cuando está desplegado */
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 15 12 9 18 15'%3e%3c/polyline%3e%3c/svg%3e");
 }
 

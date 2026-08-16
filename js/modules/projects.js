@@ -95,5 +95,15 @@ export const initProjects = () => {
 
     sortSelect.addEventListener('change', () => {
         applyFiltersAndSort();
+        sortSelect.classList.remove('is-open');
+        sortSelect.blur();
+    });
+
+    sortSelect.addEventListener('mousedown', () => {
+        sortSelect.classList.toggle('is-open');
+    });
+
+    sortSelect.addEventListener('blur', () => {
+        sortSelect.classList.remove('is-open');
     });
 };
