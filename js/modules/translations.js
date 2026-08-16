@@ -74,6 +74,7 @@ export const translations = {
         "projects": {
             "section-title": "Proyectos",
             "filter-all": "Todos",
+            "search-placeholder": "Buscar proyectos...",
             "sort-default": "Por defecto",
             "sort-newest": "Más recientes",
             "sort-oldest": "Más antiguos",
@@ -104,7 +105,8 @@ export const translations = {
         "skills": { "section-title": "Habilidades Técnicas", "tools": "Herramientas" },
         "download": { "download-pdf": "Descargar CV en PDF", "button-cv": "Descargar PDF", "social-media": "Redes Sociales" },
         "footer": { "updated": "Actualizado:" },
-        "ui": { "read-more": "Ver más", "read-less": "Ver menos" }
+        "ui": { "read-more": "Ver más", "read-less": "Ver menos" },
+        "toast": { "copied": "¡Copiado al portapapeles!" }
     },
     "en": {
         "theme": { "mode-dark": "Dark Mode", "mode-white": "Light Mode" },
@@ -179,6 +181,7 @@ export const translations = {
         "projects": {
             "section-title": "Projects",
             "filter-all": "All",
+            "search-placeholder": "Search projects...",
             "sort-default": "Default",
             "sort-newest": "Newest",
             "sort-oldest": "Oldest",
@@ -209,6 +212,7 @@ export const translations = {
         "skills": { "section-title": "Technical Skills", "tools": "Tools" },
         "download": { "download-pdf": "Download CV in PDF", "button-cv": "Download PDF", "social-media": "Social Media" },
         "footer": { "updated": "Last updated:" },
-        "ui": { "read-more": "Read more", "read-less": "Read less" }
+        "ui": { "read-more": "Read more", "read-less": "Read less" },
+        "toast": { "copied": "Copied to clipboard!" }
     }
 };

@@ -351,6 +351,25 @@ body:not(.dark) .card:hover {
     color: var(--primary-color);
 }
 
+.copy-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.2em;
+    border-radius: 4px;
+    transition: color 0.2s ease, transform 0.1s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copy-btn:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
 .card__text {
     margin-top: 1.5em;
     color: var(--text-muted);
@@ -1004,6 +1023,42 @@ body:not(.dark) .form-input:focus, body:not(.dark) .form-input:focus-visible {
 }
 
 /* ── Botón Volver Arriba ────────────────────────────────────────── */
+/* Ventana Emergente (Toast) */
+.toast {
+    position: fixed;
+    bottom: -100px; /* Oculto por defecto */
+    left: 50%;
+    transform: translateX(-50%);
+    background: hsla(var(--bg-hue), var(--bg-sat), var(--bg-light), 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.8em 1.5em;
+    border-radius: 2em;
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+    font-size: 0.95rem;
+    font-weight: 500;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.toast.show {
+    bottom: 30px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.toast__icon {
+    color: hsl(150, 60%, 45%); /* Verde éxito */
+    font-size: 1.1rem;
+}
+
 .btn-scroll-top {
     position: fixed;
     bottom: 30px;
@@ -1054,7 +1109,40 @@ body:not(.dark) .form-input:focus, body:not(.dark) .form-input:focus-visible {
     align-items: center;
     flex-wrap: wrap;
     gap: 1em;
+    margin-bottom: 1em;
+}
+
+.search-bar-container {
+    position: relative;
+    width: 100%;
     margin-bottom: 1.5em;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.8em 1em 0.8em 2.5em;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    background: var(--bg-card-color);
+    color: var(--text-color);
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    transition: outline 0.2s ease, border-color 0.2s ease;
+}
+
+.search-input:focus {
+    outline: 2px solid var(--primary-color);
+    border-color: transparent;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 1rem;
+    pointer-events: none;
 }
 
 .filter-bar {

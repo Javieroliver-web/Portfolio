@@ -118,15 +118,20 @@
                     </p>
                 </div>
                 <div class="card__body">
-                    <!-- Enlace de correo electrónico -->
                     <div class="card__link">
                         <i class="fas fa-envelope icon" aria-hidden="true"></i>
                         <a href="mailto:javip200555@gmail.com">javip200555@gmail.com</a>
+                        <button class="copy-btn" aria-label="Copiar correo" data-copy="javip200555@gmail.com" title="Copiar">
+                            <i class="fas fa-copy" aria-hidden="true"></i>
+                        </button>
                     </div>
                     <!-- Enlace de teléfono -->
                     <div class="card__link">
                         <i class="fas fa-phone-alt icon" aria-hidden="true"></i>
                         <a href="tel:622645922">+34-622645922</a>
+                        <button class="copy-btn" aria-label="Copiar teléfono" data-copy="+34622645922" title="Copiar">
+                            <i class="fas fa-copy" aria-hidden="true"></i>
+                        </button>
                     </div>
                     <!-- Enlace de GitHub -->
                     <div class="card__link">
@@ -504,6 +509,11 @@
                     </select>
                 </div>
             </div>
+            
+            <div class="search-bar-container">
+                <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                <input type="search" id="search-projects" class="search-input" placeholder="Buscar proyectos..." aria-label="Buscar proyectos" data-section="projects" data-value="search-placeholder">
+            </div>
 
             <div id="projects-list" class="projects-list">
 
@@ -662,7 +672,7 @@
 
     <!-- ── FOOTER VERSIONADO ──────────────────────────────────────── -->
     <footer class="footer">
-        <p><span data-section="footer" data-value="updated">Actualizado:</span> <span id="last-updated">16/08/2026</span> | v1.2.5.1</p>
+        <p><span data-section="footer" data-value="updated">Actualizado:</span> <span id="last-updated">16/08/2026</span> | v1.2.6.0</p>
     </footer>
 
     <!-- ════════════════════════════════════════════════════════════
@@ -765,6 +775,12 @@
     <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Volver arriba" title="Volver arriba">
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
+
+    <!-- Ventana emergente (Toast) -->
+    <div id="toast" class="toast" aria-live="polite" aria-atomic="true">
+        <i class="fas fa-check-circle toast__icon" aria-hidden="true"></i>
+        <span id="toast-message" data-section="toast" data-value="copied">¡Copiado al portapapeles!</span>
+    </div>
 
     <!-- Script principal (debe ir al final para que el DOM esté listo) -->
     <script type="module" src="js/main.js"></script>

@@ -25,15 +25,17 @@ export const initProjects = () => {
         });
     });
 
-    // ── Filtros y Ordenamiento ───────────────────────────────────────────────
+    // ── Filtros, Búsqueda y Ordenamiento ─────────────────────────────────────
     const filterButtons = document.querySelectorAll('.filter-btn');
     const sortSelect = document.getElementById('sort-projects');
+    const searchInput = document.getElementById('search-projects');
     const projectsList = document.getElementById('projects-list');
     
     if (!filterButtons.length || !sortSelect || !projectsList) return;
 
     const allProjects = Array.from(projectsList.children);
     let currentFilter = 'all';
+    let currentSearch = '';
 
     // Añadir atributos data para ordenar
     allProjects.forEach(project => {
@@ -41,10 +43,6 @@ export const initProjects = () => {
         if (titleEl) {
             project.dataset.title = titleEl.textContent.trim().toLowerCase();
         }
-        
-        // Extraer fecha del data-value (ej: "first-project-date")
-        // Como las fechas en el HTML son "Iniciado en...", usaremos un índice simple para old/new
-        // Basándonos en el orden original del HTML (asumiendo que el original es newest-first)
     });
     
     // Guardar orden original
@@ -68,9 +66,16 @@ export const initProjects = () => {
     };
 
     const applyFiltersAndSort = () => {
-        // Filtrar
+        // Filtrar por categoría (data-tags) y texto de búsqueda (título y descripción)
         let filteredProjects = allProjects.filter(project => {
-            return currentFilter === 'all' || project.dataset.category === currentFilter;
+            const matchesFilter = currentFilter === 'all' || (project.dataset.tags && project.dataset.tags.includes(currentFilter));
+            
+            const tags = project.dataset.tags || '';
+            // Buscar coincidencias en título o tags
+            const searchableText = `${project.dataset.title} ${tags}`.toLowerCase();
+            const matchesSearch = currentSearch === '' || searchableText.includes(currentSearch);
+            
+            return matchesFilter && matchesSearch;
         });
 
         // Ordenar
@@ -92,6 +97,13 @@ export const initProjects = () => {
             applyFiltersAndSort();
         });
     });
+
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            currentSearch = e.target.value.trim().toLowerCase();
+            applyFiltersAndSort();
+        });
+    }
 
     sortSelect.addEventListener('change', () => {
         applyFiltersAndSort();

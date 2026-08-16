@@ -4,6 +4,7 @@ import { initUI, initReadMore, setLanguageData } from './modules/ui.js';
 import { initProjects } from './modules/projects.js';
 import { initModals } from './modules/modal.js';
 import { initContactForm } from './modules/contact.js';
+import { initCopyButtons } from './modules/copy.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     // ── Tracking silencioso de visitas (solo en producción) ──────────────────
@@ -51,4 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 6. Inicializar Formulario de Contacto (Spam control y AJAX)
     initContactForm();
+
+    // 7. Inicializar Botones de Copiar y Notificaciones (Toast)
+    initCopyButtons();
 });
