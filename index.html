@@ -52,6 +52,7 @@
 
     <!-- Hoja de estilos principal -->
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/print.css" media="print" />
 
     <!-- Vercel Web Analytics -->
     <script defer src="/_vercel/insights/script.js"></script>
@@ -61,11 +62,12 @@
 </head>
 
 <body class="dark">
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
     <!-- ════════════════════════════════════════════════════════════
          HEADER — Controles globales: tema, idioma y color de acento
          ════════════════════════════════════════════════════════════ -->
-    <header id="--header" class="header">
+    <header id="--header" class="header" aria-label="Controles globales">
 
         <!-- Botón de tema (oscuro/claro) y selector de idioma (ES/EN) -->
         <div class="switches">
@@ -96,10 +98,10 @@
     <!-- ════════════════════════════════════════════════════════════
          MAIN — Contenido principal dividido en dos columnas
          ════════════════════════════════════════════════════════════ -->
-    <main class="main">
+    <main id="main-content" class="main">
 
         <!-- ── COLUMNA IZQUIERDA ──────────────────────────────────── -->
-        <section class="column column--left">
+        <section class="column column--left" aria-label="Perfil y experiencia">
 
             <!-- Tarjeta de perfil: foto, nombre, rol, contacto y descripción -->
             <article class="card card--profile">
@@ -110,25 +112,26 @@
                 <div class="card__header">
                     <h1 id="card__title" class="card__title">Francisco Javier<br>Párraga Oliver</h1>
                     <!-- El texto del rol anima escritura/borrado via scripts.js -->
-                    <p id="card__subtitle" class="card__subtitle">
-                        <span id="typewriter-text"></span><span class="typewriter-cursor">|</span>
+                    <p id="card__subtitle" class="card__subtitle" aria-live="polite" aria-atomic="true">
+                        <span class="sr-only" data-section="profile" data-value="rol-sr">DESARROLLADOR WEB FULL-STACK JUNIOR</span>
+                        <span id="typewriter-text" aria-hidden="true"></span><span class="typewriter-cursor" aria-hidden="true">|</span>
                     </p>
                 </div>
                 <div class="card__body">
                     <!-- Enlace de correo electrónico -->
                     <div class="card__link">
-                        <i class="fas fa-envelope icon"></i>
+                        <i class="fas fa-envelope icon" aria-hidden="true"></i>
                         <a href="mailto:javip200555@gmail.com">javip200555@gmail.com</a>
                     </div>
                     <!-- Enlace de teléfono -->
                     <div class="card__link">
-                        <i class="fas fa-phone-alt icon"></i>
+                        <i class="fas fa-phone-alt icon" aria-hidden="true"></i>
                         <a href="tel:622645922">+34-622645922</a>
                     </div>
                     <!-- Enlace de GitHub -->
                     <div class="card__link">
-                        <i class="fab fa-github icon"></i>
-                        <a id="github-link-profile" href="https://github.com/Javieroliver-web" target="_blank">Javieroliver-web</a>
+                        <i class="fab fa-github icon" aria-hidden="true"></i>
+                        <a id="github-link-profile" href="https://github.com/Javieroliver-web" target="_blank" rel="noopener noreferrer">Javieroliver-web</a>
                     </div>
                     <!-- Descripción personal (traducida por scripts.js) -->
                     <p id="card__text" class="card__text" data-section="profile" data-value="description">
@@ -225,7 +228,7 @@
                             Docker · Pruebas API · Angular</p>
                         <div class="buttons" style="padding-top: 0.5em; margin-top: 0.5em;">
                             <a href="assets/descargas/2-Desarrollo-Aplicaciones-Web.pdf" class="button--code"
-                                target="_blank" data-section="education" data-value="first-edu-btn">Ver notas</a>
+                                target="_blank" rel="noopener noreferrer" data-section="education" data-value="first-edu-btn">Ver notas</a>
                         </div>
                     </div>
                 </div>
@@ -290,7 +293,7 @@
                         <h3 class="experience__job" data-section="licenses" data-value="ayesa-certs-title">Cursos y certificados Ayesa</h3>
                         <p class="experience__company" data-section="licenses" data-value="ayesa-certs-issuer">Ayesa · 9 certificados</p>
                         <div class="buttons" style="padding-top: 0.5em; margin-top: 0.5em;">
-                            <button id="btn-open-ayesa-modal" class="button--code" data-section="licenses" data-value="ayesa-certs-btn">Ver documentos</button>
+                            <button id="btn-open-ayesa-modal" class="button--code" aria-haspopup="dialog" data-section="licenses" data-value="ayesa-certs-btn">Ver documentos</button>
                         </div>
                     </div>
                 </div>
@@ -299,10 +302,10 @@
             <!-- Tarjeta de descarga del CV en PDF -->
             <article class="card card--CV">
                 <h2 class="card__title" data-section="download" data-value="download-pdf">Descargar CV en PDF</h2>
-                <img src="assets/icons/pdf_icon.png" alt="pdf" class="pdf__icon">
+                <img src="assets/icons/pdf_icon.png" alt="" class="pdf__icon" aria-hidden="true">
                 <div class="pdf__container">
                     <a href="assets/descargas/cv_18-03-2026.pdf" class="button--cv"
-                        download="CV_Francisco_Javier_Parraga.pdf" target="_blank" data-section="download"
+                        download="CV_Francisco_Javier_Parraga.pdf" target="_blank" rel="noopener noreferrer" data-section="download"
                         data-value="button-cv">Descargar PDF</a>
                 </div>
             </article>
@@ -312,23 +315,23 @@
                 <h2 class="card__title" data-section="download" data-value="social-media">Redes Sociales</h2>
                 <div class="rs-img">
                     <!-- LinkedIn -->
-                    <a id="linkedin-link" href="http://www.linkedin.com/in/francisco-javier-p%C3%A1rraga-oliver-94106629a" target="_blank"
+                    <a id="linkedin-link" href="http://www.linkedin.com/in/francisco-javier-p%C3%A1rraga-oliver-94106629a" target="_blank" rel="noopener noreferrer"
                         aria-label="Perfil de LinkedIn">
-                        <i class="fab fa-linkedin rs-icon"></i>
+                        <i class="fab fa-linkedin rs-icon" aria-hidden="true"></i>
                     </a>
                     <!-- GitHub -->
-                    <a id="github-link" href="https://github.com/Javieroliver-web" target="_blank"
+                    <a id="github-link" href="https://github.com/Javieroliver-web" target="_blank" rel="noopener noreferrer"
                         aria-label="Perfil de GitHub">
-                        <i class="fab fa-github rs-icon"></i>
+                        <i class="fab fa-github rs-icon" aria-hidden="true"></i>
                     </a>
                     <!-- Instagram -->
                     <a id="instagram-link" href="https://www.instagram.com/javieroliver_?igsh=MTlwdzVoZWZsZTZ4Nw%3D%3D&utm_source=qr"
-                        target="_blank" aria-label="Perfil de Instagram">
-                        <i class="fab fa-instagram rs-icon"></i>
+                        target="_blank" rel="noopener noreferrer" aria-label="Perfil de Instagram">
+                        <i class="fab fa-instagram rs-icon" aria-hidden="true"></i>
                     </a>
                     <!-- WhatsApp -->
-                    <a id="whatsapp-link" href="https://wa.me/+34622645922" target="_blank" aria-label="Contactar por WhatsApp">
-                        <i class="fab fa-whatsapp rs-icon"></i>
+                    <a id="whatsapp-link" href="https://wa.me/+34622645922" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+                        <i class="fab fa-whatsapp rs-icon" aria-hidden="true"></i>
                     </a>
                     <div class="rs__container">
                     </div>
@@ -339,7 +342,7 @@
         <!-- ── FIN COLUMNA IZQUIERDA ──────────────────────────────── -->
 
         <!-- ── COLUMNA DERECHA ────────────────────────────────────── -->
-        <section class="column column--right">
+        <section class="column column--right" aria-label="Habilidades y proyectos">
 
             <!-- Tarjeta de habilidades: icono + nombre en cuadrícula, sin autovaloración -->
             <article class="card card--skills">
@@ -351,38 +354,38 @@
                     <h2 class="card__title">Front End</h2>
                     <div class="skills-grid">
                         <div class="skill-card">
-                            <i class="devicon-angularjs-plain colored skill-card__icon"></i>
+                            <i class="devicon-angularjs-plain colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">Angular</span>
                         </div>
                         <div class="skill-card">
-                            <i class="devicon-bootstrap-plain colored skill-card__icon"></i>
+                            <i class="devicon-bootstrap-plain colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">Bootstrap</span>
                         </div>
                         <div class="skill-card">
-                            <i class="devicon-html5-plain colored skill-card__icon"></i>
+                            <i class="devicon-html5-plain colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">HTML/CSS</span>
                         </div>
                         <div class="skill-card">
-                            <i class="devicon-javascript-plain colored skill-card__icon"></i>
+                            <i class="devicon-javascript-plain colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">JavaScript</span>
                         </div>
                         <div class="skill-card">
-                            <i class="devicon-react-original colored skill-card__icon"></i>
+                            <i class="devicon-react-original colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">React</span>
                         </div>
                         <div class="skill-card">
-                            <i class="devicon-tailwindcss-plain colored skill-card__icon"></i>
+                            <i class="devicon-tailwindcss-plain colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">Tailwind CSS</span>
                         </div>
                         <div class="skill-card">
                             <!-- El logo de Thymeleaf no está en la librería oficial, usamos un SVG para forzar su visualización -->
-                            <svg class="skill-card__icon" viewBox="0 0 24 24" fill="#2b5727" width="32" height="32" style="margin: 0.2em 0;">
+                            <svg aria-hidden="true" class="skill-card__icon" viewBox="0 0 24 24" fill="#2b5727" width="32" height="32" style="margin: 0.2em 0;">
                                 <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"/>
                             </svg>
                             <span class="skill-card__name">Thymeleaf</span>
                         </div>
                         <div class="skill-card">
-                            <i class="devicon-typescript-plain colored skill-card__icon"></i>
+                            <i class="devicon-typescript-plain colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">TypeScript</span>
                         </div>
                     </div>
@@ -393,23 +396,23 @@
                     <h2 class="card__title">Back End</h2>
                     <div class="skills-grid">
                         <div class="skill-card">
-                            <i class="devicon-java-plain colored skill-card__icon"></i>
+                            <i class="devicon-java-plain colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">Java</span>
                         </div>
                         <div class="skill-card">
-                            <i class="devicon-nodejs-plain colored skill-card__icon"></i>
+                            <i class="devicon-nodejs-plain colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">Node.js</span>
                         </div>
                         <div class="skill-card">
-                            <i class="devicon-postgresql-plain colored skill-card__icon"></i>
+                            <i class="devicon-postgresql-plain colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">PostgreSQL</span>
                         </div>
                         <div class="skill-card">
-                            <i class="devicon-azuresqldatabase-plain colored skill-card__icon"></i>
+                            <i class="devicon-azuresqldatabase-plain colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">SQL / PL/SQL</span>
                         </div>
                         <div class="skill-card">
-                            <i class="devicon-spring-plain colored skill-card__icon"></i>
+                            <i class="devicon-spring-plain colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">Spring Boot</span>
                         </div>
                     </div>
@@ -420,55 +423,55 @@
                     <h2 class="card__title" data-section="skills" data-value="tools">Herramientas</h2>
                     <div class="skills-grid">
                         <div class="skill-card">
-                            <i class="devicon-docker-plain colored skill-card__icon"></i>
+                            <i class="devicon-docker-plain colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">Docker</span>
                         </div>
                         <div class="skill-card">
-                            <i class="devicon-git-plain colored skill-card__icon"></i>
+                            <i class="devicon-git-plain colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">Git</span>
                         </div>
                         <div class="skill-card">
-                            <i class="devicon-github-original skill-card__icon skill-card__icon--themed"></i>
+                            <i class="devicon-github-original skill-card__icon skill-card__icon--themed" aria-hidden="true"></i>
                             <span class="skill-card__name">GitHub</span>
                         </div>
                         <div class="skill-card">
-                            <i class="devicon-githubactions-plain colored skill-card__icon"></i>
+                            <i class="devicon-githubactions-plain colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">GitHub Actions</span>
                         </div>
                         <div class="skill-card">
-                            <i class="devicon-gitlab-plain colored skill-card__icon"></i>
+                            <i class="devicon-gitlab-plain colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">GitLab</span>
                         </div>
                         <div class="skill-card">
-                            <i class="devicon-googlecloud-plain colored skill-card__icon"></i>
+                            <i class="devicon-googlecloud-plain colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">Google Cloud</span>
                         </div>
                         <div class="skill-card">
-                            <i class="devicon-jenkins-plain colored skill-card__icon"></i>
+                            <i class="devicon-jenkins-plain colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">Jenkins</span>
                         </div>
                         <div class="skill-card">
-                            <i class="devicon-oracle-original colored skill-card__icon"></i>
+                            <i class="devicon-oracle-original colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">Oracle SQL Developer</span>
                         </div>
                         <div class="skill-card">
-                            <i class="devicon-postman-plain colored skill-card__icon"></i>
+                            <i class="devicon-postman-plain colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">Postman</span>
                         </div>
                         <div class="skill-card">
-                            <i class="devicon-sonarqube-plain colored skill-card__icon"></i>
+                            <i class="devicon-sonarqube-plain colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">SonarQube</span>
                         </div>
                         <div class="skill-card">
-                            <i class="devicon-vercel-original skill-card__icon skill-card__icon--themed"></i>
+                            <i class="devicon-vercel-original skill-card__icon skill-card__icon--themed" aria-hidden="true"></i>
                             <span class="skill-card__name">Vercel</span>
                         </div>
                         <div class="skill-card">
-                            <i class="devicon-vitejs-plain colored skill-card__icon"></i>
+                            <i class="devicon-vitejs-plain colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">Vite</span>
                         </div>
                         <div class="skill-card">
-                            <i class="devicon-vscode-plain colored skill-card__icon"></i>
+                            <i class="devicon-vscode-plain colored skill-card__icon" aria-hidden="true"></i>
                             <span class="skill-card__name">VS Code</span>
                         </div>
                     </div>
@@ -478,7 +481,8 @@
 
             <!-- ── PROYECTOS ─────────────────────────────────────── -->
 
-            <h2 class="section-title" data-section="projects" data-value="section-title">Proyectos</h2>
+            <section aria-labelledby="projects-heading">
+                <h2 id="projects-heading" class="section-title" data-section="projects" data-value="section-title">Proyectos</h2>
 
             <!-- Controles de proyectos (Filtros y Ordenamiento) -->
             <div class="projects-controls">
@@ -533,7 +537,7 @@
                     </div>
                     <div class="buttons">
                         <a href="https://github.com/Javieroliver-web/Portfolio" class="button--code"
-                            target="_blank" data-project="portfolio" data-project-action="code">Code</a>
+                            target="_blank" rel="noopener noreferrer" data-project="portfolio" data-project-action="code">Code</a>
                     </div>
                 </div>
             </article>
@@ -564,11 +568,11 @@
                     <p class="card__text" data-section="projects" data-value="second-project-description">Este es mi proyecto personal que presenté como TFG en el fin de mi grado superior de Desarrollo de Aplicaciones Web (DAW). Se trata de un proyecto que simula un Marketplace de una empresa de seguros con algunas funciones extras que quise implementar. Originalmente fue desplegado en Google Cloud, pero ha sido migrado a Render (PaaS) y Neon (PostgreSQL serverless) por optimización de costes. Si os interesa podéis informaros desde la documentación que guardo en el repositorio del proyecto API.</p>
                     <div class="buttons">
                         <a href="https://web-proyecto-vesta.onrender.com/vesta-web" class="button--primary"
-                            target="_blank" data-project="vesta" data-project-action="web">Web</a>
+                            target="_blank" rel="noopener noreferrer" data-project="vesta" data-project-action="web">Web</a>
                         <a href="https://github.com/Javieroliver-web/web-proyecto-vesta" class="button--code"
-                            target="_blank" data-project="vesta" data-project-action="code-web">Code Web</a>
+                            target="_blank" rel="noopener noreferrer" data-project="vesta" data-project-action="code-web">Code Web</a>
                         <a href="https://github.com/Javieroliver-web/api-proyecto-vesta" class="button--code"
-                            target="_blank" data-project="vesta" data-project-action="code-api">Code API</a>
+                            target="_blank" rel="noopener noreferrer" data-project="vesta" data-project-action="code-api">Code API</a>
                     </div>
                 </div>
             </article>
@@ -581,8 +585,8 @@
                         <img src="assets/images/carniceria_2.png" alt="Carnicería Raúl Oliver - Nosotros" class="card__image" loading="lazy" data-lightbox-img="assets/images/carniceria_2.png">
                         <img src="assets/images/carniceria_3.png" alt="Carnicería Raúl Oliver - Contacto" class="card__image" loading="lazy" data-lightbox-img="assets/images/carniceria_3.png">
                     </div>
-                    <button class="gallery-button gallery-button--left" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
-                    <button class="gallery-button gallery-button--right" aria-label="Siguiente imagen"><i class="fas fa-chevron-right"></i></button>
+                    <button class="gallery-button gallery-button--left" aria-label="Imagen anterior"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                    <button class="gallery-button gallery-button--right" aria-label="Siguiente imagen"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
                 </div>
                 <div class="project">
                     <div class="project__tags">
@@ -610,9 +614,9 @@
                     </div>
                     <div class="buttons">
                         <a href="https://javieroliver-web.github.io/Carniceria-Raul-Oliver/" class="button--primary"
-                            target="_blank" data-project="carniceria" data-project-action="web">Web</a>
+                            target="_blank" rel="noopener noreferrer" data-project="carniceria" data-project-action="web">Web</a>
                         <a href="https://github.com/Javieroliver-web/Carniceria-Raul-Oliver" class="button--code"
-                            target="_blank" data-project="carniceria" data-project-action="code-web">Code Web</a>
+                            target="_blank" rel="noopener noreferrer" data-project="carniceria" data-project-action="code-web">Code Web</a>
                     </div>
                     <p class="card__text card__text--warning" style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-color); opacity: 0.8; font-style: italic;" data-section="projects" data-value="third-project-warning">
                         ⚠️ Proyecto en fase de desarrollo activo. La versión final puede variar.
@@ -621,16 +625,44 @@
             </article>
 
             </div> <!-- Fin de projects-list -->
+            </section> <!-- Fin de section proyectos -->
+
+            <!-- ── CONTACTO ──────────────────────────────────────── -->
+            <article class="card card--contact" aria-label="Sección de contacto">
+                <h2 class="card__title" data-section="contact" data-value="title">Contacto</h2>
+                <p class="card__text" style="margin-top: 0.5em; margin-bottom: 1.5em;" data-section="contact" data-value="description">
+                    ¿Tienes algún proyecto en mente o una oferta de trabajo? Escríbeme y me pondré en contacto contigo lo antes posible.
+                </p>
+                <!-- Formspree endpoint -->
+                <form class="contact-form" action="https://formspree.io/f/mqpzdvjq" method="POST">
+                    <div class="form-group">
+                        <label for="name" class="sr-only" data-section="contact" data-value="name-label">Nombre</label>
+                        <input type="text" id="name" name="name" placeholder="Tu Nombre" required class="form-input" data-section="contact" data-value="name-placeholder">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="sr-only" data-section="contact" data-value="email-label">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="Tu Correo" required class="form-input" data-section="contact" data-value="email-placeholder">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="sr-only" data-section="contact" data-value="message-label">Mensaje</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Tu Mensaje" required class="form-input form-textarea" data-section="contact" data-value="message-placeholder"></textarea>
+                    </div>
+                    <button type="submit" class="button--primary button--submit" data-section="contact" data-value="submit-btn">
+                        Enviar Mensaje
+                        <i class="fas fa-paper-plane" aria-hidden="true" style="margin-left: 0.5em;"></i>
+                    </button>
+                    <p id="contact-status" class="contact-status"></p>
+                </form>
+            </article>
 
         </section>
         <!-- ── FIN COLUMNA DERECHA ────────────────────────────────── -->
-
     </main>
     <!-- ── FIN MAIN ───────────────────────────────────────────────── -->
 
     <!-- ── FOOTER VERSIONADO ──────────────────────────────────────── -->
     <footer class="footer">
-        <p><span data-section="footer" data-value="updated">Actualizado:</span> <span id="last-updated">28/06/2026</span> | v1.2.4.1</p>
+        <p><span data-section="footer" data-value="updated">Actualizado:</span> <span id="last-updated">16/08/2026</span> | v1.2.5.0</p>
     </footer>
 
     <!-- ════════════════════════════════════════════════════════════
@@ -651,66 +683,66 @@
             <ul class="ayesa-modal__list">
                 <li class="ayesa-modal__item">
                     <div class="ayesa-modal__item-info">
-                        <i class="fas fa-shield-alt ayesa-modal__icon"></i>
+                        <i class="fas fa-shield-alt ayesa-modal__icon" aria-hidden="true"></i>
                         <span data-section="licenses" data-value="cert-1-title">Certificado Curso Seguridad de la Información</span>
                     </div>
-                    <a href="assets/descargas/Ayesa_Certificado_seguridad_informacion.pdf" class="button--code ayesa-modal__btn" target="_blank" data-section="licenses" data-value="cert-1-btn">Previsualizar</a>
+                    <a href="assets/descargas/Ayesa_Certificado_seguridad_informacion.pdf" class="button--code ayesa-modal__btn" target="_blank" rel="noopener noreferrer" data-section="licenses" data-value="cert-1-btn">Previsualizar</a>
                 </li>
                 <li class="ayesa-modal__item">
                     <div class="ayesa-modal__item-info">
-                        <i class="fas fa-hard-hat ayesa-modal__icon"></i>
+                        <i class="fas fa-hard-hat ayesa-modal__icon" aria-hidden="true"></i>
                         <span data-section="licenses" data-value="cert-2-title">Certificado Curso Prevención Riesgos Laborales</span>
                     </div>
-                    <a href="assets/descargas/Ayesa_Certificado_curso_Prevencion_Riesgos_Laborales.pdf" class="button--code ayesa-modal__btn" target="_blank" data-section="licenses" data-value="cert-2-btn">Previsualizar</a>
+                    <a href="assets/descargas/Ayesa_Certificado_curso_Prevencion_Riesgos_Laborales.pdf" class="button--code ayesa-modal__btn" target="_blank" rel="noopener noreferrer" data-section="licenses" data-value="cert-2-btn">Previsualizar</a>
                 </li>
                 <li class="ayesa-modal__item">
                     <div class="ayesa-modal__item-info">
-                        <i class="fas fa-user-lock ayesa-modal__icon"></i>
+                        <i class="fas fa-user-lock ayesa-modal__icon" aria-hidden="true"></i>
                         <span data-section="licenses" data-value="cert-3-title">Certificado Reglamento Protección de Datos</span>
                     </div>
-                    <a href="assets/descargas/certificado_reglamento_proteccion_de_datos.pdf" class="button--code ayesa-modal__btn" target="_blank" data-section="licenses" data-value="cert-3-btn">Previsualizar</a>
+                    <a href="assets/descargas/certificado_reglamento_proteccion_de_datos.pdf" class="button--code ayesa-modal__btn" target="_blank" rel="noopener noreferrer" data-section="licenses" data-value="cert-3-btn">Previsualizar</a>
                 </li>
                 <li class="ayesa-modal__item">
                     <div class="ayesa-modal__item-info">
-                        <i class="fas fa-leaf ayesa-modal__icon"></i>
+                        <i class="fas fa-leaf ayesa-modal__icon" aria-hidden="true"></i>
                         <span data-section="licenses" data-value="cert-4-title">Certificado Gestión Ambiental</span>
                     </div>
-                    <a href="assets/descargas/Certificado_gestion_ambiental.pdf" class="button--code ayesa-modal__btn" target="_blank" data-section="licenses" data-value="cert-4-btn">Previsualizar</a>
+                    <a href="assets/descargas/Certificado_gestion_ambiental.pdf" class="button--code ayesa-modal__btn" target="_blank" rel="noopener noreferrer" data-section="licenses" data-value="cert-4-btn">Previsualizar</a>
                 </li>
                 <li class="ayesa-modal__item">
                     <div class="ayesa-modal__item-info">
-                        <i class="fas fa-user-shield ayesa-modal__icon"></i>
+                        <i class="fas fa-user-shield ayesa-modal__icon" aria-hidden="true"></i>
                         <span data-section="licenses" data-value="cert-5-title">Certificado Personal Expuesto</span>
                     </div>
-                    <a href="assets/descargas/Ayesa_Certificado_personal_expuesto.pdf" class="button--code ayesa-modal__btn" target="_blank" data-section="licenses" data-value="cert-5-btn">Previsualizar</a>
+                    <a href="assets/descargas/Ayesa_Certificado_personal_expuesto.pdf" class="button--code ayesa-modal__btn" target="_blank" rel="noopener noreferrer" data-section="licenses" data-value="cert-5-btn">Previsualizar</a>
                 </li>
                 <li class="ayesa-modal__item">
                     <div class="ayesa-modal__item-info">
-                        <i class="fas fa-sync-alt ayesa-modal__icon"></i>
+                        <i class="fas fa-sync-alt ayesa-modal__icon" aria-hidden="true"></i>
                         <span data-section="licenses" data-value="cert-6-title">Certificado Reciclaje Riesgos Laborales</span>
                     </div>
-                    <a href="assets/descargas/Certificado_riesgos_laborales_reciclaje.pdf" class="button--code ayesa-modal__btn" target="_blank" data-section="licenses" data-value="cert-6-btn">Previsualizar</a>
+                    <a href="assets/descargas/Certificado_riesgos_laborales_reciclaje.pdf" class="button--code ayesa-modal__btn" target="_blank" rel="noopener noreferrer" data-section="licenses" data-value="cert-6-btn">Previsualizar</a>
                 </li>
                 <li class="ayesa-modal__item">
                     <div class="ayesa-modal__item-info">
-                        <i class="fas fa-network-wired ayesa-modal__icon"></i>
+                        <i class="fas fa-network-wired ayesa-modal__icon" aria-hidden="true"></i>
                         <span data-section="licenses" data-value="cert-7-title">Certificado Continuidad de Negocio</span>
                     </div>
-                    <a href="assets/descargas/Certificado_continuidad_negocio_ayesa.pdf" class="button--code ayesa-modal__btn" target="_blank" data-section="licenses" data-value="cert-7-btn">Previsualizar</a>
+                    <a href="assets/descargas/Certificado_continuidad_negocio_ayesa.pdf" class="button--code ayesa-modal__btn" target="_blank" rel="noopener noreferrer" data-section="licenses" data-value="cert-7-btn">Previsualizar</a>
                 </li>
                 <li class="ayesa-modal__item">
                     <div class="ayesa-modal__item-info">
-                        <i class="fas fa-balance-scale ayesa-modal__icon"></i>
+                        <i class="fas fa-balance-scale ayesa-modal__icon" aria-hidden="true"></i>
                         <span data-section="licenses" data-value="cert-8-title">Certificado Igualdad de Oportunidades en la Empresa</span>
                     </div>
-                    <a href="assets/descargas/Certificado_igualdad_oportunidades_empresa.pdf" class="button--code ayesa-modal__btn" target="_blank" data-section="licenses" data-value="cert-8-btn">Previsualizar</a>
+                    <a href="assets/descargas/Certificado_igualdad_oportunidades_empresa.pdf" class="button--code ayesa-modal__btn" target="_blank" rel="noopener noreferrer" data-section="licenses" data-value="cert-8-btn">Previsualizar</a>
                 </li>
                 <li class="ayesa-modal__item">
                     <div class="ayesa-modal__item-info">
-                        <i class="fas fa-plane ayesa-modal__icon"></i>
+                        <i class="fas fa-plane ayesa-modal__icon" aria-hidden="true"></i>
                         <span data-section="licenses" data-value="cert-9-title">Curso Viajes de Empresa</span>
                     </div>
-                    <a href="assets/descargas/Ayesa_curso_Viajes_de_empresa.pdf" class="button--code ayesa-modal__btn" target="_blank" data-section="licenses" data-value="cert-9-btn">Previsualizar</a>
+                    <a href="assets/descargas/Ayesa_curso_Viajes_de_empresa.pdf" class="button--code ayesa-modal__btn" target="_blank" rel="noopener noreferrer" data-section="licenses" data-value="cert-9-btn">Previsualizar</a>
                 </li>
             </ul>
         </div>
@@ -720,22 +752,22 @@
          LIGHTBOX — Overlay para ver imágenes a pantalla completa
          Se activa al hacer clic en cualquier imagen con data-lightbox-img
          ════════════════════════════════════════════════════════════ -->
-    <div id="lightbox" class="lightbox">
-        <button class="lightbox__nav lightbox__nav--prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Vista ampliada de imagen">
+        <button class="lightbox__nav lightbox__nav--prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
         <div class="lightbox__content">
-            <button class="lightbox__close">&times;</button>
+            <button class="lightbox__close" aria-label="Cerrar vista ampliada">&times;</button>
             <img src="" alt="Imagen grande del proyecto" class="lightbox__image">
         </div>
-        <button class="lightbox__nav lightbox__nav--next" aria-label="Siguiente imagen"><i class="fas fa-chevron-right"></i></button>
+        <button class="lightbox__nav lightbox__nav--next" aria-label="Siguiente imagen"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
     </div>
 
     <!-- Botón Volver Arriba -->
     <button id="btn-scroll-top" class="btn-scroll-top" aria-label="Volver arriba" title="Volver arriba">
-        <i class="fas fa-arrow-up"></i>
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
     <!-- Script principal (debe ir al final para que el DOM esté listo) -->
-    <script src="js/scripts.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 
 </html>
