@@ -21,8 +21,11 @@ export const changeLanguage = (language) => {
         if (languageData[section] && languageData[section][value]) {
             if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                 element.placeholder = languageData[section][value];
-                // Limpiar el innerHTML por si acaso fue inyectado previamente
                 element.innerHTML = '';
+            } else if (element.hasAttribute('aria-label') && element.hasAttribute('title')) {
+                // Para botones de iconos (ej. copy-btn)
+                element.setAttribute('aria-label', languageData[section][value]);
+                element.setAttribute('title', languageData[section][value]);
             } else {
                 element.innerHTML = languageData[section][value];
             }

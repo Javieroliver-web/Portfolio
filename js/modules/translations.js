@@ -4,6 +4,7 @@ export const translations = {
         "profile": {
             "rol": "DESARROLLADOR WEB<br>FULL-STACK JUNIOR",
             "rol-sr": "DESARROLLADOR WEB FULL-STACK JUNIOR",
+            "copy": "Copiar",
             "description": "He adquirido conocimientos en diversas tecnologías durante mis estudios y experiencia laboral. Afronto mi futuro con ambición, manteniendo una actitud positiva y segura en todo lo que hago. Disfruto mucho del trabajo en equipo con personas de todas las edades, ya que me permite escuchar distintas perspectivas y aprender continuamente."
         },
         "experiences": {
@@ -113,6 +114,7 @@ export const translations = {
         "profile": {
             "rol": "JUNIOR FULL-STACK WEB DEVELOPER",
             "rol-sr": "JUNIOR FULL-STACK WEB DEVELOPER",
+            "copy": "Copy",
             "description": "I have acquired knowledge of various technologies during my studies and work experience. I face my future with ambition, maintaining a positive and confident attitude in everything I do. I truly enjoy working in teams with people of all ages, as it allows me to listen to different perspectives and continuously learn from them."
         },
         "experiences": {
