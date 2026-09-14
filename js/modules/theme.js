@@ -19,7 +19,7 @@ export const initTheme = () => {
     const savedTheme = localStorage.getItem('portfolio-theme');
     if (savedTheme === 'light') {
         document.body.classList.remove('dark');
-        toggleIcon.src = 'assets/icons/sun.png';
+        toggleIcon.src = 'assets/icons/sun-64.png';
     }
 
     const savedHue = localStorage.getItem('portfolio-hue');
@@ -51,10 +51,10 @@ export const initTheme = () => {
     toggleTheme?.addEventListener("click", () => {
         document.body.classList.toggle("dark");
         if (document.body.classList.contains("dark")) {
-            toggleIcon.src = 'assets/icons/moon.png';
+            toggleIcon.src = 'assets/icons/moon-64.png';
             localStorage.setItem('portfolio-theme', 'dark');
         } else {
-            toggleIcon.src = 'assets/icons/sun.png';
+            toggleIcon.src = 'assets/icons/sun-64.png';
             localStorage.setItem('portfolio-theme', 'light');
         }
         // Actualizar el texto del botón de modo usando la variable languageData importada

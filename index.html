@@ -21,7 +21,7 @@
     <meta property="og:title" content="Francisco Javier Párraga Oliver | Dev Full-Stack Junior">
     <meta property="og:description"
         content="Portfolio de Francisco Javier Párraga Oliver, Desarrollador Web Full-Stack Junior. Java, Spring Boot, Angular, JavaScript, SQL y más. De Sevilla, España.">
-    <meta property="og:image" content="https://portfolio-javieroliver-web.vercel.app/assets/images/banner.png">
+    <meta property="og:image" content="https://portfolio-javieroliver-web.vercel.app/assets/images/banner.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt"
@@ -33,15 +33,22 @@
     <meta name="twitter:title" content="Francisco Javier Párraga Oliver | Dev Full-Stack Junior">
     <meta name="twitter:description"
         content="Portfolio de Francisco Javier Párraga Oliver — Java, Spring Boot, Angular, JavaScript, SQL y más.">
-    <meta name="twitter:image" content="https://portfolio-javieroliver-web.vercel.app/assets/images/banner.png">
+    <meta name="twitter:image" content="https://portfolio-javieroliver-web.vercel.app/assets/images/banner.jpg">
     <meta name="twitter:image:alt" content="Banner del portfolio de Francisco Javier Párraga Oliver">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/icons/favicon1.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/favicon-192.png">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
 
     <!-- Iconos y fuentes externas -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <!-- Hojas de iconos: carga no bloqueante (preload + onload) para no retrasar el primer pintado. -->
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/devicon.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/devicon.min.css">
+    </noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style"
@@ -71,8 +78,8 @@
 
         <!-- Botón de tema (oscuro/claro) y selector de idioma (ES/EN) -->
         <div class="switches">
-            <button id="toggle-icon" class="toggle-theme" type="button" aria-label="Cambiar tema">
-                <img id="toggle-image" src="assets/icons/moon.png" alt="icon theme" class="toggle-theme__icon" />
+            <button id="toggle-icon" class="toggle-theme" type="button">
+                <img id="toggle-image" src="assets/icons/moon-64.png" alt="" class="toggle-theme__icon" />
                 <span id="toggle-text" class="toggle-theme__text">Modo Oscuro</span>
             </button>
             <div id="flags" class="flags">
@@ -106,7 +113,7 @@
             <!-- Tarjeta de perfil: foto, nombre, rol, contacto y descripción -->
             <article class="card card--profile">
                 <div class="card__image-container">
-                    <img src="assets/images/profile.jpg" alt="Foto de perfil de Francisco Javier" width="150"
+                    <img src="assets/images/profile.webp" alt="Foto de perfil de Francisco Javier" width="150"
                         height="150" loading="eager" fetchpriority="high">
                 </div>
                 <div class="card__header">
@@ -128,7 +135,7 @@
                     <!-- Enlace de teléfono -->
                     <div class="card__link">
                         <i class="fas fa-phone-alt icon" aria-hidden="true"></i>
-                        <a href="tel:622645922">+34-622645922</a>
+                        <a href="tel:+34622645922">+34-622645922</a>
                         <button class="copy-btn" aria-label="Copiar teléfono" data-copy="+34622645922" title="Copiar" data-section="profile" data-value="copy">
                             <i class="fas fa-copy" aria-hidden="true"></i>
                         </button>
@@ -307,7 +314,7 @@
             <!-- Tarjeta de descarga del CV en PDF -->
             <article class="card card--CV">
                 <h2 class="card__title" data-section="download" data-value="download-pdf">Descargar CV en PDF</h2>
-                <img src="assets/icons/pdf_icon.png" alt="" class="pdf__icon" aria-hidden="true">
+                <img src="assets/icons/pdf_icon.webp" alt="" class="pdf__icon" aria-hidden="true" width="60" height="60" loading="lazy">
                 <div class="pdf__container">
                     <a href="assets/descargas/cv_18-03-2026.pdf" class="button--cv"
                         download="CV_Francisco_Javier_Parraga.pdf" target="_blank" rel="noopener noreferrer" data-section="download"
@@ -500,7 +507,7 @@
                 </div>
                 
                 <div class="sort-bar">
-                    <select id="sort-projects" class="sort-select">
+                    <select id="sort-projects" class="sort-select" aria-label="Ordenar proyectos">
                         <option value="default" data-section="projects" data-value="sort-default">Por defecto</option>
                         <option value="newest" data-section="projects" data-value="sort-newest">Más recientes</option>
                         <option value="oldest" data-section="projects" data-value="sort-oldest">Más antiguos</option>
@@ -521,8 +528,8 @@
             <article class="card card--project" data-tags="html" data-date="2025-06-01" data-title="Portfolio web">
                 <div class="card__image-container">
                     <!-- data-lightbox-img: al hacer clic abre la imagen en lightbox -->
-                    <img src="assets/images/Portfolio_project.png" alt="Portfolio page" class="card__image"
-                        loading="lazy" data-lightbox-img="assets/images/Portfolio_project.png">
+                    <img src="assets/images/Portfolio_project-card.webp" alt="Portfolio page" class="card__image"
+                        loading="lazy" data-lightbox-img="assets/images/Portfolio_project.webp">
                 </div>
                 <div class="project">
                     <div class="project__tags">
@@ -555,8 +562,8 @@
             <!-- Proyecto 2: Proyecto Vesta (TFG) -->
             <article class="card card--project" data-tags="java" data-date="2025-11-23" data-title="Proyecto Vesta">
                 <div class="card__image-container">
-                    <img src="assets/images/vesta_project.png" alt="Proyecto Vesta" class="card__image" loading="lazy"
-                        data-lightbox-img="assets/images/vesta_project.png">
+                    <img src="assets/images/vesta_project-card.webp" alt="Proyecto Vesta" class="card__image" loading="lazy"
+                        data-lightbox-img="assets/images/vesta_project.webp">
                 </div>
                 <div class="project">
                     <div class="project__tags">
@@ -591,9 +598,9 @@
             <article class="card card--project" data-tags="react typescript" data-date="2026-05-01" data-title="Carnicería Raúl Oliver">
                 <div class="card__image-container" style="position: relative;">
                     <div class="project-gallery">
-                        <img src="assets/images/carniceria_1.png" alt="Carnicería Raúl Oliver - Inicio" class="card__image" loading="lazy" data-lightbox-img="assets/images/carniceria_1.png">
-                        <img src="assets/images/carniceria_2.png" alt="Carnicería Raúl Oliver - Nosotros" class="card__image" loading="lazy" data-lightbox-img="assets/images/carniceria_2.png">
-                        <img src="assets/images/carniceria_3.png" alt="Carnicería Raúl Oliver - Contacto" class="card__image" loading="lazy" data-lightbox-img="assets/images/carniceria_3.png">
+                        <img src="assets/images/carniceria_1-card.webp" alt="Carnicería Raúl Oliver - Inicio" class="card__image" loading="lazy" data-lightbox-img="assets/images/carniceria_1.webp">
+                        <img src="assets/images/carniceria_2-card.webp" alt="Carnicería Raúl Oliver - Nosotros" class="card__image" loading="lazy" data-lightbox-img="assets/images/carniceria_2.webp">
+                        <img src="assets/images/carniceria_3-card.webp" alt="Carnicería Raúl Oliver - Contacto" class="card__image" loading="lazy" data-lightbox-img="assets/images/carniceria_3.webp">
                     </div>
                     <button class="gallery-button gallery-button--left" aria-label="Imagen anterior"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
                     <button class="gallery-button gallery-button--right" aria-label="Siguiente imagen"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
