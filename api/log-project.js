@@ -1,4 +1,5 @@
 import { appendLog } from './logger.js';
+import { anonymizeIp, clientIp } from './_privacy.js';
 
 export default async function handler(req, res) {
     // Solo aceptar POST
@@ -39,9 +40,8 @@ export default async function handler(req, res) {
 
     const browserName = parseUserAgent(userAgent);
 
-    // Obtener la IP real: Vercel añade la IP real al FINAL de x-forwarded-for
-    const rawIp = req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'IP desconocida';
-    const ip = rawIp.split(',').pop().trim();
+    // IP anonimizada (último bloque a 0): ver api/_privacy.js
+    const ip = anonymizeIp(clientIp(req));
 
     // Obtener localización (Vercel inyecta estas cabeceras automáticamente)
     const rawCountry = req.headers['x-vercel-ip-country'] || '';
@@ -90,7 +90,7 @@ export default async function handler(req, res) {
                     { name: '🖥️ Pantalla',    value: screen    || 'Desconocida', inline: true  },
                     { name: '🌐 Página Origen',value: page      || 'Desconocida', inline: false },
                     { name: '🔍 Navegador',    value: finalBrowserName,           inline: true  },
-                    { name: '🛡️ IP',          value: ip,                         inline: true  },
+                    { name: '🛡️ IP (anonimizada)',          value: ip,                         inline: true  },
                     { name: '📍 Ubicación',    value: location,                   inline: false },
                 ],
                 footer: { text: 'Portfolio | javieroliver-web — Project tracker' },

@@ -101,11 +101,12 @@ export const translations = {
             "email-placeholder": "Tu Correo",
             "message-label": "Mensaje",
             "message-placeholder": "Tu Mensaje",
-            "submit-btn": "Enviar Mensaje <i class=\"fas fa-paper-plane\" aria-hidden=\"true\" style=\"margin-left: 0.5em;\"></i>"
+            "submit-btn": "Enviar Mensaje <i class=\"fas fa-paper-plane\" aria-hidden=\"true\" style=\"margin-left: 0.5em;\"></i>",
+            "privacy": "Al enviar el mensaje aceptas la <a href=\"privacidad.html\">política de privacidad</a>: uso tus datos solo para responderte."
         },
         "skills": { "section-title": "Habilidades Técnicas", "tools": "Herramientas" },
         "download": { "download-pdf": "Descargar CV en PDF", "button-cv": "Descargar PDF", "social-media": "Redes Sociales" },
-        "footer": { "updated": "Actualizado:" },
+        "footer": { "updated": "Actualizado:", "privacy": "Política de privacidad" },
         "ui": { "read-more": "Ver más", "read-less": "Ver menos" },
         "toast": { "copied": "¡Copiado al portapapeles!" }
     },
@@ -209,11 +210,12 @@ export const translations = {
             "email-placeholder": "Your Email",
             "message-label": "Message",
             "message-placeholder": "Your Message",
-            "submit-btn": "Send Message <i class=\"fas fa-paper-plane\" aria-hidden=\"true\" style=\"margin-left: 0.5em;\"></i>"
+            "submit-btn": "Send Message <i class=\"fas fa-paper-plane\" aria-hidden=\"true\" style=\"margin-left: 0.5em;\"></i>",
+            "privacy": "By sending the message you accept the <a href=\"privacidad.html\">privacy policy</a> (in Spanish): your data is only used to reply to you."
         },
         "skills": { "section-title": "Technical Skills", "tools": "Tools" },
         "download": { "download-pdf": "Download CV in PDF", "button-cv": "Download PDF", "social-media": "Social Media" },
-        "footer": { "updated": "Last updated:" },
+        "footer": { "updated": "Last updated:", "privacy": "Privacy policy" },
         "ui": { "read-more": "Read more", "read-less": "Read less" },
         "toast": { "copied": "Copied to clipboard!" }
     }

@@ -7,6 +7,10 @@
     --primary-sat: 84%;
     --primary-light: 56%;
     --primary-color: hsl(var(--primary-hue), var(--primary-sat), var(--primary-light));
+    /* Botones rellenos: fondo y texto con contraste AA (4,5:1). theme.js los
+       recalcula para cada color de acento; esto es el valor del azul por defecto. */
+    --button-bg: hsl(214, 84%, 50%);
+    --button-text: #ffffff;
     --text-color: hsl(0, 0%, 90%);
     /* Light text for dark mode default */
     --text-muted: hsl(0, 0%, 70%);
@@ -492,12 +496,14 @@ body:not(.dark) .card:hover {
     box-shadow: 0 6px 20px hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.15);
 }
 
+/* Iconos SVG de devicon (antes una fuente de iconos de 777 KB) */
 .skill-card__icon {
-    font-size: 2rem;
-    line-height: 1;
+    width: 2rem;
+    height: 2rem;
+    display: block;
 }
 
-/* El icono de GitHub no tiene clase colored; lo adaptamos al tema */
+/* GitHub y Vercel son negros: van en línea con currentColor para seguir el tema */
 .skill-card__icon--themed {
     color: var(--text-color);
 }
@@ -661,8 +667,8 @@ body:not(.dark) .card:hover {
 }
 
 .button--primary {
-    background: var(--primary-color);
-    color: #fff;
+    background: var(--button-bg);
+    color: var(--button-text);
     box-shadow: 0 4px 15px hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.3);
 }
 
@@ -698,8 +704,8 @@ body:not(.dark) .card:hover {
 
 .button--cv {
     display: inline-block;
-    background: var(--primary-color);
-    color: #fff;
+    background: var(--button-bg);
+    color: var(--button-text);
     margin-top: 1em;
 }
 
@@ -1102,6 +1108,24 @@ body:not(.dark) .form-input:focus, body:not(.dark) .form-input:focus-visible {
     font-weight: 500;
 }
 
+.footer a,
+.contact-privacy a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.footer a:hover,
+.contact-privacy a:hover {
+    color: var(--primary-color);
+}
+
+.contact-privacy {
+    margin-top: 0.75em;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
 /* ── Filtro de proyectos ────────────────────────────────────────── */
 .projects-controls {
     display: flex;
@@ -1217,8 +1241,8 @@ body:not(.dark) .form-input:focus, body:not(.dark) .form-input:focus-visible {
 }
 
 .filter-btn--active {
-    background: var(--primary-color);
-    color: #fff;
+    background: var(--button-bg);
+    color: var(--button-text);
 }
 
 /* Tarjeta de proyecto oculta por filtro */

@@ -1,4 +1,5 @@
 import { appendLog } from './logger.js';
+import { anonymizeIp, clientIp } from './_privacy.js';
 
 function parseUserAgent(ua) {
     if (!ua) return 'Desconocido';
@@ -32,8 +33,8 @@ export default async function handler(req, res) {
     const { timestamp, language, screen, userAgent, page, cvLanguage } = req.body;
 
     const browserName = parseUserAgent(userAgent);
-    const rawIp = req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'IP desconocida';
-    const ip = rawIp.split(',').pop().trim();
+    // IP anonimizada (último bloque a 0): ver api/_privacy.js
+    const ip = anonymizeIp(clientIp(req));
 
     const rawCountry = req.headers['x-vercel-ip-country'] || '';
     const rawRegion = req.headers['x-vercel-ip-country-region'] || '';
@@ -67,7 +68,7 @@ export default async function handler(req, res) {
                     { name: '🌍 Idioma Nav.', value: language || 'Desconocido', inline: true },
                     { name: '🖥️ Pantalla', value: screen || 'Desconocida', inline: true },
                     { name: '🔍 Navegador', value: finalBrowserName, inline: true },
-                    { name: '🛡️ IP', value: ip, inline: true },
+                    { name: '🛡️ IP (anonimizada)', value: ip, inline: true },
                     { name: '📍 Ubicación', value: location, inline: false },
                 ],
                 footer: { text: 'Portfolio | javieroliver-web' },
