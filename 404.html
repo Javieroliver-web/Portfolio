@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="robots" content="noindex">
+    <title>Página no encontrada | Francisco Javier Párraga Oliver</title>
+
+    <!--
+        Página 404. Vercel y GitHub Pages la sirven para cualquier ruta que no
+        exista, a cualquier profundidad, así que no puede usar rutas relativas:
+        el script de abajo calcula la raíz del sitio (/ en Vercel, /Portfolio/
+        en GitHub Pages). Es autónoma (estilos en línea, fuentes del sistema)
+        y respeta el tema, el color de acento y el idioma guardados por la web.
+    -->
+    <style>
+        :root {
+            --primary-hue: 214;
+            --primary-sat: 84%;
+            --primary-light: 56%;
+            --primary-color: hsl(var(--primary-hue), var(--primary-sat), var(--primary-light));
+            --text-color: hsl(0, 0%, 90%);
+            --text-muted: hsl(0, 0%, 70%);
+            --bg-color: hsl(240, 10%, 10%);
+            --bg-card-color: rgba(255, 255, 255, 0.05);
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.light {
+            --text-color: hsl(214, 20%, 20%);
+            --text-muted: hsl(214, 10%, 45%);
+            --bg-color: hsl(214, 30%, 96%);
+            --bg-card-color: rgba(255, 255, 255, 0.75);
+            --border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 2rem 1.25rem;
+            background:
+                radial-gradient(circle at 50% 20%, hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.18), transparent 55%),
+                var(--bg-color);
+            color: var(--text-color);
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 520px;
+            padding: 3rem 2rem;
+            background: var(--bg-card-color);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .code {
+            font-size: clamp(4.5rem, 16vw, 6.5rem);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            color: var(--primary-color);
+        }
+
+        h1 { margin-top: 1rem; font-size: clamp(1.4rem, 4vw, 1.8rem); }
+        p { margin: 0.75rem auto 2rem; max-width: 380px; color: var(--text-muted); }
+
+        .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 1.6rem;
+            border-radius: 999px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid var(--primary-color);
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .btn--primary { background: var(--primary-color); color: #ffffff; }
+        .btn:hover { transform: translateY(-2px); }
+        :focus-visible { outline: 3px solid var(--primary-color); outline-offset: 3px; }
+
+        @media (max-width: 420px) { .actions { flex-direction: column; } }
+        @media (prefers-reduced-motion: reduce) { .btn { transition: none; } .btn:hover { transform: none; } }
+    </style>
+</head>
+
+<body>
+    <main class="card">
+        <div class="code" aria-hidden="true">404</div>
+        <h1 data-i18n="title">Esta página no existe</h1>
+        <p data-i18n="text">Puede que el enlace esté mal escrito o que la página se haya movido.</p>
+        <div class="actions">
+            <a class="btn btn--primary" data-home href="/" data-i18n="home">Volver al portfolio</a>
+        </div>
+    </main>
+
+    <script>
+        (function () {
+            // Raíz del sitio según dónde esté publicado.
+            var root = location.hostname.endsWith('github.io') ? '/Portfolio/' : '/';
+            document.querySelectorAll('[data-home]').forEach(function (a) {
+                a.href = root;
+            });
+
+            var get = function (key) { try { return localStorage.getItem(key); } catch (e) { return null; } };
+
+            // Tema y color de acento guardados por la web (js/modules/theme.js).
+            if (get('portfolio-theme') === 'light') document.body.classList.add('light');
+            var hue = get('portfolio-hue'), sat = get('portfolio-sat'), light = get('portfolio-light');
+            if (hue && sat && light) {
+                var s = document.documentElement.style;
+                s.setProperty('--primary-hue', hue);
+                s.setProperty('--primary-sat', sat);
+                s.setProperty('--primary-light', light);
+            }
+
+            // Idioma guardado por la web (js/modules/i18n.js).
+            if (get('portfolio-lang') === 'en') {
+                var en = {
+                    title: 'This page does not exist',
+                    text: 'The link may be mistyped or the page may have moved.',
+                    home: 'Back to portfolio'
+                };
+                document.documentElement.lang = 'en';
+                document.title = 'Page not found | Francisco Javier Párraga Oliver';
+                document.querySelectorAll('[data-i18n]').forEach(function (el) {
+                    el.textContent = en[el.dataset.i18n];
+                });
+            }
+        })();
+    </script>
+</body>
+
+</html>
