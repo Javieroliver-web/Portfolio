@@ -23,6 +23,28 @@ const SITES = { portfolio: 'Portfolio', carniceria: 'Carnicería Raúl Oliver', 
 const recent = new Map();
 const DEDUPE_MS = 10 * 60 * 1000;
 
+// Limite de peticiones (revision de seguridad del 23/09/2026). El Origin lo
+// puede falsificar cualquiera desde fuera de un navegador (curl), y el
+// deduplicado se salta cambiando el texto del mensaje: sin esto, este endpoint
+// era una forma de inundar el canal de Discord. Por instancia serverless, igual
+// que el deduplicado: no es perfecto, pero corta el abuso simple.
+const LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const PER_IP = 10;       // un visitante con un error real manda 1-5 (el cliente limita a 5)
+const GLOBAL = 60;       // techo por instancia, pase lo que pase
+const perIp = new Map();
+let globalHits = [];
+
+function overLimit(ip, now) {
+    globalHits = globalHits.filter(t => now - t < LIMIT_WINDOW_MS);
+    const hits = (perIp.get(ip) || []).filter(t => now - t < LIMIT_WINDOW_MS);
+    if (hits.length >= PER_IP || globalHits.length >= GLOBAL) return true;
+    hits.push(now);
+    perIp.set(ip, hits);
+    globalHits.push(now);
+    if (perIp.size > 5000) perIp.clear(); // que el mapa no crezca sin fin
+    return false;
+}
+
 const cap = (v, max) => (typeof v === 'string' ? v.slice(0, max) : '');
 
 export default async function handler(req, res) {
@@ -34,6 +56,9 @@ export default async function handler(req, res) {
     if (req.method === 'OPTIONS') return res.status(204).end();
     if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
     if (!ALLOWED_ORIGINS.has(origin)) return res.status(403).json({ error: 'Origin not allowed' });
+
+    const ip = String(req.headers['x-forwarded-for'] || req.socket?.remoteAddress || '?').split(',')[0].trim();
+    if (overLimit(ip, Date.now())) return res.status(429).json({ error: 'Too many reports' });
 
     const webhookUrl = process.env.DISCORD_ERRORS_WEBHOOK_URL || process.env.DISCORD_WEBHOOK_URL;
     if (!webhookUrl) {
