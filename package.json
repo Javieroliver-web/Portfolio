@@ -2,5 +2,8 @@
     "name": "portfolio",
     "version": "1.0.0",
     "type": "module",
-    "description": "Portfolio personal de Francisco Javier"
+    "description": "Portfolio personal de Francisco Javier",
+    "scripts": {
+        "test": "node --test"
+    }
 }
