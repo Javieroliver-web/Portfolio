@@ -526,7 +526,6 @@
                     <button class="filter-btn" data-filter="angular">Angular</button>
                     <button class="filter-btn" data-filter="java">Java</button>
                     <button class="filter-btn" data-filter="react">React</button>
-                    <button class="filter-btn" data-filter="python">Python / IA</button>
                     <button class="filter-btn" data-filter="docker">Docker</button>
                 </div>
                 
@@ -648,69 +647,6 @@
                     </div>
                     <p class="card__text card__text--warning" style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-color); opacity: 0.8; font-style: italic;" data-section="projects" data-value="third-project-warning">
                         ⚠️ Proyecto en fase de desarrollo activo. La versión final puede variar.
-                    </p>
-                </div>
-            </article>
-
-
-            <!-- Proyecto: BecaMax -->
-            <article class="card card--project" data-tags="html node" data-date="2026-03-19" data-title="BecaMax">
-                <div class="card__image-container">
-                    <img src="assets/images/becamax_project-card.webp" alt="BecaMax - portada" class="card__image" loading="lazy"
-                        data-lightbox-img="assets/images/becamax_project.webp">
-                </div>
-                <div class="project">
-                    <div class="project__tags">
-                        <span class="project__tag">#Node.js</span>
-                        <span class="project__tag">#Express</span>
-                        <span class="project__tag">#Supabase</span>
-                        <span class="project__tag">#PostgreSQL</span>
-                        <span class="project__tag">#Vercel</span>
-                        <span class="project__tag">#JavaScript</span>
-                        <span class="project__tag">#Seguridad</span>
-                    </div>
-                    <div class="project-header">
-                        <h2 class="card__title" data-section="projects" data-value="fourth-project-title">BecaMax - Buscador de becas con alertas</h2>
-                        <span class="project-date" data-section="projects" data-value="fourth-project-date">Iniciado en Marzo 2026</span>
-                    </div>
-                    <div class="card__text" data-section="projects" data-value="fourth-project-description"><p>Buscador de becas de Andalucía, publicado en beta: filtros por nivel y plazo, búsquedas guardadas, favoritos, alertas por correo antes de que termine el plazo y panel de administración.</p><ul style="margin-top: 0.5rem; margin-left: 1.2rem; list-style-type: disc; display: flex; flex-direction: column; gap: 0.3rem;"><li><strong>Backend:</strong> Node.js y Express en Vercel, con tareas programadas para las alertas.</li><li><strong>Datos y usuarios:</strong> Supabase (PostgreSQL con seguridad a nivel de fila) y sesiones en cookies httpOnly.</li><li><strong>Seguridad:</strong> límite de peticiones, protección CSRF y monitorización de errores con avisos a Discord.</li><li><strong>Privacidad:</strong> consentimiento de cookies conforme al RGPD: analítica y publicidad solo tras aceptar.</li></ul></div>
-                    <div class="buttons">
-                        <a href="https://becamax.vercel.app/" class="button--primary"
-                            target="_blank" rel="noopener noreferrer" data-project="becamax" data-project-action="web">Web</a>
-                        <a href="https://github.com/Javieroliver-web/BecaMax-Frontend" class="button--code"
-                            target="_blank" rel="noopener noreferrer" data-project="becamax" data-project-action="code-web">Code Web</a>
-                        <a href="https://github.com/Javieroliver-web/BecaMax-Backend" class="button--code"
-                            target="_blank" rel="noopener noreferrer" data-project="becamax" data-project-action="code-api">Code API</a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Proyecto: Vivy -->
-            <article class="card card--project" data-tags="python ia" data-date="2026-09-18" data-title="Vivy">
-                <div class="card__image-container">
-                    <img src="assets/images/vivy_project-card.webp" alt="Vivy en su tablet: la cara del asistente, dormida de noche" class="card__image" loading="lazy"
-                        data-lightbox-img="assets/images/vivy_project.webp">
-                </div>
-                <div class="project">
-                    <div class="project__tags">
-                        <span class="project__tag">#Python</span>
-                        <span class="project__tag">#IA</span>
-                        <span class="project__tag">#Ollama</span>
-                        <span class="project__tag">#Whisper</span>
-                        <span class="project__tag">#Embeddings</span>
-                        <span class="project__tag">#Docker</span>
-                        <span class="project__tag">#Pytest</span>
-                    </div>
-                    <div class="project-header">
-                        <h2 class="card__title" data-section="projects" data-value="fifth-project-title">Vivy - Asistente de voz con IA local</h2>
-                        <span class="project-date" data-section="projects" data-value="fifth-project-date">Iniciado en Septiembre 2026</span>
-                    </div>
-                    <div class="card__text" data-section="projects" data-value="fifth-project-description"><p>Asistente de voz personal que controla el PC y el servidor de casa, toma notas en Obsidian, gestiona música, temporizadores y recordatorios, y sigue funcionando sin conexión gracias a modelos que se ejecutan en mi propia GPU. Su interfaz es una tablet con un avatar animado que refleja su estado.</p><ul style="margin-top: 0.5rem; margin-left: 1.2rem; list-style-type: disc; display: flex; flex-direction: column; gap: 0.3rem;"><li><strong>Enrutado:</strong> un enrutador semántico con embeddings locales elige entre sus 47 habilidades sin llamar a un LLM (96 % de acierto en un banco de pruebas propio).</li><li><strong>IA:</strong> Whisper en local para el reconocimiento de voz; Groq en la nube cuando hay conexión y Ollama en local cuando no.</li><li><strong>Calidad:</strong> más de 1.500 tests automáticos y confirmación por voz antes de cualquier acción delicada.</li></ul></div>
-                    <div class="buttons">
-
-                    </div>
-                    <p class="card__text card__text--warning" style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-color); opacity: 0.8; font-style: italic;" data-section="projects" data-value="fifth-project-warning">
-                        🔒 Repositorio privado: enseño el código y una demo en directo en entrevista.
                     </p>
                 </div>
             </article>
