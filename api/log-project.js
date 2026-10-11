@@ -66,7 +66,8 @@ export default async function handler(req, res) {
         portfolio: { label: 'Portfolio', emoji: '🎨', color: 0x9b59b6 },
         vesta:     { label: 'Proyecto Vesta', emoji: '🔥', color: 0xe67e22 },
         carniceria: { label: 'Carnicería Raúl Oliver', emoji: '🥩', color: 0xc0392b },
-        becamax:   { label: 'BecaMax', emoji: '🎓', color: 0x10b981 }
+        becamax:   { label: 'BecaMax', emoji: '🎓', color: 0x10b981 },
+        'estudio-uned': { label: 'Estudio UNED', emoji: '📚', color: 0x0b5d4b }
     };
     const meta = projectMeta[project] || { label: project || 'Proyecto Desconocido', emoji: '💻', color: 0x95a5a6 };
 
