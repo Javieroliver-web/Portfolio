@@ -29,6 +29,11 @@ export const translations = {
         "education": {
             "section-title": "Educación",
             "skills-label": "Aptitudes",
+            "uned-edu-title": "Grado en Ingeniería en Inteligencia Artificial",
+            "uned-edu-school": "Universidad Nacional de Educación a Distancia (UNED)",
+            "uned-edu-dates": "oct. 2026 - actualidad",
+            "uned-edu-description": "Cursando primer curso, a distancia y compaginándolo con el trabajo. Para prepararlo he creado mi propia guía de estudio web, abierta a mis compañeros.",
+            "uned-edu-btn": "Ver mi guía de estudio",
             "first-edu-title": "Ciclo Formativo de Grado Superior, Desarrollo de Aplicaciones Web",
             "first-edu-school": "Centro Educativo Altair",
             "first-edu-dates": "sept. 2025 - jul. 2026",
@@ -140,6 +145,11 @@ export const translations = {
         "education": {
             "section-title": "Education",
             "skills-label": "Skills",
+            "uned-edu-title": "Bachelor's Degree in Artificial Intelligence Engineering",
+            "uned-edu-school": "National University of Distance Education (UNED)",
+            "uned-edu-dates": "Oct. 2026 - Present",
+            "uned-edu-description": "Currently in first year, studying remotely while working. To prepare for it I built my own web study guide, open to my classmates.",
+            "uned-edu-btn": "See my study guide",
             "first-edu-title": "Higher Vocational Training, Web Application Development",
             "first-edu-school": "Centro Educativo Altair",
             "first-edu-dates": "Sept. 2025 - Jul. 2026",
