@@ -8,6 +8,7 @@
 //
 // Webhook: DISCORD_ERRORS_WEBHOOK_URL (canal propio de errores) o, si no está,
 // DISCORD_WEBHOOK_URL (el de las visitas).
+import { clientIp } from './_privacy.js';
 
 const ALLOWED_ORIGINS = new Set([
     'https://portfolio-javieroliver-web.vercel.app',
@@ -57,7 +58,9 @@ export default async function handler(req, res) {
     if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
     if (!ALLOWED_ORIGINS.has(origin)) return res.status(403).json({ error: 'Origin not allowed' });
 
-    const ip = String(req.headers['x-forwarded-for'] || req.socket?.remoteAddress || '?').split(',')[0].trim();
+    // Igual que el resto de /api: Vercel añade la IP real al FINAL de
+    // x-forwarded-for; la primera la puede inventar quien hace la petición.
+    const ip = clientIp(req) || '?';
     if (overLimit(ip, Date.now())) return res.status(429).json({ error: 'Too many reports' });
 
     const webhookUrl = process.env.DISCORD_ERRORS_WEBHOOK_URL || process.env.DISCORD_WEBHOOK_URL;
