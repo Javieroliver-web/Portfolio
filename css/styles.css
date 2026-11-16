@@ -1550,3 +1550,13 @@ body:not(.dark) .form-input:focus, body:not(.dark) .form-input:focus-visible {
 .description-wrapper.is-expanded .btn-read-more__icon {
     transform: rotate(180deg);
 }
+/* Quien pide en su sistema «reducir movimiento» (mareos, epilepsia, atención) no ve
+   animaciones ni desplazamientos suaves (WCAG 2.3.3; revisión de accesibilidad 25/10/2026). */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
