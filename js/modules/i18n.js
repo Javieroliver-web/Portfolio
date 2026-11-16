@@ -5,6 +5,12 @@ import { resetTypewriter, setLanguageData, initReadMore } from './ui.js';
 export let currentLanguage = localStorage.getItem('portfolio-lang') || 'es';
 export let languageData = {};
 
+// CV en PDF de cada idioma (se rehacen en Canva: cambiar aquí y en index.html).
+export const CV_FILES = {
+    es: 'assets/descargas/cv_16-11-2026.pdf',
+    en: 'assets/descargas/cv_16-11-2026-en.pdf',
+};
+
 export const changeLanguage = (language) => {
     currentLanguage = language;
     localStorage.setItem('portfolio-lang', language);
@@ -31,6 +37,14 @@ export const changeLanguage = (language) => {
             }
         }
     });
+
+    // El botón de descarga da el CV del idioma de la página (antes siempre el
+    // español, aunque el PDF en inglés existía).
+    const cvLink = document.querySelector('.button--cv');
+    if (cvLink) {
+        cvLink.href = CV_FILES[language] || CV_FILES.es;
+        cvLink.download = language === 'en' ? 'CV_Francisco_Javier_Parraga_EN.pdf' : 'CV_Francisco_Javier_Parraga.pdf';
+    }
 
     updateToggleText(languageData);
     setLanguageData(languageData);
